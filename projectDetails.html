@@ -1,0 +1,3650 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark" class="preload">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Project — Ahmed Mostafa</title>
+    <meta
+      id="metaDesc"
+      name="description"
+      content="Project case study by freelance frontend developer Ahmed Mostafa."
+    />
+    <meta name="theme-color" content="#0A0C10" />
+    <meta name="color-scheme" content="dark light" />
+
+    <meta property="og:type" content="article" />
+    <meta id="ogTitle" property="og:title" content="Project — Ahmed Mostafa" />
+    <meta
+      id="ogDesc"
+      property="og:description"
+      content="Project case study by freelance frontend developer Ahmed Mostafa."
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_AR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link id="canonical" rel="canonical" href="https://example.com/projects" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function () {
+        var t;
+        try {
+          t = localStorage.getItem("portfolio-theme");
+        } catch (e) {}
+        if (!t)
+          t = window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        document.documentElement.setAttribute("data-theme", t);
+      })();
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              base: "var(--bg)",
+              basealt: "var(--bg-alt)",
+              surface: "var(--surface)",
+              elevated: "var(--surface-elevated)",
+              hovered: "var(--surface-hover)",
+              ink: "var(--text)",
+              secondary: "var(--text-2)",
+              muted: "var(--text-muted)",
+              line: "var(--border)",
+              linestrong: "var(--border-strong)",
+              accent: "var(--accent)",
+              linkc: "var(--link)",
+            },
+            fontFamily: {
+              sans: ["var(--font-sans)"],
+              mono: ["var(--font-mono)"],
+            },
+            maxWidth: { shell: "1240px" },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* ============================================================
+   1. DESIGN TOKENS — shared with Home and Projects pages
+   ============================================================ */
+      :root {
+        --bg: #0a0c10;
+        --bg-alt: #0d1016;
+        --surface: #11151c;
+        --surface-elevated: #191f29;
+        --surface-hover: #202735;
+
+        --text: #f4f6fa;
+        --text-2: #a0a9b8;
+        --text-muted: #7d8798;
+
+        --border: #252b36;
+        --border-strong: #394252;
+
+        --accent: #6585ff;
+        --btn: #4263e8;
+        --btn-hover: #3552d6;
+        --accent-hover: #829aff;
+        --link: #8aa0ff;
+        --accent-surface: rgba(101, 133, 255, 0.1);
+
+        --ring: #6585ff;
+        --shadow-2: 0 18px 48px -22px rgba(0, 0, 0, 0.9);
+
+        --font-sans:
+          "IBM Plex Sans", "IBM Plex Sans Arabic", ui-sans-serif, system-ui,
+          -apple-system, "Segoe UI", sans-serif;
+        --font-mono:
+          "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+        color-scheme: dark;
+      }
+
+      [data-theme="light"] {
+        --bg: #ffffff;
+        --bg-alt: #f7f9fc;
+        --surface: #ffffff;
+        --surface-elevated: #f7f9fc;
+        --surface-hover: #f0f4fa;
+
+        --text: #111827;
+        --text-2: #526075;
+        --text-muted: #69778b;
+
+        --border: #e2e8f0;
+        --border-strong: #cbd5e1;
+
+        --accent: #4263e8;
+        --btn: #4263e8;
+        --btn-hover: #3454d1;
+        --accent-hover: #3454d1;
+        --link: #3454d1;
+        --accent-surface: #eef2ff;
+
+        --ring: #3454d1;
+        --shadow-2: 0 24px 60px -30px rgba(15, 23, 42, 0.28);
+
+        color-scheme: light;
+      }
+
+      /* ============================================================
+   2. BASE
+   ============================================================ */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+        scroll-padding-top: 96px;
+      }
+
+      html.preload body {
+        opacity: 0;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-sans);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        transition:
+          background-color 0.25s ease,
+          color 0.25s ease,
+          opacity 0.18s linear;
+      }
+
+      html[lang="ar"] body {
+        line-height: 1.85;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      html[lang="ar"] h1,
+      html[lang="ar"] h2,
+      html[lang="ar"] h3,
+      html[lang="ar"] h4 {
+        letter-spacing: 0;
+        line-height: 1.45;
+      }
+
+      p {
+        margin: 0;
+      }
+      ul,
+      ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font: inherit;
+        color: inherit;
+        background: none;
+        border: 0;
+        cursor: pointer;
+      }
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+      figure {
+        margin: 0;
+      }
+
+      ::selection {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--ring);
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+
+      .skip-link {
+        position: fixed;
+        inset-inline-start: 16px;
+        top: -80px;
+        z-index: 200;
+        background: var(--btn);
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: top 0.2s ease;
+      }
+      .skip-link:focus {
+        top: 16px;
+      }
+
+      /* ============================================================
+   3. LAYOUT
+   ============================================================ */
+      .container-x {
+        width: 100%;
+        max-width: 1240px;
+        margin-inline: auto;
+        padding-inline: 20px;
+      }
+      @media (min-width: 640px) {
+        .container-x {
+          padding-inline: 28px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .container-x {
+          padding-inline: 40px;
+        }
+      }
+
+      /* ============================================================
+   4. TYPOGRAPHY
+   ============================================================ */
+      .display {
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        line-height: 1.04;
+        letter-spacing: -0.038em;
+        font-weight: 600;
+      }
+      html[lang="ar"] .display {
+        font-size: clamp(1.85rem, 5vw, 3.1rem);
+        line-height: 1.35;
+        letter-spacing: 0;
+      }
+
+      .display-sm {
+        font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+        font-weight: 600;
+      }
+      html[lang="ar"] .display-sm {
+        font-size: clamp(1.45rem, 3.2vw, 2rem);
+        line-height: 1.4;
+        letter-spacing: 0;
+      }
+
+      .h3 {
+        font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+        line-height: 1.25;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+      }
+      html[lang="ar"] .h3 {
+        line-height: 1.55;
+      }
+
+      .lead {
+        color: var(--text-2);
+        font-size: clamp(1rem, 1.2vw, 1.125rem);
+        line-height: 1.7;
+      }
+      html[lang="ar"] .lead {
+        line-height: 1.9;
+      }
+
+      .body-text {
+        color: var(--text-2);
+        font-size: 15px;
+        line-height: 1.75;
+        max-width: 62ch;
+      }
+      html[lang="ar"] .body-text {
+        line-height: 1.95;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+      .eyebrow::before {
+        content: "";
+        width: 20px;
+        height: 1px;
+        background: var(--border-strong);
+        flex: none;
+      }
+      html[lang="ar"] .eyebrow {
+        letter-spacing: 0;
+        text-transform: none;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .accent {
+        color: var(--accent);
+      }
+
+      /* ============================================================
+   5. BUTTONS / LINKS / CONTROLS
+   ============================================================ */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        height: 46px;
+        padding-inline: 1.15rem;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        line-height: 1;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        transition:
+          background-color 0.18s ease,
+          border-color 0.18s ease,
+          color 0.18s ease,
+          transform 0.18s ease;
+      }
+      .btn-primary {
+        background: var(--btn);
+        color: #fff;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+      .btn-primary:hover {
+        background: var(--btn-hover);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text);
+        border-color: var(--border-strong);
+      }
+      .btn-secondary:hover {
+        background: var(--surface-hover);
+        border-color: var(--text-muted);
+        transform: translateY(-1px);
+      }
+
+      .link-arrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        color: var(--link);
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition:
+          color 0.18s ease,
+          gap 0.18s ease;
+      }
+      .link-arrow:hover {
+        color: var(--accent-hover);
+        gap: 0.7rem;
+      }
+      .link-arrow svg {
+        flex: none;
+      }
+      html[dir="rtl"] .dir-flip {
+        transform: scaleX(-1);
+      }
+
+      .icon-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+        border: 1px solid var(--border);
+        color: var(--text-2);
+        background: transparent;
+        transition:
+          background-color 0.16s ease,
+          color 0.16s ease,
+          border-color 0.16s ease;
+      }
+      .icon-btn:hover {
+        background: var(--surface-hover);
+        color: var(--text);
+        border-color: var(--border-strong);
+      }
+
+      .seg {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        padding: 3px;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+      }
+      .seg-btn {
+        height: 30px;
+        min-width: 36px;
+        padding-inline: 8px;
+        border-radius: 6px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: var(--text-muted);
+        transition:
+          background-color 0.16s ease,
+          color 0.16s ease;
+      }
+      .seg-btn:hover {
+        color: var(--text);
+      }
+      .seg-btn.is-on {
+        background: var(--surface-hover);
+        color: var(--text);
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        height: 26px;
+        padding-inline: 0.55rem;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--surface-elevated);
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--text-2);
+        white-space: nowrap;
+      }
+
+      /* ============================================================
+   6. NAVBAR
+   ============================================================ */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: var(--bg);
+        border-bottom: 1px solid transparent;
+        transition:
+          border-color 0.2s ease,
+          background-color 0.2s ease;
+      }
+      @supports (backdrop-filter: blur(1px)) {
+        .nav {
+          background: color-mix(in srgb, var(--bg) 82%, transparent);
+          backdrop-filter: saturate(150%) blur(12px);
+        }
+      }
+      .nav.is-scrolled {
+        border-bottom-color: var(--border);
+      }
+
+      .logo-mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        border: 1px solid var(--border-strong);
+        background: var(--accent-surface);
+        color: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 500;
+      }
+
+      .nav-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        height: 36px;
+        padding-inline: 0.75rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-2);
+        transition:
+          color 0.16s ease,
+          background-color 0.16s ease;
+      }
+      .nav-link:hover {
+        color: var(--text);
+        background: var(--surface-hover);
+      }
+      .nav-link.is-active {
+        color: var(--text);
+      }
+      .nav-link.is-active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        margin-inline: auto;
+        width: 16px;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--accent);
+      }
+
+      .mobile-menu {
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
+        border-top: 1px solid transparent;
+        transition:
+          grid-template-rows 0.28s ease,
+          border-color 0.28s ease;
+      }
+      .mobile-menu > div {
+        overflow: hidden;
+        min-height: 0;
+      }
+      .mobile-menu.open {
+        grid-template-rows: 1fr;
+        border-top-color: var(--border);
+      }
+      @media (min-width: 1024px) {
+        .mobile-menu {
+          display: none !important;
+        }
+      }
+
+      .mobile-link {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        padding-inline: 0.5rem;
+        border-bottom: 1px solid var(--border);
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-2);
+        transition: color 0.16s ease;
+      }
+      .mobile-link:last-of-type {
+        border-bottom: 0;
+      }
+      .mobile-link:hover {
+        color: var(--text);
+      }
+
+      [data-theme="dark"] .icon-to-light {
+        display: block;
+      }
+      [data-theme="dark"] .icon-to-dark {
+        display: none;
+      }
+      [data-theme="light"] .icon-to-light {
+        display: none;
+      }
+      [data-theme="light"] .icon-to-dark {
+        display: block;
+      }
+
+      /* ============================================================
+   7. SECTION LAYOUTS
+   ============================================================ */
+      .section {
+        padding-block: 56px;
+        border-top: 1px solid var(--border);
+      }
+      @media (min-width: 768px) {
+        .section {
+          padding-block: 80px;
+        }
+      }
+      @media (min-width: 1280px) {
+        .section {
+          padding-block: 96px;
+        }
+      }
+
+      .label-col {
+        margin-bottom: 1.25rem;
+      }
+      @media (min-width: 768px) {
+        .label-col {
+          margin-bottom: 0;
+          position: sticky;
+          top: 96px;
+          align-self: start;
+        }
+      }
+
+      /* ============================================================
+   8. PREVIEW FRAME (illustrative)
+   ============================================================ */
+      .shot {
+        position: relative;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface-elevated);
+        overflow: hidden;
+        box-shadow: var(--shadow-2);
+      }
+      .shot-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.55rem 0.75rem;
+        background: var(--surface-elevated);
+        border-bottom: 1px solid var(--border);
+      }
+      .shot-dots {
+        display: flex;
+        gap: 5px;
+        flex: none;
+      }
+      .shot-dots i {
+        display: block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--border-strong);
+      }
+      .shot-url {
+        flex: 1;
+        min-width: 0;
+        padding: 2px 10px;
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        background: var(--bg-alt);
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        color: var(--text-muted);
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .shot-body {
+        position: relative;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        container-type: inline-size;
+        direction: ltr; /* previews remain LTR even in Arabic */
+      }
+
+      /* ============================================================
+   9. ILLUSTRATIVE PREVIEWS
+   ============================================================ */
+      .pv {
+        position: absolute;
+        inset: 0;
+        display: none;
+      }
+      .pv.is-active {
+        display: block;
+      }
+
+      /* ----- Évora ----- */
+      .pv-evora {
+        background:
+          radial-gradient(
+            120% 90% at 50% 82%,
+            rgba(206, 166, 66, 0.2),
+            transparent 62%
+          ),
+          linear-gradient(180deg, #17120d 0%, #0a0806 100%);
+      }
+      .pv-evora-nav {
+        position: absolute;
+        inset-inline: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4cqw 4.5cqw;
+      }
+      .pv-evora-logo {
+        font-size: 2.4cqw;
+        font-weight: 500;
+        letter-spacing: 0.38em;
+        color: #ebdcb8;
+      }
+      .pv-evora-links {
+        display: flex;
+        gap: 1.6cqw;
+      }
+      .pv-evora-links i {
+        display: block;
+        width: 5cqw;
+        height: 0.8cqw;
+        border-radius: 1cqw;
+        background: rgba(235, 220, 184, 0.3);
+      }
+      .pv-evora-grid {
+        position: absolute;
+        inset: 14cqw 4.5cqw 4cqw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4cqw;
+        align-items: center;
+      }
+      .pv-evora-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 2.2cqw;
+      }
+      .pv-evora-h {
+        height: 3.4cqw;
+        border-radius: 0.5cqw;
+        background: rgba(235, 220, 184, 0.82);
+      }
+      .pv-evora-h.a {
+        width: 84%;
+      }
+      .pv-evora-h.b {
+        width: 60%;
+      }
+      .pv-evora-p {
+        height: 1cqw;
+        border-radius: 0.5cqw;
+        background: rgba(235, 220, 184, 0.32);
+      }
+      .pv-evora-p.a {
+        width: 78%;
+        margin-top: 1cqw;
+      }
+      .pv-evora-p.b {
+        width: 64%;
+      }
+      .pv-evora-cta {
+        margin-top: 2.4cqw;
+        width: 34%;
+        height: 3.6cqw;
+        border-radius: 0.6cqw;
+        background: rgba(235, 220, 184, 0.92);
+      }
+      .pv-evora-bottle {
+        position: relative;
+        justify-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .pv-evora-cap {
+        width: 5.4cqw;
+        height: 4.8cqw;
+        border-radius: 0.8cqw 0.8cqw 0.2cqw 0.2cqw;
+        background: linear-gradient(160deg, #4d3e27, #221a10);
+        box-shadow: inset 0 0.3cqw 0.4cqw rgba(255, 255, 255, 0.16);
+      }
+      .pv-evora-neck {
+        width: 3.2cqw;
+        height: 2.4cqw;
+        background: linear-gradient(160deg, #cbaa62, #8a6b22);
+      }
+      .pv-evora-glass {
+        position: relative;
+        width: 15cqw;
+        height: 21cqw;
+        border-radius: 1.8cqw 1.8cqw 2.8cqw 2.8cqw;
+        background: linear-gradient(
+          100deg,
+          rgba(255, 241, 208, 0.96) 0%,
+          rgba(214, 176, 90, 0.92) 30%,
+          rgba(140, 104, 32, 0.94) 64%,
+          rgba(232, 204, 136, 0.88) 100%
+        );
+        box-shadow:
+          inset -2cqw -2cqw 4cqw rgba(0, 0, 0, 0.38),
+          inset 2cqw 2cqw 3cqw rgba(255, 255, 255, 0.26);
+      }
+      .pv-evora-shine {
+        position: absolute;
+        top: 1.6cqw;
+        left: 2.2cqw;
+        width: 2.2cqw;
+        height: 12cqw;
+        border-radius: 1cqw;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.72),
+          rgba(255, 255, 255, 0)
+        );
+      }
+      .pv-evora-label {
+        position: absolute;
+        inset-inline: 0;
+        bottom: 4.8cqw;
+        text-align: center;
+        font-size: 1.2cqw;
+        font-weight: 600;
+        letter-spacing: 0.3em;
+        color: rgba(58, 40, 10, 0.82);
+      }
+      .pv-evora-glow {
+        position: absolute;
+        left: 50%;
+        bottom: 8%;
+        transform: translateX(-50%);
+        width: 24cqw;
+        height: 3.4cqw;
+        border-radius: 50%;
+        background: radial-gradient(
+          50% 50%,
+          rgba(233, 201, 120, 0.38),
+          transparent 72%
+        );
+        filter: blur(1.6cqw);
+      }
+      .pv-evora-vignette {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          120% 100% at 50% 50%,
+          transparent 42%,
+          rgba(0, 0, 0, 0.55) 100%
+        );
+        pointer-events: none;
+      }
+
+      /* ----- GSM ----- */
+      .pv-gsm {
+        background: linear-gradient(180deg, #f1ece4 0%, #dfd6c9 100%);
+      }
+      .pv-gsm-nav {
+        position: absolute;
+        inset-inline: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3.6cqw 4.2cqw;
+      }
+      .pv-gsm-logo {
+        font-size: 2.4cqw;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: #241f1b;
+      }
+      .pv-gsm-links {
+        display: flex;
+        gap: 1.6cqw;
+      }
+      .pv-gsm-links i {
+        display: block;
+        width: 4.6cqw;
+        height: 0.75cqw;
+        border-radius: 1cqw;
+        background: rgba(36, 31, 27, 0.28);
+      }
+      .pv-gsm-hero {
+        position: absolute;
+        inset: 12cqw 4.2cqw 4.2cqw;
+        border-radius: 1.4cqw;
+        background: linear-gradient(165deg, #d9cfc1, #bfaf9b);
+        overflow: hidden;
+      }
+      .pv-gsm-hero::after {
+        content: "";
+        position: absolute;
+        left: 30%;
+        right: 30%;
+        top: 14%;
+        bottom: 0;
+        background: linear-gradient(160deg, #8e7f6c, #6a5d4e);
+        clip-path: polygon(
+          38% 0,
+          62% 0,
+          78% 16%,
+          100% 28%,
+          92% 44%,
+          80% 38%,
+          80% 100%,
+          20% 100%,
+          20% 38%,
+          8% 44%,
+          0 28%,
+          22% 16%
+        );
+      }
+      .pv-gsm-overlay {
+        position: absolute;
+        left: 6cqw;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 1.6cqw;
+        z-index: 1;
+      }
+      .pv-gsm-overlay .t {
+        height: 2.6cqw;
+        width: 32cqw;
+        border-radius: 0.5cqw;
+        background: rgba(36, 31, 27, 0.82);
+      }
+      .pv-gsm-overlay .t.short {
+        width: 20cqw;
+      }
+      .pv-gsm-overlay .p {
+        height: 1cqw;
+        width: 26cqw;
+        border-radius: 0.5cqw;
+        background: rgba(36, 31, 27, 0.42);
+        margin-top: 0.8cqw;
+      }
+      .pv-gsm-overlay .btn {
+        margin-top: 1.6cqw;
+        width: 18cqw;
+        height: 3.4cqw;
+        border-radius: 0.5cqw;
+        background: #241f1b;
+      }
+
+      /* ----- Soil ----- */
+      .pv-soil {
+        background:
+          radial-gradient(
+            130% 85% at 50% 118%,
+            rgba(94, 158, 88, 0.2),
+            transparent 62%
+          ),
+          linear-gradient(180deg, #1b2a1f 0%, #0d1610 100%);
+      }
+      .pv-soil-nav {
+        position: absolute;
+        inset-inline: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4cqw 4.5cqw;
+      }
+      .pv-soil-logo {
+        font-size: 2.2cqw;
+        font-weight: 600;
+        letter-spacing: 0.32em;
+        color: #cfe3c6;
+      }
+      .pv-soil-links {
+        display: flex;
+        gap: 1.6cqw;
+      }
+      .pv-soil-links i {
+        display: block;
+        width: 4.6cqw;
+        height: 0.75cqw;
+        border-radius: 1cqw;
+        background: rgba(207, 227, 198, 0.26);
+      }
+      .pv-soil-grid {
+        position: absolute;
+        inset: 14cqw 4.5cqw 4cqw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4cqw;
+        align-items: end;
+      }
+      .pv-soil-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 2cqw;
+        padding-bottom: 6cqw;
+      }
+      .pv-soil-h {
+        height: 3.2cqw;
+        border-radius: 0.5cqw;
+        background: rgba(207, 227, 198, 0.78);
+      }
+      .pv-soil-h.a {
+        width: 82%;
+      }
+      .pv-soil-h.b {
+        width: 56%;
+      }
+      .pv-soil-p {
+        height: 1cqw;
+        border-radius: 0.5cqw;
+        background: rgba(207, 227, 198, 0.28);
+      }
+      .pv-soil-p.a {
+        width: 76%;
+        margin-top: 1cqw;
+      }
+      .pv-soil-p.b {
+        width: 62%;
+      }
+      .pv-soil-cta {
+        margin-top: 2.2cqw;
+        width: 34%;
+        height: 3.4cqw;
+        border-radius: 0.6cqw;
+        background: rgba(126, 184, 116, 0.9);
+      }
+      .pv-soil-shelf {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 2.4cqw;
+        padding-bottom: 2.4cqw;
+      }
+      .pv-soil-shelf::after {
+        content: "";
+        position: absolute;
+        left: 2cqw;
+        right: 2cqw;
+        bottom: 1.4cqw;
+        height: 0.3cqw;
+        border-radius: 1cqw;
+        background: rgba(207, 227, 198, 0.18);
+      }
+      .pv-soil-jug {
+        position: relative;
+        width: 6.4cqw;
+        border-radius: 0.9cqw 0.9cqw 1.2cqw 1.2cqw;
+        background: linear-gradient(150deg, #4f8c4b, #2c5730);
+        box-shadow:
+          inset -1.2cqw -1.2cqw 2cqw rgba(0, 0, 0, 0.32),
+          inset 0.6cqw 0.6cqw 1.4cqw rgba(255, 255, 255, 0.12);
+      }
+      .pv-soil-jug::before {
+        content: "";
+        position: absolute;
+        top: -1.8cqw;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2.6cqw;
+        height: 2cqw;
+        border-radius: 0.4cqw 0.4cqw 0 0;
+        background: #3b6b3f;
+      }
+      .pv-soil-jug::after {
+        content: "";
+        position: absolute;
+        inset-inline: 1cqw;
+        top: 38%;
+        height: 3.6cqw;
+        border-radius: 0.35cqw;
+        background: rgba(240, 246, 235, 0.86);
+      }
+      .pv-soil-jug.alt {
+        background: linear-gradient(150deg, #5d9a56, #37632f);
+      }
+      .pv-soil-jug.alt::before {
+        background: #46794a;
+      }
+      .pv-soil-leaf {
+        position: absolute;
+        top: 6%;
+        left: 6%;
+        width: 8cqw;
+        height: 8cqw;
+        border-radius: 0 100% 0 100%;
+        background: rgba(126, 184, 116, 0.14);
+        transform: rotate(-16deg);
+      }
+
+      /* ============================================================
+   10. GALLERY MINI PREVIEWS
+   ============================================================ */
+      .mini {
+        position: absolute;
+        inset: 0;
+        padding: 4cqw;
+        display: flex;
+        flex-direction: column;
+        gap: 2.4cqw;
+      }
+      .mini[data-tone="gold"] {
+        background: linear-gradient(180deg, #18120b 0%, #0a0806 100%);
+        --m-fg: rgba(235, 220, 184, 0.88);
+        --m-fg-2: rgba(235, 220, 184, 0.32);
+        --m-acc: rgba(203, 170, 98, 0.92);
+        --m-tile: rgba(235, 220, 184, 0.09);
+      }
+      .mini[data-tone="cream"] {
+        background: linear-gradient(180deg, #f4efe8 0%, #e0d6c7 100%);
+        --m-fg: rgba(36, 31, 27, 0.88);
+        --m-fg-2: rgba(36, 31, 27, 0.28);
+        --m-acc: rgba(142, 127, 108, 0.92);
+        --m-tile: rgba(36, 31, 27, 0.07);
+      }
+      .mini[data-tone="green"] {
+        background: linear-gradient(180deg, #1b2a1f 0%, #0d1610 100%);
+        --m-fg: rgba(207, 227, 198, 0.88);
+        --m-fg-2: rgba(207, 227, 198, 0.3);
+        --m-acc: rgba(93, 154, 86, 0.92);
+        --m-tile: rgba(207, 227, 198, 0.09);
+      }
+
+      .mini-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: none;
+      }
+      .mini-logo {
+        width: 22%;
+        height: 1.4cqw;
+        border-radius: 2cqw;
+        background: var(--m-fg);
+      }
+      .mini-links {
+        display: flex;
+        gap: 1.2cqw;
+      }
+      .mini-links i {
+        display: block;
+        width: 4cqw;
+        height: 1cqw;
+        border-radius: 2cqw;
+        background: var(--m-fg-2);
+      }
+
+      .mini-hero {
+        position: relative;
+        flex: 2;
+        background: var(--m-tile);
+        border-radius: 1cqw;
+        overflow: hidden;
+      }
+      .mini-hero::after {
+        content: "";
+        position: absolute;
+        inset: 22% 28% 0 28%;
+        background: var(--m-acc);
+        border-radius: 1cqw 1cqw 0 0;
+        opacity: 0.74;
+      }
+
+      .mini-grid {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.6cqw;
+      }
+      .mini-grid > div {
+        background: var(--m-tile);
+        border-radius: 0.9cqw;
+        position: relative;
+      }
+      .mini-grid > div::after {
+        content: "";
+        position: absolute;
+        inset: 16% 22% 34%;
+        background: var(--m-acc);
+        opacity: 0.6;
+        border-radius: 0.4cqw;
+      }
+
+      /* catalog view */
+      .mini[data-view="catalog"] .mini-hero {
+        display: none;
+      }
+      .mini[data-view="catalog"] .mini-grid {
+        flex: 1;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+      }
+
+      /* product view: image left, info right */
+      .mini[data-view="product"] .mini-hero {
+        display: none;
+      }
+      .mini[data-view="product"] .mini-grid {
+        flex: 1;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 2.4cqw;
+      }
+      .mini[data-view="product"] .mini-grid > div:first-child::after {
+        inset: 8%;
+        border-radius: 1cqw;
+        opacity: 0.85;
+      }
+      .mini[data-view="product"] .mini-grid > div:nth-child(2) {
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 1.4cqw;
+        justify-content: center;
+      }
+      .mini[data-view="product"] .mini-grid > div:nth-child(2)::after {
+        inset: auto 0;
+        position: static;
+        background: none;
+      }
+      .mini[data-view="product"] .mini-grid > div:nth-child(2)::before {
+        content: "";
+        display: block;
+        height: 2.6cqw;
+        width: 84%;
+        border-radius: 0.4cqw;
+        background: var(--m-fg);
+      }
+      .mini[data-view="product"] .mini-grid > div:nth-child(3) {
+        display: none;
+      }
+      .mini[data-view="product"] .mini-grid > div:nth-child(2)::after {
+        content: "";
+        display: block;
+        height: 1cqw;
+        width: 70%;
+        border-radius: 0.4cqw;
+        background: var(--m-fg-2);
+        position: static;
+        margin-top: 1cqw;
+      }
+
+      /* mobile view: phone frame */
+      .mini[data-view="mobile"] {
+        align-items: center;
+        justify-content: center;
+      }
+      .mini[data-view="mobile"] .mini-nav,
+      .mini[data-view="mobile"] .mini-hero,
+      .mini[data-view="mobile"] .mini-grid {
+        display: none;
+      }
+      .mini-phone {
+        width: 34%;
+        aspect-ratio: 9 / 19;
+        border-radius: 2cqw;
+        border: 1px solid var(--m-fg-2);
+        background: var(--m-tile);
+        padding: 2.4cqw 1.6cqw;
+        display: flex;
+        flex-direction: column;
+        gap: 1.4cqw;
+      }
+      .mini-phone::before {
+        content: "";
+        display: block;
+        width: 30%;
+        height: 0.6cqw;
+        border-radius: 1cqw;
+        background: var(--m-fg-2);
+        margin: 0 auto 0.6cqw;
+      }
+      .mini-phone b,
+      .mini-phone span,
+      .mini-phone u {
+        display: block;
+        border-radius: 0.4cqw;
+        background: var(--m-tile);
+        text-decoration: none;
+      }
+      .mini-phone b {
+        height: 1.6cqw;
+        width: 70%;
+        background: var(--m-fg);
+      }
+      .mini-phone span {
+        height: 1cqw;
+        width: 88%;
+        background: var(--m-fg-2);
+      }
+      .mini-phone u {
+        height: 24cqw;
+        background: var(--m-acc);
+        opacity: 0.7;
+      }
+      .mini-phone i {
+        display: block;
+        height: 1.2cqw;
+        width: 60%;
+        border-radius: 0.4cqw;
+        background: var(--m-fg-2);
+      }
+
+      /* ============================================================
+   11. FEATURE LIST
+   ============================================================ */
+      .feature-list {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .feature-item {
+        display: grid;
+        grid-template-columns: 36px 1fr;
+        gap: 1rem;
+        padding-block: 1.15rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .feature-item:last-child {
+        border-bottom: 0;
+      }
+      @media (min-width: 640px) {
+        .feature-item {
+          grid-template-columns: 52px 1fr;
+          gap: 1.5rem;
+        }
+      }
+      .feature-num {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        padding-top: 4px;
+      }
+
+      /* ============================================================
+   12. PILL / METADATA LISTS
+   ============================================================ */
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .bullet-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+      .bullet-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.65rem;
+        color: var(--text-2);
+        font-size: 14.5px;
+        line-height: 1.7;
+      }
+      .bullet-list li::before {
+        content: "";
+        flex: none;
+        margin-top: 9px;
+        width: 5px;
+        height: 5px;
+        border-radius: 1px;
+        background: var(--accent);
+        opacity: 0.7;
+      }
+
+      /* ============================================================
+   13. INFO PANEL
+   ============================================================ */
+      .info-panel {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface);
+        padding: 0 1.25rem;
+      }
+      .info-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-block: 0.9rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .info-row:last-child {
+        border-bottom: 0;
+      }
+      .info-row dt {
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--text-muted);
+      }
+      html[lang="ar"] .info-row dt {
+        letter-spacing: 0;
+        text-transform: none;
+        font-size: 12px;
+      }
+      .info-row dd {
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--text);
+        text-align: end;
+        margin: 0;
+      }
+
+      /* ============================================================
+   14. PROJECT NAV (prev/next)
+   ============================================================ */
+      .pnav-grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: 639px) {
+        .pnav-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .pnav-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface);
+        transition:
+          border-color 0.2s ease,
+          background-color 0.2s ease;
+        min-width: 0;
+      }
+      .pnav-card:hover {
+        border-color: var(--border-strong);
+        background: var(--surface-hover);
+      }
+      .pnav-card.is-next {
+        justify-content: flex-end;
+        text-align: end;
+      }
+      html[dir="rtl"] .pnav-card.is-next {
+        justify-content: flex-start;
+        text-align: start;
+      }
+      html[dir="rtl"] .pnav-card:not(.is-next) {
+        justify-content: flex-end;
+        text-align: end;
+      }
+      .pnav-thumb {
+        flex: none;
+        width: 46px;
+        height: 46px;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-weight: 500;
+        font-size: 14px;
+      }
+      .pnav-thumb[data-tone="gold"] {
+        background: #17120d;
+        color: #ebdcb8;
+        border: 1px solid rgba(235, 220, 184, 0.25);
+      }
+      .pnav-thumb[data-tone="cream"] {
+        background: #f4efe8;
+        color: #241f1b;
+        border: 1px solid rgba(36, 31, 27, 0.16);
+      }
+      .pnav-thumb[data-tone="green"] {
+        background: #1b2a1f;
+        color: #cfe3c6;
+        border: 1px solid rgba(207, 227, 198, 0.25);
+      }
+      .pnav-meta {
+        min-width: 0;
+      }
+      .pnav-label {
+        display: block;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--text-muted);
+      }
+      html[lang="ar"] .pnav-label {
+        letter-spacing: 0;
+        text-transform: none;
+        font-size: 12px;
+      }
+      .pnav-name {
+        display: block;
+        margin-top: 2px;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .pnav-arrow {
+        flex: none;
+        color: var(--text-muted);
+      }
+
+      /* ============================================================
+   15. CTA
+   ============================================================ */
+      .cta-card {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--surface);
+        text-align: center;
+        padding: 3.5rem 1.5rem;
+      }
+      @media (min-width: 768px) {
+        .cta-card {
+          padding: 5rem 4rem;
+        }
+      }
+      .cta-card::before {
+        content: "";
+        position: absolute;
+        inset-inline: 0;
+        top: 0;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--accent),
+          transparent
+        );
+        opacity: 0.6;
+      }
+
+      /* ============================================================
+   16. REVEAL & MOTION
+   ============================================================ */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 0.65s cubic-bezier(0.22, 0.68, 0.3, 1),
+          transform 0.65s cubic-bezier(0.22, 0.68, 0.3, 1);
+        transition-delay: var(--d, 0s);
+        will-change: opacity, transform;
+      }
+      [data-reveal].is-in {
+        opacity: 1;
+        transform: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        .btn-primary:hover,
+        .btn-secondary:hover {
+          transform: none;
+        }
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+    <noscript
+      ><style>
+        html.preload body {
+          opacity: 1 !important;
+        }
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style></noscript
+    >
+  </head>
+
+  <body class="bg-base text-ink antialiased">
+    <a href="#main" class="skip-link" data-i18n="a11y.skip">Skip to content</a>
+
+    <!-- ============================================================
+     SHARED NAVBAR
+     ============================================================ -->
+    <header id="siteNav" class="nav">
+      <div class="container-x">
+        <div class="flex h-16 items-center justify-between gap-3 md:h-[72px]">
+          <a
+            href="index.html"
+            class="flex items-center gap-2.5 shrink-0"
+            aria-label="Ahmed Mostafa — Home"
+          >
+            <span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>
+            <span class="text-[15px] font-semibold tracking-tight"
+              >Ahmed Mostafa</span
+            >
+          </a>
+
+          <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">
+            <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+            <a href="projects.html" class="nav-link" data-i18n="nav.projects"
+              >Projects</a
+            >
+            <a href="services.html" class="nav-link" data-i18n="nav.services"
+              >Services</a
+            >
+            <a href="about.html" class="nav-link" data-i18n="nav.about"
+              >About</a
+            >
+            <a href="contact.html" class="nav-link" data-i18n="nav.contact"
+              >Contact</a
+            >
+          </nav>
+
+          <div class="flex items-center gap-2">
+            <div class="seg" role="group" aria-label="Language / اللغة">
+              <button
+                type="button"
+                class="seg-btn is-on"
+                data-lang="en"
+                aria-pressed="true"
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                class="seg-btn"
+                data-lang="ar"
+                aria-pressed="false"
+                lang="ar"
+              >
+                ع
+              </button>
+            </div>
+
+            <button
+              type="button"
+              id="themeToggle"
+              class="icon-btn"
+              data-i18n-aria="a11y.theme"
+              aria-label="Toggle theme"
+            >
+              <svg
+                class="icon-to-light"
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                />
+              </svg>
+              <svg
+                class="icon-to-dark"
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            </button>
+
+            <a
+              href="contact.html"
+              class="btn btn-primary hidden sm:inline-flex"
+              data-i18n="nav.cta"
+              >Let's Talk</a
+            >
+
+            <button
+              type="button"
+              id="menuBtn"
+              class="icon-btn lg:hidden"
+              aria-expanded="false"
+              aria-controls="mobileMenu"
+              data-i18n-aria="a11y.menu"
+              aria-label="Open menu"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="M3 6h18M3 12h18M3 18h18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="mobile-menu">
+        <div>
+          <div class="container-x pb-5">
+            <nav class="flex flex-col" aria-label="Mobile">
+              <a href="index.html" class="mobile-link" data-i18n="nav.home"
+                >Home</a
+              >
+              <a
+                href="projects.html"
+                class="mobile-link"
+                data-i18n="nav.projects"
+                >Projects</a
+              >
+              <a
+                href="services.html"
+                class="mobile-link"
+                data-i18n="nav.services"
+                >Services</a
+              >
+              <a href="about.html" class="mobile-link" data-i18n="nav.about"
+                >About</a
+              >
+              <a href="contact.html" class="mobile-link" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </nav>
+            <a
+              href="contact.html"
+              class="btn btn-primary w-full mt-4"
+              data-i18n="nav.cta"
+              >Let's Talk</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============================================================
+       1. BREADCRUMBS
+       ============================================================ -->
+      <div class="container-x pt-8 md:pt-10">
+        <nav aria-label="Breadcrumb">
+          <ol
+            id="breadcrumbs"
+            class="flex flex-wrap items-center gap-2 text-[12.5px] text-muted"
+          >
+            <!-- populated by JS -->
+          </ol>
+        </nav>
+      </div>
+
+      <!-- ============================================================
+       2. PROJECT HERO
+       ============================================================ -->
+      <section id="secHero" class="pt-8 pb-12 md:pt-10 md:pb-16">
+        <div class="container-x">
+          <div class="max-w-3xl" data-reveal>
+            <span id="heroCategory" class="eyebrow"></span>
+            <h1 id="heroName" class="display mt-5"></h1>
+            <p
+              id="heroFullName"
+              class="mt-2 text-[12px] font-medium uppercase tracking-[0.14em] text-muted"
+              hidden
+            ></p>
+            <p id="heroSummary" class="lead mt-6 max-w-[42rem]"></p>
+
+            <div id="heroTech" class="mt-7 flex flex-wrap gap-2" hidden></div>
+
+            <div
+              id="heroActions"
+              class="mt-8 flex flex-wrap items-center gap-3"
+              hidden
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       3. PROJECT PREVIEW
+       ============================================================ -->
+      <section id="secPreview" class="pb-14 md:pb-20">
+        <div class="container-x">
+          <div class="shot" data-reveal>
+            <div class="shot-bar">
+              <div class="shot-dots"><i></i><i></i><i></i></div>
+              <span id="previewUrl" class="shot-url"></span>
+            </div>
+            <div class="shot-body">
+              <div class="pv pv-evora" data-pv="evora" aria-hidden="true">
+                <div class="pv-evora-nav">
+                  <span class="pv-evora-logo">ÉVORA</span>
+                  <span class="pv-evora-links"><i></i><i></i><i></i></span>
+                </div>
+                <div class="pv-evora-grid">
+                  <div class="pv-evora-copy">
+                    <span class="pv-evora-h a"></span>
+                    <span class="pv-evora-h b"></span>
+                    <span class="pv-evora-p a"></span>
+                    <span class="pv-evora-p b"></span>
+                    <span class="pv-evora-cta"></span>
+                  </div>
+                  <div class="pv-evora-bottle">
+                    <span class="pv-evora-cap"></span>
+                    <span class="pv-evora-neck"></span>
+                    <span class="pv-evora-glass">
+                      <span class="pv-evora-shine"></span>
+                      <span class="pv-evora-label">ÉVORA</span>
+                    </span>
+                    <span class="pv-evora-glow"></span>
+                  </div>
+                </div>
+                <div class="pv-evora-vignette"></div>
+              </div>
+
+              <div class="pv pv-gsm" data-pv="gsm" aria-hidden="true">
+                <div class="pv-gsm-nav">
+                  <span class="pv-gsm-logo">GSM</span>
+                  <span class="pv-gsm-links"><i></i><i></i><i></i></span>
+                </div>
+                <div class="pv-gsm-hero">
+                  <div class="pv-gsm-overlay">
+                    <span class="t"></span>
+                    <span class="t short"></span>
+                    <span class="p"></span>
+                    <span class="btn"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pv pv-soil" data-pv="soil" aria-hidden="true">
+                <div class="pv-soil-nav">
+                  <span class="pv-soil-logo">SOIL</span>
+                  <span class="pv-soil-links"><i></i><i></i><i></i></span>
+                </div>
+                <span class="pv-soil-leaf"></span>
+                <div class="pv-soil-grid">
+                  <div class="pv-soil-copy">
+                    <span class="pv-soil-h a"></span>
+                    <span class="pv-soil-h b"></span>
+                    <span class="pv-soil-p a"></span>
+                    <span class="pv-soil-p b"></span>
+                    <span class="pv-soil-cta"></span>
+                  </div>
+                  <div class="pv-soil-shelf">
+                    <div class="pv-soil-jug" style="height: 10cqw"></div>
+                    <div class="pv-soil-jug alt" style="height: 13cqw"></div>
+                    <div class="pv-soil-jug" style="height: 8.5cqw"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p
+            class="mt-4 text-xs leading-relaxed text-muted"
+            data-i18n="preview.note"
+          >
+            Project previews shown on this page are illustrative placeholders
+            used for layout purposes. They will be replaced with real project
+            screenshots once available.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       4. OVERVIEW
+       ============================================================ -->
+      <section id="secOverview" class="section" hidden>
+        <div class="container-x">
+          <div class="grid gap-8 md:grid-cols-[200px_1fr] md:gap-16">
+            <header class="label-col" data-reveal>
+              <span class="eyebrow" data-i18n="label.overview">Overview</span>
+            </header>
+            <div class="grid gap-10 lg:grid-cols-[1fr_280px] lg:gap-14">
+              <div data-reveal>
+                <p id="overviewText" class="body-text"></p>
+              </div>
+              <aside
+                class="info-panel self-start"
+                data-reveal
+                style="--d: 0.06s"
+              >
+                <dl id="infoPanel"></dl>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       5. CHALLENGE & GOALS
+       ============================================================ -->
+      <section id="secChallenge" class="section" hidden>
+        <div class="container-x">
+          <div class="grid gap-8 md:grid-cols-[200px_1fr] md:gap-16">
+            <header class="label-col" data-reveal>
+              <span class="eyebrow" data-i18n="label.challenge"
+                >Challenge &amp; Goals</span
+              >
+            </header>
+            <div class="grid gap-10 md:grid-cols-2 md:gap-14" data-reveal>
+              <div>
+                <h3 class="h3" data-i18n="label.challengeOnly">Challenge</h3>
+                <p id="challengeText" class="body-text mt-3"></p>
+              </div>
+              <div>
+                <h3 class="h3" data-i18n="label.goalsOnly">Goals</h3>
+                <ul id="goalsList" class="bullet-list mt-3"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       6. MY ROLE
+       ============================================================ -->
+      <section id="secRole" class="section" hidden>
+        <div class="container-x">
+          <div class="grid gap-8 md:grid-cols-[200px_1fr] md:gap-16">
+            <header class="label-col" data-reveal>
+              <span class="eyebrow" data-i18n="label.role">My Role</span>
+            </header>
+            <ul id="roleList" class="bullet-list max-w-2xl" data-reveal></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       7. KEY FEATURES
+       ============================================================ -->
+      <section id="secFeatures" class="section" hidden>
+        <div class="container-x">
+          <div class="grid gap-8 md:grid-cols-[200px_1fr] md:gap-16">
+            <header class="label-col" data-reveal>
+              <span class="eyebrow" data-i18n="label.features"
+                >Key Features</span
+              >
+            </header>
+            <div data-reveal>
+              <ul id="featuresList" class="feature-list"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       8. DESIGN & RESPONSIVE
+       ============================================================ -->
+      <section id="secDesign" class="section" hidden>
+        <div class="container-x">
+          <div class="grid gap-8 md:grid-cols-[200px_1fr] md:gap-16">
+            <header class="label-col" data-reveal>
+              <span class="eyebrow" data-i18n="label.design"
+                >Design &amp; Responsive</span
+              >
+            </header>
+            <div class="max-w-2xl" data-reveal>
+              <p id="designText" class="body-text"></p>
+              <ul id="designBullets" class="bullet-list mt-6"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       9. TECHNICAL IMPLEMENTATION
+       ============================================================ -->
+      <section id="secTech" class="section" hidden>
+        <div class="container-x">
+          <div class="grid gap-8 md:grid-cols-[200px_1fr] md:gap-16">
+            <header class="label-col" data-reveal>
+              <span class="eyebrow" data-i18n="label.tech">Technical</span>
+            </header>
+            <div class="max-w-2xl" data-reveal>
+              <p id="techText" class="body-text"></p>
+              <ul id="techBullets" class="bullet-list mt-6"></ul>
+              <div id="techChips" class="mt-8 flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       10. GALLERY
+       ============================================================ -->
+      <section id="secGallery" class="section" hidden>
+        <div class="container-x">
+          <div class="grid gap-8 md:grid-cols-[200px_1fr] md:gap-16">
+            <header class="label-col" data-reveal>
+              <span class="eyebrow" data-i18n="label.gallery">Gallery</span>
+            </header>
+            <div
+              id="galleryGrid"
+              class="grid gap-4 sm:grid-cols-2"
+              data-reveal
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       11. LESSONS LEARNED
+       ============================================================ -->
+      <section id="secLessons" class="section" hidden>
+        <div class="container-x">
+          <div class="grid gap-8 md:grid-cols-[200px_1fr] md:gap-16">
+            <header class="label-col" data-reveal>
+              <span class="eyebrow" data-i18n="label.lessons"
+                >Lessons Learned</span
+              >
+            </header>
+            <ul id="lessonsList" class="bullet-list max-w-2xl" data-reveal></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       12. NEXT PROJECT + CTA
+       ============================================================ -->
+      <section id="secNext" class="section pb-24 md:pb-32">
+        <div class="container-x">
+          <div data-reveal>
+            <div class="flex items-baseline justify-between gap-4">
+              <span class="eyebrow" data-i18n="label.next"
+                >Continue Exploring</span
+              >
+              <a href="projects.html" class="link-arrow shrink-0">
+                <span data-i18n="nav.allProjects">All Projects</span>
+                <svg
+                  class="dir-flip"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+
+            <div id="projectNav" class="pnav-grid mt-6"></div>
+          </div>
+
+          <div class="cta-card mt-14 md:mt-20" data-reveal style="--d: 0.06s">
+            <h2 class="display-sm mx-auto max-w-xl" data-i18n="cta.title">
+              Have a project in mind?
+            </h2>
+            <p class="lead mx-auto mt-4 max-w-lg" data-i18n="cta.desc">
+              Let's turn your idea into a polished, responsive web experience.
+            </p>
+            <div class="mt-8 flex justify-center">
+              <a href="contact.html" class="btn btn-primary">
+                <span data-i18n="cta.btn">Let's Talk</span>
+                <svg
+                  class="dir-flip"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================================
+     SHARED FOOTER
+     ============================================================ -->
+    <footer class="border-t border-line bg-basealt">
+      <div class="container-x py-14 md:py-16">
+        <div
+          class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-12"
+        >
+          <div>
+            <a href="index.html" class="inline-flex items-center gap-2.5">
+              <span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>
+              <span class="text-[15px] font-semibold tracking-tight"
+                >Ahmed Mostafa</span
+              >
+            </a>
+            <p
+              class="mt-4 max-w-xs text-[13.5px] leading-relaxed text-secondary"
+              data-i18n="footer.desc"
+            >
+              Freelance frontend developer building modern, responsive web
+              interfaces with React and Next.js.
+            </p>
+            <div class="mt-5 flex items-center gap-2">
+              <a href="#" class="icon-btn" aria-label="GitHub" rel="noopener">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="icon-btn" aria-label="LinkedIn" rel="noopener">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.7c0-1.36-.03-3.1-1.95-3.1-1.95 0-2.25 1.47-2.25 2.99V21h-4V9z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <nav aria-label="Footer navigation">
+            <p
+              class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted"
+              data-i18n="footer.nav"
+            >
+              Navigation
+            </p>
+            <ul class="mt-4 space-y-2.5">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="nav.home"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="projects.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="nav.projects"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="nav.about"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="nav.contact"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Footer services">
+            <p
+              class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted"
+              data-i18n="footer.services"
+            >
+              Services
+            </p>
+            <ul class="mt-4 space-y-2.5">
+              <li>
+                <a
+                  href="services.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="s1.title"
+                  >Website Development</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="s2.title"
+                  >Next.js &amp; Frontend Development</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="s3.title"
+                  >Frontend Improvements</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div>
+            <p
+              class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted"
+              data-i18n="footer.contact"
+            >
+              Contact
+            </p>
+            <ul class="mt-4 space-y-2.5">
+              <li>
+                <a
+                  href="mailto:hello@example.com"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  dir="ltr"
+                  >hello@example.com</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="nav.cta"
+                  >Let's Talk</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-[12.5px] text-muted sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p>
+            © <span id="year">2025</span> Ahmed Mostafa.
+            <span data-i18n="footer.rights">All rights reserved.</span>
+          </p>
+          <p data-i18n="footer.built">Built with care.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================================
+     SCRIPT — data, render, theme, i18n
+     ============================================================ -->
+    <script>
+      (function () {
+        "use strict";
+
+        var root = document.documentElement;
+        var THEME_KEY = "portfolio-theme";
+        var LANG_KEY = "portfolio-lang";
+        var SLUGS = ["evora", "gsm", "soil"];
+
+        /* ============================================================
+     STATIC I18N (chrome, labels)
+     ============================================================ */
+        var STATIC = {
+          en: {
+            "a11y.skip": "Skip to content",
+            "a11y.theme": "Toggle theme",
+            "a11y.menu": "Open menu",
+
+            "nav.home": "Home",
+            "nav.projects": "Projects",
+            "nav.services": "Services",
+            "nav.about": "About",
+            "nav.contact": "Contact",
+            "nav.cta": "Let's Talk",
+            "nav.allProjects": "All Projects",
+
+            "crumb.home": "Home",
+            "crumb.projects": "Projects",
+
+            "label.overview": "Overview",
+            "label.challenge": "Challenge & Goals",
+            "label.challengeOnly": "Challenge",
+            "label.goalsOnly": "Goals",
+            "label.role": "My Role",
+            "label.features": "Key Features",
+            "label.design": "Design & Responsive",
+            "label.tech": "Technical",
+            "label.gallery": "Gallery",
+            "label.lessons": "Lessons Learned",
+            "label.next": "Continue Exploring",
+
+            "panel.type": "Project Type",
+            "panel.industry": "Industry",
+            "panel.role": "My Role",
+            "panel.status": "Status",
+
+            "hero.liveDemo": "Live Demo",
+            "hero.sourceCode": "Source Code",
+            "hero.placeholder.live": "Live Demo — pending",
+            "hero.placeholder.code": "Source — pending",
+
+            "preview.note":
+              "Project previews shown on this page are illustrative placeholders used for layout purposes. They will be replaced with real project screenshots once available.",
+
+            "nav.prev": "Previous Project",
+            "nav.next": "Next Project",
+
+            "cta.title": "Have a project in mind?",
+            "cta.desc":
+              "Let's turn your idea into a polished, responsive web experience.",
+            "cta.btn": "Let's Talk",
+
+            "s1.title": "Website Development",
+            "s2.title": "Next.js & Frontend Development",
+            "s3.title": "Frontend Improvements",
+
+            "footer.desc":
+              "Freelance frontend developer building modern, responsive web interfaces with React and Next.js.",
+            "footer.nav": "Navigation",
+            "footer.services": "Services",
+            "footer.contact": "Contact",
+            "footer.rights": "All rights reserved.",
+            "footer.built": "Built with care.",
+          },
+          ar: {
+            "a11y.skip": "تخطَّ إلى المحتوى",
+            "a11y.theme": "تبديل المظهر",
+            "a11y.menu": "فتح القائمة",
+
+            "nav.home": "الرئيسية",
+            "nav.projects": "المشاريع",
+            "nav.services": "الخدمات",
+            "nav.about": "نبذة عني",
+            "nav.contact": "تواصل",
+            "nav.cta": "لنتحدث",
+            "nav.allProjects": "كل المشاريع",
+
+            "crumb.home": "الرئيسية",
+            "crumb.projects": "المشاريع",
+
+            "label.overview": "نظرة عامة",
+            "label.challenge": "التحدي والأهداف",
+            "label.challengeOnly": "التحدي",
+            "label.goalsOnly": "الأهداف",
+            "label.role": "دوري",
+            "label.features": "أهم الميزات",
+            "label.design": "التصميم والتجاوب",
+            "label.tech": "التنفيذ التقني",
+            "label.gallery": "معرض المشروع",
+            "label.lessons": "الدروس المستفادة",
+            "label.next": "واصل الاستكشاف",
+
+            "panel.type": "نوع المشروع",
+            "panel.industry": "القطاع",
+            "panel.role": "دوري",
+            "panel.status": "الحالة",
+
+            "hero.liveDemo": "عرض مباشر",
+            "hero.sourceCode": "الكود المصدري",
+            "hero.placeholder.live": "العرض المباشر — قيد التجهيز",
+            "hero.placeholder.code": "الكود — قيد التجهيز",
+
+            "preview.note":
+              "المعاينات المعروضة في هذه الصفحة توضيحية ومؤقتة، وستُستبدل بصور حقيقية للمشروع عند توفّرها.",
+
+            "nav.prev": "المشروع السابق",
+            "nav.next": "المشروع التالي",
+
+            "cta.title": "لديك مشروع في ذهنك؟",
+            "cta.desc": "لنحوّل فكرتك إلى تجربة ويب مصقولة ومتجاوبة.",
+            "cta.btn": "لنتحدث",
+
+            "s1.title": "تطوير المواقع",
+            "s2.title": "تطوير الواجهات باستخدام Next.js",
+            "s3.title": "تحسين الواجهات الحالية",
+
+            "footer.desc":
+              "مطوّر واجهات أمامية مستقل، أبني واجهات ويب حديثة ومتجاوبة باستخدام React و Next.js.",
+            "footer.nav": "التنقل",
+            "footer.services": "الخدمات",
+            "footer.contact": "تواصل",
+            "footer.rights": "جميع الحقوق محفوظة.",
+            "footer.built": "صُنع بعناية.",
+          },
+        };
+
+        /* ============================================================
+     PROJECT DATA
+     ============================================================ */
+        var PROJECTS = {
+          evora: {
+            slug: "evora",
+            name: "Évora",
+            tone: "gold",
+            previewType: "evora",
+            previewUrl: "evora.perfume",
+            liveDemoUrl: null,
+            sourceCodeUrl: null,
+            en: {
+              category: "E-commerce / Perfume Store",
+              summary:
+                "A premium perfume shopping experience designed to showcase fragrances through elegant product imagery and a refined shopping interface.",
+              overview:
+                "Évora is a concept storefront for a fragrance brand. The interface puts product presentation first — the bottle, the details, the product hierarchy — then wraps that in a calm, refined shopping flow.",
+              challenge:
+                "Perfume is a category where visual identity carries most of the decision. The interface had to feel premium without hiding the products behind heavy styling, and every product card needed to work as a small editorial moment rather than a plain thumbnail.",
+              goals: [
+                "Present fragrance products with a strong editorial hierarchy",
+                "Keep product discovery calm and uncluttered",
+                "Build a consistent card system that scales across the catalog",
+                "Deliver the same considered experience on mobile as on desktop",
+              ],
+              role: [
+                "Frontend implementation end to end",
+                "Responsive UI development",
+                "Reusable component library for product cards, category rows and hero blocks",
+                "Interface refinement and motion details",
+              ],
+              features: [
+                {
+                  title: "Editorial product cards",
+                  desc: "A consistent card pattern that treats each fragrance as a small visual story rather than a generic grid tile.",
+                },
+                {
+                  title: "Category browsing",
+                  desc: "Organized browsing by collection and family, with clear visual separation between groups.",
+                },
+                {
+                  title: "Product detail page",
+                  desc: "Detail page focused on the bottle, notes, and a calm purchase path.",
+                },
+                {
+                  title: "Responsive navigation",
+                  desc: "A navigation pattern that stays out of the way on mobile while remaining easy to open and use.",
+                },
+              ],
+              designNotes:
+                "Évora leans on warm gold against deep near-black. Type is set with generous tracking for the brand mark and tighter rhythm for product copy. Cards keep a consistent surface treatment so the imagery carries the variation, and the interface stays quiet so the products lead.",
+              designBullets: [
+                "Warm gold and near-black palette",
+                "Editorial hero with the bottle as the focal point",
+                "Consistent card surface treatment across the catalog",
+                "Refined hover motion — not scroll-linked animation",
+              ],
+              technical:
+                "The storefront is built with React and Next.js. Product data is modeled as a typed catalog, and product cards, category rows and hero blocks are shared components so the layout stays consistent as the catalog grows. Styling is handled with Tailwind CSS, with a small set of design tokens shared across the app.",
+              techBullets: [
+                "React + Next.js for routing and server rendering",
+                "Typed product catalog as the data source",
+                "Reusable product card, hero and category row components",
+                "Tailwind CSS with shared design tokens",
+                "Reduced-motion support across interactive states",
+              ],
+              technologies: [
+                "React.js",
+                "Next.js",
+                "TypeScript",
+                "Tailwind CSS",
+              ],
+              gallery: [
+                { label: "Home", view: "home" },
+                { label: "Catalog", view: "catalog" },
+                { label: "Product detail", view: "product" },
+                { label: "Mobile", view: "mobile" },
+              ],
+              lessons: [
+                "Product-led layouts need restraint — the imagery does most of the work, and the interface should not fight it.",
+                "A shared card component pays off the moment the catalog grows past a dozen items.",
+                "Small motion decisions (hover lift, subtle scale) matter more than any large effect on a premium storefront.",
+              ],
+              infoPanel: {
+                type: "E-commerce storefront",
+                industry: "Fragrance",
+                role: "Frontend development",
+                status: "Personal concept project",
+              },
+            },
+            ar: {
+              category: "تجارة إلكترونية / متجر عطور",
+              summary:
+                "تجربة تسوّق عطور فاخرة، صُمّمت لعرض الروائح عبر صور منتجات أنيقة وواجهة تسوّق مصقولة.",
+              overview:
+                "Évora تصوّر لمتجر إلكتروني لعلامة عطور. تركّز الواجهة على عرض المنتجات أولًا — الزجاجة، والتفاصيل، وهرمية المنتجات — ثم تلفّ ذلك بتجربة تسوّق هادئة ومصقولة.",
+              challenge:
+                "العطور فئة تعتمد فيها الهوية البصرية على معظم قرار الشراء. كان على الواجهة أن تبدو فاخرة دون أن تحجب المنتجات خلف تنسيق ثقيل، وكان على كل بطاقة منتج أن تعمل كلحظة تحريرية صغيرة لا كصورة مصغّرة عادية.",
+              goals: [
+                "عرض منتجات العطور بهرمية بصرية تحريرية قوية",
+                "إبقاء اكتشاف المنتجات هادئًا وواضحًا",
+                "بناء نظام بطاقات متسق يتوسّع مع نمو الكتالوج",
+                "تقديم تجربة مدروسة على الجوال بمستوى سطح المكتب",
+              ],
+              role: [
+                "تنفيذ الواجهة الأمامية من الألف إلى الياء",
+                "تطوير واجهة مستخدم متجاوبة",
+                "بناء مكتبة مكوّنات قابلة لإعادة الاستخدام لبطاقات المنتجات وصفوف الفئات وبلوكات الواجهة",
+                "تحسين الواجهة وتفاصيل الحركة",
+              ],
+              features: [
+                {
+                  title: "بطاقات منتجات تحريرية",
+                  desc: "نمط بطاقة متسق يعامل كل عطر كقصة بصرية صغيرة، لا كبلاطة شبكة عادية.",
+                },
+                {
+                  title: "تصفح الفئات",
+                  desc: "تصفح منظم حسب المجموعة والعائلة، مع فصل بصري واضح بين المجموعات.",
+                },
+                {
+                  title: "صفحة تفاصيل المنتج",
+                  desc: "صفحة تفاصيل تركّز على الزجاجة والمكوّنات ومسار شراء هادئ.",
+                },
+                {
+                  title: "تنقل متجاوب",
+                  desc: "نمط تنقل يبقى بعيدًا عن الطريق على الجوال، مع بقائه سهل الفتح والاستخدام.",
+                },
+              ],
+              designNotes:
+                "Évora تعتمد على الذهبي الدافئ على خلفية سوداء عميقة. الخطوط مضبوطة بمسافات واسعة لعلامة المتجر، وإيقاع أكثر إحكامًا لنصوص المنتجات. البطاقات تحافظ على سطح متسق حتى تحمل الصور التباين، وتبقى الواجهة هادئة ليأخذ المنتج الصدارة.",
+              designBullets: [
+                "لوحة ذهبية دافئة مع أسود عميق",
+                "واجهة تحريرية بالزجاجة كنقطة تركيز",
+                "معالجة سطحية متسقة للبطاقات عبر الكتالوج",
+                "حركة تحويم مصقولة — لا حركة مرتبطة بالتمرير",
+              ],
+              technical:
+                "المتجر مبني بـ React وNext.js. تُنمذج بيانات المنتجات ككتالوج مُصنَّف، وبطاقات المنتجات وصفوف الفئات وبلوكات الواجهة مكوّنات مشتركة، فتبقى التخطيطات متسقة مع نمو الكتالوج. تُدار الأنماط بـ Tailwind CSS مع مجموعة صغيرة من الرموز المشتركة عبر التطبيق.",
+              techBullets: [
+                "React + Next.js للتوجيه والعرض من الخادم",
+                "كتالوج منتجات مُصنَّف كمصدر للبيانات",
+                "مكوّنات بطاقة منتج وواجهة وصف فئات قابلة لإعادة الاستخدام",
+                "Tailwind CSS برموز تصميم مشتركة",
+                "دعم تقليل الحركة عبر الحالات التفاعلية",
+              ],
+              technologies: [
+                "React.js",
+                "Next.js",
+                "TypeScript",
+                "Tailwind CSS",
+              ],
+              gallery: [
+                { label: "الرئيسية", view: "home" },
+                { label: "الكتالوج", view: "catalog" },
+                { label: "تفاصيل المنتج", view: "product" },
+                { label: "الجوال", view: "mobile" },
+              ],
+              lessons: [
+                "التخطيطات المدفوعة بالمنتج تحتاج إلى ضبط — الصورة تقوم بمعظم العمل، ويجب ألا تنافسها الواجهة.",
+                "مكوّن البطاقة المشترك يؤتي ثماره فور تجاوز الكتالوج عشرات العناصر.",
+                "قرارات الحركة الصغيرة (رفع خفيف، تكبير بسيط) أهم من أي تأثير كبير على متجر فاخر.",
+              ],
+              infoPanel: {
+                type: "متجر إلكتروني",
+                industry: "عطور",
+                role: "تطوير الواجهة الأمامية",
+                status: "مشروع شخصي تصوّري",
+              },
+            },
+          },
+
+          gsm: {
+            slug: "gsm",
+            name: "GSM",
+            fullName: "Graduated Styled & More",
+            tone: "cream",
+            previewType: "gsm",
+            previewUrl: "gsm.store",
+            liveDemoUrl: null,
+            sourceCodeUrl: null,
+            en: {
+              category: "E-commerce / Fashion Store",
+              fullName: "Graduated Styled & More",
+              summary:
+                "A contemporary fashion storefront concept focused on presenting apparel collections through clean layouts, strong product imagery, and a consistent visual identity.",
+              overview:
+                "GSM is a concept storefront for a contemporary fashion label. The interface is built around apparel photography — the collections read as editorial spreads, and product pages keep the same strong imagery at their center.",
+              challenge:
+                "Fashion storefronts tend to look alike: the same grids, the same cards, the same rhythm. The goal with GSM was to keep the catalog immediately recognizable through a consistent typographic and image system while still letting individual collections feel distinct.",
+              goals: [
+                "Present apparel collections as editorial spreads, not just grid tiles",
+                "Keep product imagery strong and central to the experience",
+                "Build a consistent typographic identity across collections",
+                "Make the same layout work on desktop, tablet and mobile",
+              ],
+              role: [
+                "Frontend implementation end to end",
+                "Responsive UI development",
+                "Reusable collection and product components",
+                "Interface refinement and typography system",
+              ],
+              features: [
+                {
+                  title: "Editorial collection layouts",
+                  desc: "Collections are presented as full-width editorial blocks rather than plain product grids.",
+                },
+                {
+                  title: "Product image galleries",
+                  desc: "Multi-image product pages that keep apparel photography at the center of the experience.",
+                },
+                {
+                  title: "Filterable catalog",
+                  desc: "Browse the catalog by category while keeping the visual identity of the collection intact.",
+                },
+                {
+                  title: "Responsive layout system",
+                  desc: "The same editorial layout rearranges across breakpoints without losing its character.",
+                },
+              ],
+              designNotes:
+                "GSM works with warm neutral tones and a strong typographic identity. The brand mark carries weight, product titles sit tight, and the imagery leads the page. Collections use full-bleed editorial layouts that stay consistent between desktop and mobile.",
+              designBullets: [
+                "Warm neutral palette with strong typography",
+                "Full-bleed editorial imagery for collections",
+                "Consistent card and product layout system",
+                "Mobile layouts designed as their own composition, not shrunk from desktop",
+              ],
+              technical:
+                "GSM uses React and Next.js with a typed collection and product model. Collection layouts, product cards, and gallery components are shared across the app so the visual identity stays intact as the catalog grows. Tailwind CSS handles the styling, and image loading prioritizes the hero and the first product image.",
+              techBullets: [
+                "React + Next.js for routing and image optimization",
+                "Typed collection and product data model",
+                "Reusable collection layout, product card and gallery components",
+                "Tailwind CSS with shared design tokens",
+                "Responsive image handling with priority loading for above-the-fold visuals",
+              ],
+              technologies: [
+                "React.js",
+                "Next.js",
+                "TypeScript",
+                "Tailwind CSS",
+              ],
+              gallery: [
+                { label: "Home", view: "home" },
+                { label: "Catalog", view: "catalog" },
+                { label: "Product detail", view: "product" },
+                { label: "Mobile", view: "mobile" },
+              ],
+              lessons: [
+                "Fashion storefronts get recognized by the type and the imagery — everything else is secondary.",
+                "Full-bleed editorial layouts need to be re-composed for mobile, not scaled down.",
+                "A small set of shared typographic tokens keeps the identity intact across very different screens.",
+              ],
+              infoPanel: {
+                type: "E-commerce storefront",
+                industry: "Fashion & apparel",
+                role: "Frontend development",
+                status: "Personal concept project",
+              },
+            },
+            ar: {
+              category: "تجارة إلكترونية / متجر أزياء",
+              fullName: "Graduated Styled & More",
+              summary:
+                "تصوّر لواجهة متجر أزياء معاصر، يركّز على عرض مجموعات الملابس عبر تخطيطات نظيفة وصور منتجات قوية وهوية بصرية متسقة.",
+              overview:
+                "GSM تصوّر لواجهة متجر إلكتروني لعلامة أزياء معاصرة. تُبنى الواجهة حول صور الملابس — تُقرأ المجموعات كصفحات تحريرية، وتُبقي صفحات المنتجات الصورة القوية في مركزها.",
+              challenge:
+                "متاجر الأزياء تميل إلى التشابه: الشبكات نفسها، والبطاقات نفسها، والإيقاع نفسه. كان الهدف في GSM إبقاء الكتالوج قابلًا للتمييز فورًا عبر نظام خطي وصوري متسق، مع الحفاظ على طابع مميّز لكل مجموعة.",
+              goals: [
+                "عرض مجموعات الملابس كصفحات تحريرية، لا كبلاطات شبكة عادية",
+                "إبقاء صور المنتجات قوية ومركزية في التجربة",
+                "بناء هوية خطية متسقة عبر المجموعات",
+                "جعل التخطيط نفسه يعمل على سطح المكتب واللوحي والجوال",
+              ],
+              role: [
+                "تنفيذ الواجهة الأمامية من الألف إلى الياء",
+                "تطوير واجهة مستخدم متجاوبة",
+                "بناء مكوّنات مجموعات ومنتجات قابلة لإعادة الاستخدام",
+                "تحسين الواجهة ونظام الخطوط",
+              ],
+              features: [
+                {
+                  title: "تخطيطات مجموعات تحريرية",
+                  desc: "تُعرض المجموعات كبلوكات تحريرية بعرض كامل، لا كشبكات منتجات عادية.",
+                },
+                {
+                  title: "معارض صور المنتجات",
+                  desc: "صفحات منتجات متعددة الصور تُبقي صور الملابس في مركز التجربة.",
+                },
+                {
+                  title: "كتالوج قابل للتصفية",
+                  desc: "تصفّح الكتالوج حسب الفئة مع الحفاظ على الهوية البصرية للمجموعة.",
+                },
+                {
+                  title: "نظام تخطيط متجاوب",
+                  desc: "التخطيط التحريري نفسه يعيد ترتيب نفسه عبر نقاط التوقف دون فقدان طابعه.",
+                },
+              ],
+              designNotes:
+                "GSM تعمل بدرجات محايدة دافئة وهوية خطية قوية. علامة المتجر تحمل ثقلًا بصريًا، وعناوين المنتجات مضبوطة بإحكام، والصورة تقود الصفحة. تستخدم المجموعات تخطيطات تحريرية بعرض كامل تبقى متسقة بين سطح المكتب والجوال.",
+              designBullets: [
+                "لوحة محايدة دافئة مع طباعة قوية",
+                "صور تحريرية بعرض كامل للمجموعات",
+                "نظام بطاقات ومنتجات متسق",
+                "تخطيطات جوال مصمّمة كتكوين خاص بها، لا تصغيرًا لسطح المكتب",
+              ],
+              technical:
+                "GSM يستخدم React وNext.js مع نموذج مجموعات ومنتجات مُصنَّف. تُشارك تخطيطات المجموعات وبطاقات المنتجات ومكوّنات المعرض عبر التطبيق، فتبقى الهوية البصرية متسقة مع نمو الكتالوج. تُدار الأنماط بـ Tailwind CSS، ويُعطى تحميل الصور أولوية للواجهة وأول صورة منتج.",
+              techBullets: [
+                "React + Next.js للتوجيه وتحسين الصور",
+                "نموذج بيانات مجموعات ومنتجات مُصنَّف",
+                "تخطيط مجموعة وبطاقة منتج ومكوّنات معرض قابلة لإعادة الاستخدام",
+                "Tailwind CSS برموز تصميم مشتركة",
+                "معالجة صور متجاوبة مع تحميل ذي أولوية للعناصر أعلاه",
+              ],
+              technologies: [
+                "React.js",
+                "Next.js",
+                "TypeScript",
+                "Tailwind CSS",
+              ],
+              gallery: [
+                { label: "الرئيسية", view: "home" },
+                { label: "الكتالوج", view: "catalog" },
+                { label: "تفاصيل المنتج", view: "product" },
+                { label: "الجوال", view: "mobile" },
+              ],
+              lessons: [
+                "تُعرَف متاجر الأزياء بالخط والصورة — كل شيء آخر ثانوي.",
+                "التخطيطات التحريرية بعرض كامل يجب إعادة تكوينها للجوال، لا تصغيرها.",
+                "مجموعة صغيرة من الرموز الخطية المشتركة تُبقي الهوية متسقة عبر شاشات مختلفة جدًا.",
+              ],
+              infoPanel: {
+                type: "متجر إلكتروني",
+                industry: "أزياء وملابس",
+                role: "تطوير الواجهة الأمامية",
+                status: "مشروع شخصي تصوّري",
+              },
+            },
+          },
+
+          soil: {
+            slug: "soil",
+            name: "Soil",
+            tone: "green",
+            previewType: "soil",
+            previewUrl: "soil.agri",
+            liveDemoUrl: null,
+            sourceCodeUrl: null,
+            en: {
+              category: "E-commerce / Agricultural Store",
+              summary:
+                "An agriculture-focused e-commerce concept designed to organize crop protection products and make product discovery clearer for agricultural customers.",
+              overview:
+                "Soil is a concept storefront for an agricultural products supplier. The interface organizes a wide product range into clear categories, and gives each product a readable page with its key information front and center.",
+              challenge:
+                "Agricultural products tend to come with a lot of information attached to each item, and a wide catalog that is easy to get lost in. The interface had to make it easy to move from category to category, and give each product enough room to be read clearly.",
+              goals: [
+                "Organize a wide catalog into clear, scannable categories",
+                "Make product information easy to read on any screen",
+                "Build a calm, professional aesthetic appropriate for the industry",
+                "Keep navigation simple across the catalog and product pages",
+              ],
+              role: [
+                "Frontend implementation end to end",
+                "Responsive UI development",
+                "Reusable category and product components",
+                "Interface refinement and information hierarchy",
+              ],
+              features: [
+                {
+                  title: "Category-driven catalog",
+                  desc: "Products organized into clear categories, with a scannable index on the catalog page.",
+                },
+                {
+                  title: "Readable product pages",
+                  desc: "Product pages that give key information enough room to be read without scrolling through noise.",
+                },
+                {
+                  title: "Consistent card system",
+                  desc: "A single product card pattern that scales across the whole catalog.",
+                },
+                {
+                  title: "Responsive layout",
+                  desc: "Layouts designed for the wide catalog overview and the narrow mobile product page.",
+                },
+              ],
+              designNotes:
+                "Soil uses deep greens and earthy neutrals with strong contrast for text. The type is set for reading, not for showing off, and the layout prioritizes information over decoration. Cards are quiet, and the product pages put the details first.",
+              designBullets: [
+                "Deep green and earthy neutral palette",
+                "Layout designed for reading, not decoration",
+                "Product information as the primary content",
+                "Consistent card pattern across the whole catalog",
+              ],
+              technical:
+                "Soil uses React and Next.js with a typed product catalog. Categories and product cards are shared components so the layout stays consistent across the catalog. Styling is handled with Tailwind CSS, and image loading prioritizes the first product image on each page while deferring the rest.",
+              techBullets: [
+                "React + Next.js for routing and structured data",
+                "Typed product and category model",
+                "Reusable category card and product card components",
+                "Tailwind CSS with shared design tokens",
+                "Lazy image loading for below-the-fold product imagery",
+              ],
+              technologies: [
+                "React.js",
+                "Next.js",
+                "TypeScript",
+                "Tailwind CSS",
+              ],
+              gallery: [
+                { label: "Home", view: "home" },
+                { label: "Catalog", view: "catalog" },
+                { label: "Product detail", view: "product" },
+                { label: "Mobile", view: "mobile" },
+              ],
+              lessons: [
+                "When a catalog carries a lot of information, hierarchy does most of the work — decoration does none.",
+                "A simple card system keeps a large catalog from turning into a wall of noise.",
+                "Reading-tuned typography makes a bigger difference than any visual flourish on this kind of store.",
+              ],
+              infoPanel: {
+                type: "E-commerce storefront",
+                industry: "Agriculture",
+                role: "Frontend development",
+                status: "Personal concept project",
+              },
+            },
+            ar: {
+              category: "تجارة إلكترونية / متجر منتجات زراعية",
+              summary:
+                "تصوّر لمتجر إلكتروني في القطاع الزراعي، منظّم لعرض منتجات حماية المحاصيل ويجعل اكتشاف المنتجات أوضح للعملاء الزراعيين.",
+              overview:
+                "Soil تصوّر لواجهة متجر إلكتروني لمورد منتجات زراعية. تنظّم الواجهة مجموعة واسعة من المنتجات في فئات واضحة، وتمنح كل منتج صفحة قابلة للقراءة بمعلوماته الأساسية في المقدمة.",
+              challenge:
+                "المنتجات الزراعية تأتي عادة مع كثير من المعلومات المرتبطة بكل عنصر، وكتالوج واسع يسهل التيه فيه. كان على الواجهة أن تسهّل التنقل بين الفئات، وأن تمنح كل منتج مساحة كافية ليُقرأ بوضوح.",
+              goals: [
+                "تنظيم كتالوج واسع في فئات واضحة وسهلة المسح",
+                "جعل معلومات المنتجات سهلة القراءة على أي شاشة",
+                "بناء هوية بصرية هادئة ومهنية تناسب القطاع",
+                "إبقاء التنقل بسيطًا بين الكتالوج وصفحات المنتجات",
+              ],
+              role: [
+                "تنفيذ الواجهة الأمامية من الألف إلى الياء",
+                "تطوير واجهة مستخدم متجاوبة",
+                "بناء مكوّنات فئات ومنتجات قابلة لإعادة الاستخدام",
+                "تحسين الواجهة وهرمية المعلومات",
+              ],
+              features: [
+                {
+                  title: "كتالوج قائم على الفئات",
+                  desc: "منتجات منظّمة في فئات واضحة، مع فهرس سهل المسح في صفحة الكتالوج.",
+                },
+                {
+                  title: "صفحات منتجات مقروءة",
+                  desc: "صفحات منتجات تمنح المعلومات الأساسية مساحة كافية للقراءة دون تشتيت.",
+                },
+                {
+                  title: "نظام بطاقات متسق",
+                  desc: "نمط بطاقة منتج واحد يتوسّع عبر الكتالوج بأكمله.",
+                },
+                {
+                  title: "تخطيط متجاوب",
+                  desc: "تخطيطات مصمّمة لنظرة الكتالوج الواسعة وصفحة المنتج الضيقة على الجوال.",
+                },
+              ],
+              designNotes:
+                "Soil تستخدم الأخضر العميق ودرجات ترابية محايدة مع تباين قوي للنصوص. الخطوط مضبوطة للقراءة لا للاستعراض، والتخطيط يعطي الأولوية للمعلومة على الزخرفة. البطاقات هادئة، وصفحات المنتجات تقدّم التفاصيل أولًا.",
+              designBullets: [
+                "لوحة أخضر عميق ودرجات ترابية محايدة",
+                "تخطيط مصمّم للقراءة لا للزخرفة",
+                "معلومات المنتج كمحتوى أساسي",
+                "نمط بطاقة متسق عبر الكتالوج",
+              ],
+              technical:
+                "Soil يستخدم React وNext.js مع كتالوج منتجات مُصنَّف. الفئات وبطاقات المنتجات مكوّنات مشتركة، فتبقى التخطيطات متسقة عبر الكتالوج. تُدار الأنماط بـ Tailwind CSS، ويُعطى تحميل الصور أولوية لأول صورة منتج في كل صفحة مع تأجيل البقية.",
+              techBullets: [
+                "React + Next.js للتوجيه والبيانات المهيكلة",
+                "نموذج منتجات وفئات مُصنَّف",
+                "مكوّنات بطاقة فئة وبطاقة منتج قابلة لإعادة الاستخدام",
+                "Tailwind CSS برموز تصميم مشتركة",
+                "تحميل صور مؤجّل للصور الواقعة أسفل الشاشة",
+              ],
+              technologies: [
+                "React.js",
+                "Next.js",
+                "TypeScript",
+                "Tailwind CSS",
+              ],
+              gallery: [
+                { label: "الرئيسية", view: "home" },
+                { label: "الكتالوج", view: "catalog" },
+                { label: "تفاصيل المنتج", view: "product" },
+                { label: "الجوال", view: "mobile" },
+              ],
+              lessons: [
+                "حين يحمل الكتالوج كثيرًا من المعلومات، الهرمية تؤدي معظم العمل — والزخرفة لا تؤدي شيئًا.",
+                "نظام بطاقات بسيط يمنع الكتالوج الكبير من التحول إلى جدار من الضوضاء.",
+                "الطباعة المضبوطة للقراءة تصنع فرقًا أكبر من أي لمسة بصرية في هذا النوع من المتاجر.",
+              ],
+              infoPanel: {
+                type: "متجر إلكتروني",
+                industry: "زراعة",
+                role: "تطوير الواجهة الأمامية",
+                status: "مشروع شخصي تصوّري",
+              },
+            },
+          },
+        };
+
+        /* ============================================================
+     STATE
+     ============================================================ */
+        var state = {
+          slug: "evora",
+          lang: "en",
+        };
+
+        /* ============================================================
+     HELPERS
+     ============================================================ */
+        function $(id) {
+          return document.getElementById(id);
+        }
+        function setText(id, text) {
+          var el = $(id);
+          if (!el) return;
+          if (text == null || text === "") {
+            el.hidden = true;
+            return;
+          }
+          el.hidden = false;
+          el.textContent = text;
+        }
+        function setSectionVisible(id, visible) {
+          var el = $(id);
+          if (el) el.hidden = !visible;
+        }
+        function el(tag, className, text) {
+          var n = document.createElement(tag);
+          if (className) n.className = className;
+          if (text != null) n.textContent = text;
+          return n;
+        }
+        function clear(node) {
+          while (node && node.firstChild) node.removeChild(node.firstChild);
+        }
+
+        function currentProject() {
+          return PROJECTS[state.slug] || PROJECTS.evora;
+        }
+        function currentContent() {
+          var p = currentProject();
+          return p[state.lang] || p.en;
+        }
+
+        /* ============================================================
+     STATIC I18N APPLY
+     ============================================================ */
+        function applyStaticI18n() {
+          var dict = STATIC[state.lang] || STATIC.en;
+          document.querySelectorAll("[data-i18n]").forEach(function (el) {
+            var key = el.getAttribute("data-i18n");
+            if (Object.prototype.hasOwnProperty.call(dict, key))
+              el.textContent = dict[key];
+          });
+          document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+            var key = el.getAttribute("data-i18n-aria");
+            if (Object.prototype.hasOwnProperty.call(dict, key))
+              el.setAttribute("aria-label", dict[key]);
+          });
+          document.querySelectorAll("[data-lang]").forEach(function (btn) {
+            var on = btn.getAttribute("data-lang") === state.lang;
+            btn.classList.toggle("is-on", on);
+            btn.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+        }
+
+        /* ============================================================
+     RENDER — PROJECT CONTENT
+     ============================================================ */
+        function renderProject() {
+          var p = currentProject();
+          var c = currentContent();
+
+          /* --- Breadcrumbs --- */
+          var bc = $("breadcrumbs");
+          clear(bc);
+          var crumbHome = el("li");
+          var homeLink = el(
+            "a",
+            "transition-colors duration-150 hover:text-ink",
+            STATIC[state.lang]["crumb.home"],
+          );
+          homeLink.href = "index.html";
+          crumbHome.appendChild(homeLink);
+          var sep1 = el("li", "text-[var(--border-strong)]", "/");
+          sep1.setAttribute("aria-hidden", "true");
+          var crumbProjects = el("li");
+          var projLink = el(
+            "a",
+            "transition-colors duration-150 hover:text-ink",
+            STATIC[state.lang]["crumb.projects"],
+          );
+          projLink.href = "projects.html";
+          crumbProjects.appendChild(projLink);
+          var sep2 = el("li", "text-[var(--border-strong)]", "/");
+          sep2.setAttribute("aria-hidden", "true");
+          var crumbCurrent = el("li", "font-medium text-secondary", p.name);
+          crumbCurrent.setAttribute("aria-current", "page");
+          bc.appendChild(crumbHome);
+          bc.appendChild(sep1);
+          bc.appendChild(crumbProjects);
+          bc.appendChild(sep2);
+          bc.appendChild(crumbCurrent);
+
+          /* --- Hero --- */
+          setText("heroCategory", c.category);
+          var heroName = $("heroName");
+          heroName.textContent = p.name;
+          if (p.fullName) {
+            setText("heroFullName", p.fullName);
+            $("heroFullName").hidden = false;
+          } else {
+            $("heroFullName").hidden = true;
+          }
+          setText("heroSummary", c.summary);
+
+          /* --- Hero technologies --- */
+          var heroTech = $("heroTech");
+          clear(heroTech);
+          if (c.technologies && c.technologies.length) {
+            heroTech.hidden = false;
+            c.technologies.forEach(function (t) {
+              heroTech.appendChild(el("li", "chip", t));
+            });
+          } else {
+            heroTech.hidden = true;
+          }
+
+          /* --- Hero actions --- */
+          var heroActions = $("heroActions");
+          clear(heroActions);
+          var hasAction = false;
+          if (p.liveDemoUrl) {
+            var a1 = el("a", "btn btn-primary");
+            a1.href = p.liveDemoUrl;
+            a1.rel = "noopener noreferrer";
+            a1.target = "_blank";
+            a1.appendChild(
+              document.createTextNode(STATIC[state.lang]["hero.liveDemo"]),
+            );
+            a1.appendChild(makeArrow());
+            heroActions.appendChild(a1);
+            hasAction = true;
+          }
+          if (p.sourceCodeUrl) {
+            var a2 = el("a", "btn btn-secondary");
+            a2.href = p.sourceCodeUrl;
+            a2.rel = "noopener noreferrer";
+            a2.target = "_blank";
+            a2.appendChild(
+              document.createTextNode(STATIC[state.lang]["hero.sourceCode"]),
+            );
+            heroActions.appendChild(a2);
+            hasAction = true;
+          }
+          if (!hasAction) {
+            // No real URLs yet — show honest "pending" states as small text, not fake buttons.
+            heroActions.hidden = true;
+          }
+
+          /* --- Preview --- */
+          setText("previewUrl", p.previewUrl);
+          document.querySelectorAll(".pv").forEach(function (node) {
+            var on = node.getAttribute("data-pv") === p.previewType;
+            node.classList.toggle("is-active", on);
+            if (on) node.removeAttribute("aria-hidden");
+            else node.setAttribute("aria-hidden", "true");
+          });
+
+          /* --- Overview --- */
+          var hasOverview = !!c.overview;
+          setSectionVisible("secOverview", hasOverview);
+          if (hasOverview) {
+            setText("overviewText", c.overview);
+            renderInfoPanel(c.infoPanel);
+          }
+
+          /* --- Challenge & Goals --- */
+          var hasChallenge = !!(c.challenge || (c.goals && c.goals.length));
+          setSectionVisible("secChallenge", hasChallenge);
+          if (hasChallenge) {
+            setText("challengeText", c.challenge);
+            var goals = $("goalsList");
+            clear(goals);
+            (c.goals || []).forEach(function (g) {
+              goals.appendChild(el("li", null, g));
+            });
+          }
+
+          /* --- Role --- */
+          var hasRole = !!(c.role && c.role.length);
+          setSectionVisible("secRole", hasRole);
+          if (hasRole) {
+            var roleList = $("roleList");
+            clear(roleList);
+            c.role.forEach(function (r) {
+              roleList.appendChild(el("li", null, r));
+            });
+          }
+
+          /* --- Features --- */
+          var hasFeatures = !!(c.features && c.features.length);
+          setSectionVisible("secFeatures", hasFeatures);
+          if (hasFeatures) {
+            var featuresList = $("featuresList");
+            clear(featuresList);
+            c.features.forEach(function (f, i) {
+              var li = el("li", "feature-item");
+              li.appendChild(
+                el("span", "feature-num", String(i + 1).padStart(2, "0")),
+              );
+              var body = el("div");
+              var h = el("h4", "h3", f.title);
+              var pEl = el(
+                "p",
+                "mt-2 text-[14.5px] leading-relaxed text-secondary",
+                f.desc,
+              );
+              body.appendChild(h);
+              body.appendChild(pEl);
+              li.appendChild(body);
+              featuresList.appendChild(li);
+            });
+          }
+
+          /* --- Design --- */
+          var hasDesign = !!(
+            c.designNotes ||
+            (c.designBullets && c.designBullets.length)
+          );
+          setSectionVisible("secDesign", hasDesign);
+          if (hasDesign) {
+            setText("designText", c.designNotes);
+            var db = $("designBullets");
+            clear(db);
+            (c.designBullets || []).forEach(function (b) {
+              db.appendChild(el("li", null, b));
+            });
+            if (!c.designBullets || !c.designBullets.length) db.hidden = true;
+            else db.hidden = false;
+          }
+
+          /* --- Technical --- */
+          var hasTech = !!(
+            c.technical ||
+            (c.techBullets && c.techBullets.length)
+          );
+          setSectionVisible("secTech", hasTech);
+          if (hasTech) {
+            setText("techText", c.technical);
+            var tb = $("techBullets");
+            clear(tb);
+            (c.techBullets || []).forEach(function (b) {
+              tb.appendChild(el("li", null, b));
+            });
+            if (!c.techBullets || !c.techBullets.length) tb.hidden = true;
+            else tb.hidden = false;
+
+            var tc = $("techChips");
+            clear(tc);
+            if (c.technologies && c.technologies.length) {
+              tc.hidden = false;
+              c.technologies.forEach(function (t) {
+                tc.appendChild(el("span", "chip", t));
+              });
+            } else {
+              tc.hidden = true;
+            }
+          }
+
+          /* --- Gallery --- */
+          var hasGallery = !!(c.gallery && c.gallery.length);
+          setSectionVisible("secGallery", hasGallery);
+          if (hasGallery) {
+            var grid = $("galleryGrid");
+            clear(grid);
+            c.gallery.forEach(function (g) {
+              grid.appendChild(buildGalleryItem(p, g));
+            });
+          }
+
+          /* --- Lessons --- */
+          var hasLessons = !!(c.lessons && c.lessons.length);
+          setSectionVisible("secLessons", hasLessons);
+          if (hasLessons) {
+            var ll = $("lessonsList");
+            clear(ll);
+            c.lessons.forEach(function (l) {
+              ll.appendChild(el("li", null, l));
+            });
+          }
+
+          /* --- Prev / Next --- */
+          renderPrevNext();
+
+          /* --- Document metadata --- */
+          var title = p.name + " — " + c.category + " — Ahmed Mostafa";
+          document.title = title;
+          var desc = c.summary || "";
+          var meta = $("metaDesc");
+          if (meta) meta.setAttribute("content", desc);
+          var ogT = $("ogTitle");
+          if (ogT) ogT.setAttribute("content", title);
+          var ogD = $("ogDesc");
+          if (ogD) ogD.setAttribute("content", desc);
+          var canonical = $("canonical");
+          if (canonical)
+            canonical.href = "https://example.com/en/projects/" + p.slug;
+
+          /* --- Reveal newly rendered sections --- */
+          requestAnimationFrame(function () {
+            document
+              .querySelectorAll("[data-reveal]:not(.is-in)")
+              .forEach(function (node) {
+                // Only observe ones that are actually visible in the layout.
+                if (!node.closest("[hidden]")) observeReveal(node);
+              });
+          });
+        }
+
+        function makeArrow() {
+          var ns = "http://www.w3.org/2000/svg";
+          var svg = document.createElementNS(ns, "svg");
+          svg.setAttribute("class", "dir-flip");
+          svg.setAttribute("width", "15");
+          svg.setAttribute("height", "15");
+          svg.setAttribute("viewBox", "0 0 24 24");
+          svg.setAttribute("fill", "none");
+          svg.setAttribute("stroke", "currentColor");
+          svg.setAttribute("stroke-width", "2");
+          svg.setAttribute("stroke-linecap", "round");
+          svg.setAttribute("stroke-linejoin", "round");
+          svg.setAttribute("aria-hidden", "true");
+          var path = document.createElementNS(ns, "path");
+          path.setAttribute("d", "M5 12h14M13 6l6 6-6 6");
+          svg.appendChild(path);
+          return svg;
+        }
+
+        function renderInfoPanel(panel) {
+          var dl = $("infoPanel");
+          clear(dl);
+          if (!panel) return;
+          var order = ["type", "industry", "role", "status"];
+          var dict = STATIC[state.lang];
+          order.forEach(function (key) {
+            if (!panel[key]) return;
+            var row = document.createElement("div");
+            row.className = "info-row";
+            var dt = document.createElement("dt");
+            dt.textContent = dict["panel." + key] || key;
+            var dd = document.createElement("dd");
+            dd.textContent = panel[key];
+            row.appendChild(dt);
+            row.appendChild(dd);
+            dl.appendChild(row);
+          });
+        }
+
+        function buildGalleryItem(project, galleryItem) {
+          var fig = document.createElement("figure");
+
+          var frame = document.createElement("div");
+          frame.className = "shot";
+
+          var bar = document.createElement("div");
+          bar.className = "shot-bar";
+          var dots = document.createElement("div");
+          dots.className = "shot-dots";
+          for (var d = 0; d < 3; d++)
+            dots.appendChild(document.createElement("i"));
+          var url = document.createElement("span");
+          url.className = "shot-url";
+          url.textContent =
+            project.previewUrl + " / " + (galleryItem.label || "");
+          bar.appendChild(dots);
+          bar.appendChild(url);
+
+          var body = document.createElement("div");
+          body.className = "shot-body";
+
+          var mini = document.createElement("div");
+          mini.className = "mini";
+          mini.setAttribute("data-tone", project.tone);
+          mini.setAttribute("data-view", galleryItem.view || "home");
+          mini.setAttribute("role", "img");
+          mini.setAttribute(
+            "aria-label",
+            galleryItem.label + " — illustrative preview",
+          );
+
+          if (galleryItem.view === "mobile") {
+            var phone = document.createElement("div");
+            phone.className = "mini-phone";
+            phone.appendChild(document.createElement("b"));
+            phone.appendChild(document.createElement("u"));
+            phone.appendChild(document.createElement("span"));
+            phone.appendChild(document.createElement("i"));
+            mini.appendChild(phone);
+          } else {
+            var nav = document.createElement("div");
+            nav.className = "mini-nav";
+            var logo = document.createElement("span");
+            logo.className = "mini-logo";
+            var links = document.createElement("span");
+            links.className = "mini-links";
+            for (var l = 0; l < 3; l++)
+              links.appendChild(document.createElement("i"));
+            nav.appendChild(logo);
+            nav.appendChild(links);
+
+            var hero = document.createElement("div");
+            hero.className = "mini-hero";
+
+            var grid = document.createElement("div");
+            grid.className = "mini-grid";
+            for (var g = 0; g < 3; g++)
+              grid.appendChild(document.createElement("div"));
+
+            mini.appendChild(nav);
+            mini.appendChild(hero);
+            mini.appendChild(grid);
+          }
+
+          body.appendChild(mini);
+          frame.appendChild(bar);
+          frame.appendChild(body);
+
+          var cap = document.createElement("figcaption");
+          cap.className =
+            "mt-2 text-[11px] font-medium uppercase tracking-[0.12em] text-muted";
+          cap.textContent = galleryItem.label || "";
+
+          fig.appendChild(frame);
+          fig.appendChild(cap);
+          return fig;
+        }
+
+        function renderPrevNext() {
+          var nav = $("projectNav");
+          clear(nav);
+          var idx = SLUGS.indexOf(state.slug);
+          if (idx === -1) idx = 0;
+          var prevSlug = SLUGS[(idx - 1 + SLUGS.length) % SLUGS.length];
+          var nextSlug = SLUGS[(idx + 1) % SLUGS.length];
+
+          nav.appendChild(buildPnavCard(prevSlug, "prev"));
+          nav.appendChild(buildPnavCard(nextSlug, "next"));
+        }
+
+        function buildPnavCard(slug, direction) {
+          var p = PROJECTS[slug];
+          var dict = STATIC[state.lang];
+          var isNext = direction === "next";
+
+          var a = document.createElement("a");
+          a.className = "pnav-card" + (isNext ? " is-next" : "");
+          a.href = "?project=" + slug;
+          a.setAttribute("data-project-link", slug);
+
+          var thumb = document.createElement("span");
+          thumb.className = "pnav-thumb";
+          thumb.setAttribute("data-tone", p.tone);
+          thumb.textContent = p.name.charAt(0).toUpperCase();
+
+          var meta = document.createElement("span");
+          meta.className = "pnav-meta";
+          var label = document.createElement("span");
+          label.className = "pnav-label";
+          label.textContent = isNext ? dict["nav.next"] : dict["nav.prev"];
+          var name = document.createElement("span");
+          name.className = "pnav-name";
+          name.textContent = p.name;
+          meta.appendChild(label);
+          meta.appendChild(name);
+
+          var arrow = document.createElement("span");
+          arrow.className = "pnav-arrow";
+          arrow.innerHTML = isNext
+            ? '<svg class="dir-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+            : '<svg class="dir-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>';
+
+          if (isNext) {
+            meta.style.order = "1";
+            arrow.style.order = "2";
+            thumb.style.order = "3";
+            a.appendChild(meta);
+            a.appendChild(arrow);
+            a.appendChild(thumb);
+          } else {
+            a.appendChild(arrow);
+            a.appendChild(meta);
+            a.appendChild(thumb);
+          }
+
+          a.addEventListener("click", function (ev) {
+            if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+            ev.preventDefault();
+            navigateTo(slug);
+          });
+
+          return a;
+        }
+
+        /* ============================================================
+     NAVIGATION (SPA-like with history)
+     ============================================================ */
+        function navigateTo(slug, push) {
+          if (push === undefined) push = true;
+          if (!PROJECTS[slug]) slug = "evora";
+          state.slug = slug;
+          if (push) {
+            try {
+              var url = new URL(window.location.href);
+              url.searchParams.set("project", slug);
+              window.history.pushState(
+                { project: slug },
+                "",
+                url.pathname + "?" + url.searchParams.toString(),
+              );
+            } catch (e) {}
+          }
+          renderProject();
+          window.scrollTo({ top: 0, behavior: "auto" });
+        }
+
+        function readSlugFromUrl() {
+          try {
+            var params = new URLSearchParams(window.location.search);
+            var s = params.get("project");
+            if (s && PROJECTS[s]) return s;
+          } catch (e) {}
+          return "evora";
+        }
+
+        window.addEventListener("popstate", function () {
+          state.slug = readSlugFromUrl();
+          renderProject();
+          window.scrollTo({ top: 0, behavior: "auto" });
+        });
+
+        /* ============================================================
+     LANGUAGE
+     ============================================================ */
+        function applyLang(lang) {
+          state.lang = lang === "ar" ? "ar" : "en";
+          root.setAttribute("lang", state.lang);
+          root.setAttribute("dir", state.lang === "ar" ? "rtl" : "ltr");
+          try {
+            localStorage.setItem(LANG_KEY, state.lang);
+          } catch (e) {}
+          applyStaticI18n();
+          renderProject();
+        }
+
+        document.querySelectorAll("[data-lang]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            applyLang(btn.getAttribute("data-lang"));
+          });
+        });
+
+        /* ============================================================
+     THEME
+     ============================================================ */
+        function applyTheme(theme) {
+          root.setAttribute("data-theme", theme);
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta)
+            meta.setAttribute(
+              "content",
+              theme === "light" ? "#FFFFFF" : "#0A0C10",
+            );
+          try {
+            localStorage.setItem(THEME_KEY, theme);
+          } catch (e) {}
+        }
+
+        var themeToggle = $("themeToggle");
+        if (themeToggle) {
+          themeToggle.addEventListener("click", function () {
+            applyTheme(
+              root.getAttribute("data-theme") === "light" ? "dark" : "light",
+            );
+          });
+        }
+
+        /* ============================================================
+     MOBILE NAVIGATION
+     ============================================================ */
+        var menuBtn = $("menuBtn");
+        var mobileMenu = $("mobileMenu");
+
+        function setMenu(open) {
+          if (!mobileMenu || !menuBtn) return;
+          mobileMenu.classList.toggle("open", open);
+          menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+        }
+
+        if (menuBtn && mobileMenu) {
+          menuBtn.addEventListener("click", function () {
+            setMenu(!mobileMenu.classList.contains("open"));
+          });
+          mobileMenu.querySelectorAll("a").forEach(function (a) {
+            a.addEventListener("click", function () {
+              setMenu(false);
+            });
+          });
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
+              setMenu(false);
+              menuBtn.focus();
+            }
+          });
+        }
+
+        /* ============================================================
+     NAVBAR SCROLL STATE
+     ============================================================ */
+        var nav = $("siteNav");
+        function onScroll() {
+          if (nav) nav.classList.toggle("is-scrolled", window.scrollY > 8);
+        }
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        /* ============================================================
+     SCROLL REVEAL
+     ============================================================ */
+        var prefersReduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        var revealObserver = null;
+
+        if ("IntersectionObserver" in window && !prefersReduced) {
+          revealObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-in");
+                  revealObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { rootMargin: "0px 0px -6% 0px", threshold: 0.08 },
+          );
+        }
+
+        function observeReveal(node) {
+          if (!node) return;
+          if (prefersReduced || !revealObserver) {
+            node.classList.add("is-in");
+            return;
+          }
+          revealObserver.observe(node);
+        }
+
+        function initReveal() {
+          document.querySelectorAll("[data-reveal]").forEach(function (node) {
+            if (!node.closest("[hidden]")) observeReveal(node);
+          });
+        }
+
+        /* ============================================================
+     INIT
+     ============================================================ */
+        var initialLang = "en";
+        try {
+          var storedLang = localStorage.getItem(LANG_KEY);
+          if (storedLang === "ar" || storedLang === "en")
+            initialLang = storedLang;
+        } catch (e) {}
+
+        state.lang = initialLang;
+        state.slug = readSlugFromUrl();
+
+        root.setAttribute("lang", state.lang);
+        root.setAttribute("dir", state.lang === "ar" ? "rtl" : "ltr");
+        applyTheme(root.getAttribute("data-theme") || "dark");
+
+        applyStaticI18n();
+        renderProject();
+
+        var yearEl = $("year");
+        if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+        requestAnimationFrame(function () {
+          initReveal();
+          root.classList.remove("preload");
+        });
+
+        // Re-observe reveal elements after each re-render.
+        var originalRender = renderProject;
+        renderProject = function () {
+          originalRender();
+          requestAnimationFrame(initReveal);
+        };
+      })();
+    </script>
+  </body>
+</html>

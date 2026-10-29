@@ -1,0 +1,3381 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark" class="preload">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Ahmed Mostafa — Freelance Frontend Developer</title>
+    <meta
+      name="description"
+      content="Freelance frontend developer building modern, responsive web interfaces with React, Next.js, TypeScript and Tailwind CSS."
+    />
+    <meta name="theme-color" content="#0A0C10" />
+    <meta name="color-scheme" content="dark light" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Ahmed Mostafa — Freelance Frontend Developer"
+    />
+    <meta
+      property="og:description"
+      content="I build modern web experiences that feel as good as they work."
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_AR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://example.com/" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme must be resolved before first paint to avoid a flash of the wrong theme -->
+    <script>
+      (function () {
+        var t;
+        try {
+          t = localStorage.getItem("portfolio-theme");
+        } catch (e) {}
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      })();
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              base: "var(--bg)",
+              basealt: "var(--bg-alt)",
+              surface: "var(--surface)",
+              elevated: "var(--surface-elevated)",
+              hovered: "var(--surface-hover)",
+              ink: "var(--text)",
+              secondary: "var(--text-2)",
+              muted: "var(--text-muted)",
+              line: "var(--border)",
+              linestrong: "var(--border-strong)",
+              accent: "var(--accent)",
+              linkc: "var(--link)",
+            },
+            fontFamily: {
+              sans: ["var(--font-sans)"],
+              mono: ["var(--font-mono)"],
+            },
+            maxWidth: { shell: "1240px" },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* ============================================================
+   1. DESIGN TOKENS
+   ============================================================ */
+      :root {
+        --bg: #0a0c10;
+        --bg-alt: #0d1016;
+        --surface: #11151c;
+        --surface-elevated: #191f29;
+        --surface-hover: #202735;
+
+        --text: #f4f6fa;
+        --text-2: #a0a9b8;
+        --text-muted: #7d8798;
+
+        --border: #252b36;
+        --border-strong: #394252;
+
+        --accent: #6585ff;
+        --btn: #4263e8;
+        --btn-hover: #3552d6;
+        --accent-hover: #829aff;
+        --link: #8aa0ff;
+        --accent-surface: rgba(101, 133, 255, 0.1);
+
+        --ring: #6585ff;
+        --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+        --shadow-2: 0 18px 48px -20px rgba(0, 0, 0, 0.9);
+
+        --font-sans:
+          "IBM Plex Sans", "IBM Plex Sans Arabic", ui-sans-serif, system-ui,
+          -apple-system, "Segoe UI", sans-serif;
+        --font-mono:
+          "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+        color-scheme: dark;
+      }
+
+      [data-theme="light"] {
+        --bg: #ffffff;
+        --bg-alt: #f7f9fc;
+        --surface: #ffffff;
+        --surface-elevated: #f7f9fc;
+        --surface-hover: #f0f4fa;
+
+        --text: #111827;
+        --text-2: #526075;
+        --text-muted: #69778b;
+
+        --border: #e2e8f0;
+        --border-strong: #cbd5e1;
+
+        --accent: #4263e8;
+        --btn: #4263e8;
+        --btn-hover: #3454d1;
+        --accent-hover: #3454d1;
+        --link: #3454d1;
+        --accent-surface: #eef2ff;
+
+        --ring: #3454d1;
+        --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.06);
+        --shadow-2: 0 24px 60px -30px rgba(15, 23, 42, 0.28);
+
+        color-scheme: light;
+      }
+
+      /* ============================================================
+   2. BASE
+   ============================================================ */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+        scroll-padding-top: 96px;
+      }
+
+      html.preload body {
+        opacity: 0;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-sans);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        transition:
+          background-color 0.25s ease,
+          color 0.25s ease,
+          opacity 0.18s linear;
+      }
+
+      html[lang="ar"] body {
+        line-height: 1.85;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      html[lang="ar"] h1,
+      html[lang="ar"] h2,
+      html[lang="ar"] h3,
+      html[lang="ar"] h4 {
+        letter-spacing: 0;
+        line-height: 1.45;
+      }
+
+      p {
+        margin: 0;
+      }
+      ul,
+      ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font: inherit;
+        color: inherit;
+        background: none;
+        border: 0;
+        cursor: pointer;
+      }
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      ::selection {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--ring);
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+
+      .skip-link {
+        position: fixed;
+        inset-inline-start: 16px;
+        top: -80px;
+        z-index: 200;
+        background: var(--btn);
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: top 0.2s ease;
+      }
+      .skip-link:focus {
+        top: 16px;
+      }
+
+      /* ============================================================
+   3. LAYOUT PRIMITIVES
+   ============================================================ */
+      .container-x {
+        width: 100%;
+        max-width: 1240px;
+        margin-inline: auto;
+        padding-inline: 20px;
+      }
+      @media (min-width: 640px) {
+        .container-x {
+          padding-inline: 28px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .container-x {
+          padding-inline: 40px;
+        }
+      }
+
+      .section {
+        padding-block: 64px;
+      }
+      @media (min-width: 768px) {
+        .section {
+          padding-block: 88px;
+        }
+      }
+      @media (min-width: 1280px) {
+        .section {
+          padding-block: 112px;
+        }
+      }
+
+      .hairline {
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* ============================================================
+   4. TYPOGRAPHY
+   ============================================================ */
+      .display {
+        font-size: clamp(2rem, 5.4vw, 3.75rem);
+        line-height: 1.06;
+        letter-spacing: -0.035em;
+        font-weight: 600;
+      }
+      html[lang="ar"] .display {
+        font-size: clamp(1.7rem, 4.8vw, 3rem);
+        line-height: 1.38;
+        letter-spacing: 0;
+      }
+
+      .h2 {
+        font-size: clamp(1.55rem, 3.1vw, 2.3rem);
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+        font-weight: 600;
+      }
+      html[lang="ar"] .h2 {
+        font-size: clamp(1.35rem, 2.9vw, 2rem);
+        line-height: 1.5;
+        letter-spacing: 0;
+      }
+
+      .h3 {
+        font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+        line-height: 1.3;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      html[lang="ar"] .h3 {
+        line-height: 1.6;
+      }
+
+      .lead {
+        color: var(--text-2);
+        font-size: clamp(1rem, 1.2vw, 1.0625rem);
+        line-height: 1.75;
+      }
+      html[lang="ar"] .lead {
+        line-height: 1.95;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+      .eyebrow::before {
+        content: "";
+        width: 20px;
+        height: 1px;
+        background: var(--border-strong);
+        flex: none;
+      }
+      html[lang="ar"] .eyebrow {
+        letter-spacing: 0;
+        text-transform: none;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .accent {
+        color: var(--accent);
+      }
+
+      /* ============================================================
+   5. BUTTONS, LINKS, CONTROLS
+   ============================================================ */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        height: 46px;
+        padding-inline: 1.15rem;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        line-height: 1;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        transition:
+          background-color 0.18s ease,
+          border-color 0.18s ease,
+          color 0.18s ease,
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      .btn-primary {
+        background: var(--btn);
+        color: #fff;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+      .btn-primary:hover {
+        background: var(--btn-hover);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text);
+        border-color: var(--border-strong);
+      }
+      .btn-secondary:hover {
+        background: var(--surface-hover);
+        border-color: var(--text-muted);
+        transform: translateY(-1px);
+      }
+
+      .link-arrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        color: var(--link);
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition:
+          color 0.18s ease,
+          gap 0.18s ease;
+      }
+      .link-arrow:hover {
+        color: var(--accent-hover);
+        gap: 0.7rem;
+      }
+      .link-arrow svg {
+        flex: none;
+      }
+      html[dir="rtl"] .dir-flip {
+        transform: scaleX(-1);
+      }
+
+      .icon-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+        border: 1px solid var(--border);
+        color: var(--text-2);
+        background: transparent;
+        transition:
+          background-color 0.16s ease,
+          color 0.16s ease,
+          border-color 0.16s ease;
+      }
+      .icon-btn:hover {
+        background: var(--surface-hover);
+        color: var(--text);
+        border-color: var(--border-strong);
+      }
+
+      /* Language segmented control */
+      .seg {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        padding: 3px;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+      }
+      .seg-btn {
+        height: 30px;
+        min-width: 36px;
+        padding-inline: 8px;
+        border-radius: 6px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: var(--text-muted);
+        transition:
+          background-color 0.16s ease,
+          color 0.16s ease;
+      }
+      .seg-btn:hover {
+        color: var(--text);
+      }
+      .seg-btn.is-on {
+        background: var(--surface-hover);
+        color: var(--text);
+      }
+
+      /* ============================================================
+   6. NAVBAR
+   ============================================================ */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: var(--bg);
+        border-bottom: 1px solid transparent;
+        transition:
+          border-color 0.2s ease,
+          background-color 0.2s ease;
+      }
+      @supports (backdrop-filter: blur(1px)) {
+        .nav {
+          background: color-mix(in srgb, var(--bg) 82%, transparent);
+          backdrop-filter: saturate(150%) blur(12px);
+        }
+      }
+      .nav.is-scrolled {
+        border-bottom-color: var(--border);
+      }
+
+      .logo-mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        border: 1px solid var(--border-strong);
+        background: var(--accent-surface);
+        color: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 500;
+      }
+
+      .nav-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        height: 36px;
+        padding-inline: 0.75rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-2);
+        transition:
+          color 0.16s ease,
+          background-color 0.16s ease;
+      }
+      .nav-link:hover {
+        color: var(--text);
+        background: var(--surface-hover);
+      }
+      .nav-link.is-active {
+        color: var(--text);
+      }
+      .nav-link.is-active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        margin-inline: auto;
+        width: 16px;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--accent);
+      }
+
+      /* Mobile navigation */
+      .mobile-menu {
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
+        border-top: 1px solid transparent;
+        transition:
+          grid-template-rows 0.28s ease,
+          border-color 0.28s ease;
+      }
+      .mobile-menu > div {
+        overflow: hidden;
+        min-height: 0;
+      }
+      .mobile-menu.open {
+        grid-template-rows: 1fr;
+        border-top-color: var(--border);
+      }
+
+      @media (min-width: 1024px) {
+        .mobile-menu {
+          display: none !important;
+        }
+      }
+
+      .mobile-link {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        padding-inline: 0.5rem;
+        border-bottom: 1px solid var(--border);
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-2);
+        transition: color 0.16s ease;
+      }
+      .mobile-link:last-of-type {
+        border-bottom: 0;
+      }
+      .mobile-link:hover {
+        color: var(--text);
+      }
+
+      /* Theme icons */
+      [data-theme="dark"] .icon-to-light {
+        display: block;
+      }
+      [data-theme="dark"] .icon-to-dark {
+        display: none;
+      }
+      [data-theme="light"] .icon-to-light {
+        display: none;
+      }
+      [data-theme="light"] .icon-to-dark {
+        display: block;
+      }
+
+      /* ============================================================
+   7. HERO
+   ============================================================ */
+      .hero {
+        overflow-x: clip;
+      }
+
+      .hero-visual {
+        position: relative;
+      }
+      .hero-visual::before {
+        content: "";
+        position: absolute;
+        inset: -12%;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(var(--border) 1px, transparent 1px),
+          linear-gradient(90deg, var(--border) 1px, transparent 1px);
+        background-size: 46px 46px;
+        opacity: 0.55;
+        -webkit-mask-image: radial-gradient(
+          ellipse at 50% 45%,
+          #000 18%,
+          transparent 72%
+        );
+        mask-image: radial-gradient(
+          ellipse at 50% 45%,
+          #000 18%,
+          transparent 72%
+        );
+      }
+
+      .status-dot {
+        position: relative;
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #4ade80;
+        flex: none;
+      }
+      .status-dot::after {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        border: 1px solid rgba(74, 222, 128, 0.35);
+      }
+
+      /* Code panel */
+      .code-panel {
+        position: relative;
+        z-index: 1;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        overflow: hidden;
+        box-shadow: var(--shadow-2);
+      }
+      .code-head {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.6rem 0.85rem;
+        background: var(--surface-elevated);
+        border-bottom: 1px solid var(--border);
+      }
+      .code-dots {
+        display: flex;
+        gap: 5px;
+        flex: none;
+      }
+      .code-dots i {
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--border-strong);
+      }
+      .code-file {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        margin-inline-start: 0.3rem;
+      }
+      .code-body {
+        padding: 0.9rem 1rem;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        line-height: 1.95;
+        overflow: hidden;
+      }
+      @media (min-width: 1024px) {
+        .code-body {
+          font-size: 0.76rem;
+        }
+      }
+
+      .code-line {
+        display: flex;
+        gap: 0.8rem;
+      }
+      .code-line .ln {
+        flex: none;
+        width: 14px;
+        text-align: end;
+        color: var(--text-muted);
+        opacity: 0.5;
+        user-select: none;
+      }
+      .code-txt {
+        white-space: pre;
+        min-width: 0;
+        color: var(--text);
+      }
+
+      .tok-k {
+        color: var(--accent);
+      }
+      .tok-t {
+        color: var(--accent);
+      }
+      .tok-s {
+        color: var(--text-2);
+      }
+      .tok-p {
+        color: var(--text-muted);
+      }
+
+      /* Rendered preview card */
+      .render-card {
+        position: relative;
+        z-index: 2;
+        margin-top: 1.25rem;
+        border: 1px solid var(--border-strong);
+        border-radius: 12px;
+        background: var(--surface-elevated);
+        overflow: hidden;
+        box-shadow: var(--shadow-2);
+      }
+      @media (min-width: 1024px) {
+        .render-card {
+          position: absolute;
+          bottom: -28px;
+          inset-inline-start: -26px;
+          width: 230px;
+          margin-top: 0;
+          transform: rotate(-2deg);
+        }
+        html[dir="rtl"] .render-card {
+          transform: rotate(2deg);
+        }
+      }
+      .render-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.4rem 0.6rem;
+        border-bottom: 1px solid var(--border);
+        background: var(--surface);
+      }
+      .render-bar i {
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      .render-label {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+      .render-body {
+        padding: 0.75rem 0.8rem 0.85rem;
+      }
+      .render-h {
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        color: var(--text);
+        line-height: 1.35;
+      }
+      .render-p {
+        margin-top: 0.3rem;
+        font-size: 0.66rem;
+        line-height: 1.6;
+        color: var(--text-muted);
+      }
+      .render-actions {
+        display: flex;
+        gap: 0.35rem;
+        margin-top: 0.7rem;
+      }
+      .render-btn {
+        display: inline-flex;
+        align-items: center;
+        height: 22px;
+        padding-inline: 0.5rem;
+        border-radius: 5px;
+        font-size: 0.58rem;
+        font-weight: 600;
+        background: var(--btn);
+        color: #fff;
+      }
+      .render-btn.ghost {
+        background: transparent;
+        border: 1px solid var(--border-strong);
+        color: var(--text-2);
+      }
+
+      /* ============================================================
+   8. PROJECT MOCKS
+   ============================================================ */
+      .mock {
+        display: flex;
+        flex-direction: column;
+        aspect-ratio: 16 / 10;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface);
+        overflow: hidden;
+      }
+      .mock-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.65rem;
+        background: var(--surface-elevated);
+        border-bottom: 1px solid var(--border);
+        flex: none;
+      }
+      .mock-dots {
+        display: flex;
+        gap: 4px;
+        flex: none;
+      }
+      .mock-dots i {
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--border-strong);
+      }
+      .mock-url {
+        flex: 1;
+        min-width: 0;
+        padding: 2px 8px;
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        background: var(--bg-alt);
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        color: var(--text-muted);
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .mock-body {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+      }
+
+      /* Dashboard */
+      .dash {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 48px 1fr;
+      }
+      .dash-side {
+        border-inline-end: 1px solid var(--border);
+        padding: 0.55rem 0.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.42rem;
+      }
+      .dash-side i {
+        display: block;
+        height: 6px;
+        border-radius: 3px;
+        background: var(--surface-hover);
+      }
+      .dash-side i.on {
+        background: var(--accent);
+        opacity: 0.8;
+      }
+      .dash-main {
+        padding: 0.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        min-width: 0;
+      }
+      .dash-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
+      }
+      .dash-stat {
+        padding: 0.38rem 0.42rem;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--bg-alt);
+        min-width: 0;
+      }
+      .dash-stat b {
+        display: block;
+        width: 68%;
+        height: 5px;
+        border-radius: 3px;
+        background: var(--surface-hover);
+        margin-bottom: 6px;
+      }
+      .dash-stat u {
+        display: block;
+        width: 46%;
+        height: 9px;
+        border-radius: 3px;
+        background: var(--accent);
+        opacity: 0.72;
+        text-decoration: none;
+      }
+      .dash-chart {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        align-items: flex-end;
+        gap: 4px;
+        padding: 0.45rem;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--bg-alt);
+      }
+      .dash-chart span {
+        flex: 1;
+        border-radius: 2px 2px 0 0;
+        background: var(--accent);
+        opacity: 0.22;
+      }
+      .dash-chart span:nth-child(2) {
+        opacity: 0.34;
+      }
+      .dash-chart span:nth-child(3) {
+        opacity: 0.52;
+      }
+      .dash-chart span:nth-child(4) {
+        opacity: 0.3;
+      }
+      .dash-chart span:nth-child(5) {
+        opacity: 0.88;
+      }
+      .dash-chart span:nth-child(6) {
+        opacity: 0.44;
+      }
+      .dash-chart span:nth-child(7) {
+        opacity: 0.66;
+      }
+
+      /* Storefront */
+      .shop {
+        width: 100%;
+        height: 100%;
+        padding: 0.65rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+      .shop-top {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .shop-top i {
+        display: block;
+        flex: 1;
+        height: 15px;
+        border-radius: 4px;
+        background: var(--surface-hover);
+      }
+      .shop-top i.on {
+        flex: 0 0 50px;
+        background: var(--accent);
+        opacity: 0.6;
+      }
+      .shop-grid {
+        flex: 1;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.45rem;
+      }
+      .shop-tile {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        background: var(--bg-alt);
+        overflow: hidden;
+      }
+      .shop-thumb {
+        flex: 1;
+        min-height: 0;
+        background: var(--surface-hover);
+      }
+      .shop-tile:first-child .shop-thumb {
+        background: var(--accent-surface);
+      }
+      .shop-meta {
+        padding: 0.35rem 0.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .shop-meta i {
+        display: block;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--surface-hover);
+      }
+      .shop-meta i:first-child {
+        width: 72%;
+        background: var(--accent);
+        opacity: 0.55;
+      }
+
+      /* Booking */
+      .book {
+        width: 100%;
+        height: 100%;
+        padding: 0.65rem;
+        display: grid;
+        grid-template-columns: 1fr 74px;
+        gap: 0.55rem;
+      }
+      .book-cal {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 4px;
+        padding: 0.45rem;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        background: var(--bg-alt);
+      }
+      .book-cal span {
+        border-radius: 3px;
+        background: var(--surface-hover);
+      }
+      .book-cal span.on {
+        background: var(--accent);
+        opacity: 0.88;
+      }
+      .book-slots {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .book-slots span {
+        flex: 1;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        background: var(--bg-alt);
+      }
+      .book-slots span.on {
+        background: var(--accent-surface);
+        border-color: var(--accent);
+      }
+
+      /* ============================================================
+   9. PROCESS, CHIPS, FAQ
+   ============================================================ */
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        height: 26px;
+        padding-inline: 0.55rem;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--surface-elevated);
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--text-2);
+        white-space: nowrap;
+      }
+
+      .step {
+        position: relative;
+        padding-top: 1.6rem;
+        border-top: 1px solid var(--border);
+      }
+      .step::before {
+        content: "";
+        position: absolute;
+        top: -4px;
+        inset-inline-start: 0;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 4px var(--bg);
+      }
+      .step-num {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        margin-bottom: 0.8rem;
+      }
+
+      /* FAQ accordion */
+      .faq-item {
+        border-bottom: 1px solid var(--border);
+      }
+      .faq-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+        padding: 1.15rem 0;
+        text-align: start;
+        font-size: 0.975rem;
+        font-weight: 500;
+        color: var(--text);
+        transition: color 0.16s ease;
+      }
+      .faq-btn:hover {
+        color: var(--accent);
+      }
+      .faq-icon {
+        flex: none;
+        color: var(--text-muted);
+        transition:
+          transform 0.28s ease,
+          color 0.16s ease;
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+        color: var(--accent);
+      }
+
+      .faq-panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s ease;
+      }
+      .faq-panel > div {
+        overflow: hidden;
+        min-height: 0;
+        visibility: hidden;
+        transition: visibility 0s linear 0.3s;
+      }
+      .faq-item.open .faq-panel {
+        grid-template-rows: 1fr;
+      }
+      .faq-item.open .faq-panel > div {
+        visibility: visible;
+        transition-delay: 0s;
+      }
+      .faq-answer {
+        padding-bottom: 1.2rem;
+        padding-inline-end: 2rem;
+        color: var(--text-2);
+        font-size: 0.9rem;
+        line-height: 1.75;
+      }
+      html[lang="ar"] .faq-answer {
+        line-height: 1.95;
+      }
+
+      /* ============================================================
+   10. REVEAL ANIMATION
+   ============================================================ */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 0.65s cubic-bezier(0.22, 0.68, 0.3, 1),
+          transform 0.65s cubic-bezier(0.22, 0.68, 0.3, 1);
+        transition-delay: var(--d, 0s);
+        will-change: opacity, transform;
+      }
+      [data-reveal].is-in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ============================================================
+   11. MOTION PREFERENCES
+   ============================================================ */
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        .btn:hover,
+        .btn-primary:hover,
+        .btn-secondary:hover {
+          transform: none;
+        }
+        .render-card {
+          transform: none !important;
+        }
+      }
+
+      /* Print-safe fallback */
+      @media print {
+        .nav,
+        .hero-visual,
+        .skip-link {
+          display: none !important;
+        }
+      }
+    </style>
+    <noscript
+      ><style>
+        html.preload body {
+          opacity: 1 !important;
+        }
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style></noscript
+    >
+  </head>
+
+  <body class="bg-base text-ink antialiased">
+    <a href="#main" class="skip-link" data-i18n="a11y.skip">Skip to content</a>
+
+    <!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+    <header id="siteNav" class="nav">
+      <div class="container-x">
+        <div class="flex h-16 items-center justify-between gap-3 md:h-[72px]">
+          <a
+            href="index.html"
+            class="flex items-center gap-2.5 shrink-0"
+            aria-label="Ahmed Mostafa — Home"
+          >
+            <span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>
+            <span class="text-[15px] font-semibold tracking-tight"
+              >Ahmed Mostafa</span
+            >
+          </a>
+
+          <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">
+            <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+            <a href="projects.html" class="nav-link" data-i18n="nav.projects"
+              >Projects</a
+            >
+            <a href="services.html" class="nav-link" data-i18n="nav.services"
+              >Services</a
+            >
+            <a href="about.html" class="nav-link" data-i18n="nav.about"
+              >About</a
+            >
+            <a href="contact.html" class="nav-link" data-i18n="nav.contact"
+              >Contact</a
+            >
+          </nav>
+
+          <div class="flex items-center gap-2">
+            <div class="seg" role="group" aria-label="Language / اللغة">
+              <button
+                type="button"
+                class="seg-btn is-on"
+                data-lang="en"
+                aria-pressed="true"
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                class="seg-btn"
+                data-lang="ar"
+                aria-pressed="false"
+                lang="ar"
+              >
+                ع
+              </button>
+            </div>
+
+            <button
+              type="button"
+              id="themeToggle"
+              class="icon-btn"
+              data-i18n-aria="a11y.theme"
+              aria-label="Toggle theme"
+            >
+              <svg
+                class="icon-to-light"
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                />
+              </svg>
+              <svg
+                class="icon-to-dark"
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            </button>
+
+            <a
+              href="contact.html"
+              class="btn btn-primary hidden sm:inline-flex"
+              data-i18n="nav.cta"
+              >Let's Talk</a
+            >
+
+            <button
+              type="button"
+              id="menuBtn"
+              class="icon-btn lg:hidden"
+              aria-expanded="false"
+              aria-controls="mobileMenu"
+              data-i18n-aria="a11y.menu"
+              aria-label="Open menu"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="M3 6h18M3 12h18M3 18h18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="mobile-menu">
+        <div>
+          <div class="container-x pb-5">
+            <nav class="flex flex-col" aria-label="Mobile">
+              <a href="index.html" class="mobile-link" data-i18n="nav.home"
+                >Home</a
+              >
+              <a
+                href="projects.html"
+                class="mobile-link"
+                data-i18n="nav.projects"
+                >Projects</a
+              >
+              <a
+                href="services.html"
+                class="mobile-link"
+                data-i18n="nav.services"
+                >Services</a
+              >
+              <a href="about.html" class="mobile-link" data-i18n="nav.about"
+                >About</a
+              >
+              <a href="contact.html" class="mobile-link" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </nav>
+            <a
+              href="contact.html"
+              class="btn btn-primary w-full mt-4"
+              data-i18n="nav.cta"
+              >Let's Talk</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============================================================
+     SECTION 1 — HERO
+     ============================================================ -->
+      <section
+        id="home"
+        class="hero relative overflow-hidden pt-12 pb-20 md:pt-16 md:pb-28 lg:pt-20 lg:pb-32"
+      >
+        <!-- Ambient glow — accent خفيف جدًا فقط -->
+        <div
+          class="pointer-events-none absolute inset-0 -z-10"
+          aria-hidden="true"
+        >
+          <div
+            class="absolute -top-32 right-[-10%] h-[460px] w-[460px] rounded-full bg-[#8B9CF6]/[0.08] blur-[130px]"
+          ></div>
+          <div
+            class="absolute bottom-[-20%] left-[8%] h-[340px] w-[340px] rounded-full bg-[#8B9CF6]/[0.05] blur-[120px]"
+          ></div>
+        </div>
+
+        <div class="container-x">
+          <div
+            class="grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-16"
+          >
+            <!-- ===================== Copy ===================== -->
+            <div class="max-w-[38rem]">
+              <!-- Author strip: avatar + role + availability -->
+              <div class="flex items-center gap-4">
+                <div class="relative shrink-0">
+                  <!-- ring بتدرّج من accent → line (مفيش أي لون تاني) -->
+                  <div
+                    class="rounded-full bg-gradient-to-br from-[#8B9CF6] via-[#1C232D] to-[#12161C] p-[2px] shadow-[0_0_26px_-8px_rgba(139,156,246,0.55)]"
+                  >
+                    <img
+                      src="./public/myImg.jpg"
+                      alt="Portrait of the developer"
+                      loading="eager"
+                      decoding="async"
+                      class="h-14 w-14 rounded-full object-cover object-center grayscale-[0.35] contrast-[1.05] brightness-[1.02] md:h-16 md:w-16"
+                    />
+                  </div>
+                  <!-- online dot (accent بدل الأخضر) -->
+                  <span
+                    class="absolute bottom-0.5 right-0.5 h-3.5 w-3.5 rounded-full border-[2.5px] border-[#0B0D10] bg-[#8B9CF6] shadow-[0_0_10px_rgba(139,156,246,0.9)]"
+                    aria-hidden="true"
+                  ></span>
+                </div>
+
+                <div class="flex min-w-0 flex-col gap-1.5">
+                  <span class="eyebrow" data-i18n="hero.eyebrow"
+                    >Freelance Frontend Developer</span
+                  >
+                  <span
+                    class="inline-flex w-fit items-center gap-2 rounded-md border border-[#1C232D] bg-[#12161C] px-2.5 py-1 text-[11px] font-medium text-[#9CA3AF]"
+                  >
+                    <span
+                      class="status-dot inline-block h-1.5 w-1.5 rounded-full bg-[#8B9CF6]"
+                      aria-hidden="true"
+                    ></span>
+                    <span data-i18n="hero.status"
+                      >Available for new projects</span
+                    >
+                  </span>
+                </div>
+              </div>
+
+              <h1 class="display mt-6">
+                <span data-i18n="hero.title.a"
+                  >I build modern web experiences that</span
+                >
+                <span class="accent" data-i18n="hero.title.b"
+                  >feel as good as they work.</span
+                >
+              </h1>
+
+              <p class="lead mt-6 max-w-[34rem]" data-i18n="hero.desc">
+                I help startups, businesses, and product teams turn ideas and
+                designs into responsive web interfaces using modern frontend
+                technologies.
+              </p>
+
+              <div class="mt-9 flex flex-wrap items-center gap-3">
+                <a href="#projects" class="btn btn-primary">
+                  <span data-i18n="hero.cta1">View My Work</span>
+                  <svg
+                    class="dir-flip"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+                <a
+                  href="#contact"
+                  class="btn btn-secondary"
+                  data-i18n="hero.cta2"
+                  >Let's Talk</a
+                >
+              </div>
+
+              <!-- Micro meta -->
+              <dl
+                class="mt-12 grid max-w-md grid-cols-2 gap-x-6 gap-y-5 border-t border-[#1C232D] pt-6 sm:grid-cols-3"
+              >
+                <div>
+                  <dt
+                    class="text-[11px] font-medium uppercase tracking-[0.14em] text-[#9CA3AF]"
+                    data-i18n="hero.meta1k"
+                  >
+                    Focus
+                  </dt>
+                  <dd class="mt-1.5 text-sm font-medium text-[#F3F4F6]">
+                    React · Next.js
+                  </dd>
+                </div>
+                <div>
+                  <dt
+                    class="text-[11px] font-medium uppercase tracking-[0.14em] text-[#9CA3AF]"
+                    data-i18n="hero.meta2k"
+                  >
+                    Approach
+                  </dt>
+                  <dd
+                    class="mt-1.5 text-sm font-medium text-[#F3F4F6]"
+                    data-i18n="hero.meta2v"
+                  >
+                    Detail-driven
+                  </dd>
+                </div>
+                <div>
+                  <dt
+                    class="text-[11px] font-medium uppercase tracking-[0.14em] text-[#9CA3AF]"
+                    data-i18n="hero.meta3k"
+                  >
+                    Working
+                  </dt>
+                  <dd
+                    class="mt-1.5 text-sm font-medium text-[#F3F4F6]"
+                    data-i18n="hero.meta3v"
+                  >
+                    Remote-friendly
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            <!-- ===================== Visual ===================== -->
+            <div class="hero-visual relative">
+              <!-- توهج accent خفيف ورا البلوك -->
+              <div
+                class="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] bg-[#8B9CF6]/[0.05] blur-2xl"
+                aria-hidden="true"
+              ></div>
+
+              <div class="code-panel" aria-hidden="true">
+                <div class="code-head">
+                  <div class="code-dots"><i></i><i></i><i></i></div>
+                  <span class="code-file">Hero.tsx</span>
+                </div>
+                <div class="code-body">
+                  <div class="code-line">
+                    <span class="ln">1</span
+                    ><span class="code-txt"
+                      ><span class="tok-k">export default function</span>
+                      <span class="tok-t">Hero</span
+                      ><span class="tok-p">() {</span></span
+                    >
+                  </div>
+                  <div class="code-line">
+                    <span class="ln">2</span
+                    ><span class="code-txt">
+                      <span class="tok-k">const</span> [open, setOpen]
+                      <span class="tok-p">=</span>
+                      <span class="tok-t">useState</span
+                      ><span class="tok-p">(</span
+                      ><span class="tok-k">false</span
+                      ><span class="tok-p">)</span></span
+                    >
+                  </div>
+                  <div class="code-line">
+                    <span class="ln">3</span><span class="code-txt"></span>
+                  </div>
+                  <div class="code-line">
+                    <span class="ln">4</span
+                    ><span class="code-txt">
+                      <span class="tok-k">return</span>
+                      <span class="tok-p">(</span></span
+                    >
+                  </div>
+                  <div class="code-line">
+                    <span class="ln">5</span
+                    ><span class="code-txt">
+                      <span class="tok-p">&lt;</span
+                      ><span class="tok-t">section</span>
+                      <span class="tok-s">className</span
+                      ><span class="tok-p">=</span
+                      ><span class="tok-s">"hero"</span
+                      ><span class="tok-p">&gt;</span></span
+                    >
+                  </div>
+                  <div class="code-line">
+                    <span class="ln">6</span
+                    ><span class="code-txt">
+                      <span class="tok-p">&lt;</span
+                      ><span class="tok-t">h1</span
+                      ><span class="tok-p">&gt;</span>Build with intent.<span
+                        class="tok-p"
+                        >&lt;/</span
+                      ><span class="tok-t">h1</span
+                      ><span class="tok-p">&gt;</span></span
+                    >
+                  </div>
+                  <div class="code-line">
+                    <span class="ln">7</span
+                    ><span class="code-txt">
+                      <span class="tok-p">&lt;</span
+                      ><span class="tok-t">CTA</span>
+                      <span class="tok-s">href</span><span class="tok-p">=</span
+                      ><span class="tok-s">"/contact"</span>
+                      <span class="tok-p">/&gt;</span></span
+                    >
+                  </div>
+                  <div class="code-line">
+                    <span class="ln">8</span
+                    ><span class="code-txt">
+                      <span class="tok-p">&lt;/</span
+                      ><span class="tok-t">section</span
+                      ><span class="tok-p">&gt;</span></span
+                    >
+                  </div>
+                  <div class="code-line">
+                    <span class="ln">9</span
+                    ><span class="code-txt"> <span class="tok-p">)</span></span>
+                  </div>
+                  <div class="code-line">
+                    <span class="ln">10</span
+                    ><span class="code-txt"><span class="tok-p">}</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="render-card" aria-hidden="true">
+                <div class="render-bar">
+                  <i></i>
+                  <span class="render-label">Preview</span>
+                </div>
+                <div class="render-body">
+                  <p class="render-h">Build with intent.</p>
+                  <p class="render-p">
+                    Responsive, accessible, and shaped around real usage.
+                  </p>
+                  <div class="render-actions">
+                    <span class="render-btn">Get started</span>
+                    <span class="render-btn ghost">Docs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       SECTION 2 — FEATURED PROJECTS
+       ============================================================ -->
+      <section id="projects" class="section bg-basealt border-y border-line">
+        <div class="container-x">
+          <div
+            class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+            data-reveal
+          >
+            <div class="max-w-xl">
+              <span class="eyebrow" data-i18n="projects.eyebrow"
+                >Selected Work</span
+              >
+              <h2 class="h2 mt-4" data-i18n="projects.title">
+                A few things I've been building
+              </h2>
+              <p class="lead mt-4" data-i18n="projects.desc">
+                Each project below focuses on structure, responsiveness, and a
+                clean user experience.
+              </p>
+            </div>
+            <a href="#projects" class="link-arrow shrink-0">
+              <span data-i18n="projects.viewAll">View All Projects</span>
+              <svg
+                class="dir-flip"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Featured project -->
+          <article class="mt-12 md:mt-16" data-reveal>
+            <div
+              class="group grid gap-8 border border-line bg-surface p-5 md:grid-cols-2 md:items-center md:gap-10 md:p-6 lg:grid-cols-[1.25fr_1fr] lg:p-8 rounded-[16px] transition-colors duration-200 hover:border-linestrong"
+            >
+              <!-- Preview -->
+              <div class="overflow-hidden rounded-[12px]">
+                <!-- PLACEHOLDER: replace with a real project screenshot -->
+                <div
+                  class="mock transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                  aria-hidden="true"
+                >
+                  <img src="./public/evora.png" alt="" />
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="min-w-0">
+                <p
+                  class="text-[11px] font-medium uppercase tracking-[0.16em] text-muted"
+                  data-i18n="p1.kicker"
+                >
+                  E-commerce · Perfume Store
+                </p>
+                <h3 class="h2 mt-3" data-i18n="p1.name">Évora Perfume</h3>
+                <p
+                  class="mt-3 text-[15px] leading-relaxed text-secondary"
+                  data-i18n="p1.desc"
+                >
+                  A modern online perfume store featuring an elegant product
+                  catalog, detailed product pages, and a seamless shopping
+                  experience. Users can explore fragrances, view product
+                  details, and manage their shopping cart.
+                </p>
+                <ul class="mt-5 flex flex-wrap gap-2">
+                  <li class="chip">Html</li>
+                  <li class="chip">CSS</li>
+                  <li class="chip">js</li>
+                  <li class="chip">Tailwind CSS</li>
+                </ul>
+                <a
+                  href="https://evora-perfume.vercel.app/"
+                  target="_blank"
+                  class="link-arrow mt-7"
+                >
+                  <span data-i18n="projects.caseStudy">View Live Website</span>
+                  <svg
+                    class="dir-flip"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Two secondary projects -->
+          <div class="mt-6 grid gap-6 md:grid-cols-2">
+            <article data-reveal style="--d: 0.06s">
+              <div
+                class="group h-full rounded-[16px] border border-line bg-surface p-5 transition-colors duration-200 hover:border-linestrong"
+              >
+                <!-- PLACEHOLDER: replace with a real project screenshot -->
+                <div class="overflow-hidden rounded-[12px]">
+                  <div
+                    class="mock transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                    aria-hidden="true"
+                  >
+                    <img src="./public/gsm.png" alt="gsm" />
+                  </div>
+                </div>
+
+                <div class="mt-6">
+                  <p
+                    class="text-[11px] font-medium uppercase tracking-[0.16em] text-muted"
+                    data-i18n="p2.kicker"
+                  >
+             E-commerce · Fashion & Lifestyle
+                  </p>
+                  <h3 class="h3 mt-2.5" data-i18n="p2.name">Graduated Styled & More</h3>
+                  <p
+                    class="mt-2.5 text-[14.5px] leading-relaxed text-secondary"
+                    data-i18n="p2.desc"
+                  >
+                    A modern e-commerce platform for clothing and fragrances,
+                    designed to make everyday shopping simple and enjoyable.
+                    Customers can explore clothing collections, browse school
+                    wear by age group, discover different styles, and shop
+                    fragrances through a clean, user-friendly interface.
+                  </p>
+                  <ul class="mt-4 flex flex-wrap gap-2">
+                     <li class="chip">Html</li>
+                  <li class="chip">CSS</li>
+                  <li class="chip">js</li>
+                  <li class="chip">Tailwind CSS</li>
+                  </ul>
+                  <a href="https://graduated-beige.vercel.app/" target="_blank" class="link-arrow mt-5">
+                    <span data-i18n="projects.caseStudy">View Live Website</span>
+                    <svg
+                      class="dir-flip"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article data-reveal style="--d: 0.12s">
+              <div
+                class="group h-full rounded-[16px] border border-line bg-surface p-5 transition-colors duration-200 hover:border-linestrong"
+              >
+                <!-- PLACEHOLDER: replace with a real project screenshot -->
+                <div class="overflow-hidden rounded-[12px]">
+                  <div
+                    class="mock transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                    aria-hidden="true"
+                  >
+                <img src="./public/soil.png" alt="soil">
+                </div>
+                </div>
+
+                <div class="mt-6">
+                  <p
+                    class="text-[11px] font-medium uppercase tracking-[0.16em] text-muted"
+                    data-i18n="p3.kicker"
+                  >
+                 E-commerce · Agricultural Technology
+                  </p>
+                  <h3 class="h3 mt-2.5" data-i18n="p3.name">SOIL — Agricultural Store</h3>
+                  <p
+                    class="mt-2.5 text-[14.5px] leading-relaxed text-secondary"
+                    data-i18n="p3.desc"
+                  >
+                 A full-featured e-commerce platform dedicated to selling agricultural pesticides and crop protection products. SOIL provides a specialized digital storefront where customers can explore agricultural products, browse available solutions, and shop through a convenient online experience.
+                  </p>
+                  <ul class="mt-4 flex flex-wrap gap-2">
+                    <li class="chip">Next.js</li>
+                    <li class="chip">ui.shadcn framework</li>
+                    <li class="chip">Axios</li>
+                    <li class="chip">tailwind css</li>
+                  </ul>
+                  <a href="#projects" class="link-arrow mt-5">
+                    <span data-i18n="projects.caseStudy">View Live Website</span>
+                    <svg
+                      class="dir-flip"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <p
+            class="mt-8 text-xs leading-relaxed text-muted"
+            data-i18n="projects.note"
+          >
+            Previews shown here are illustrative placeholders and will be
+            replaced with real project screenshots.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       SECTION 3 — SERVICES PREVIEW
+       ============================================================ -->
+      <section id="services" class="section">
+        <div class="container-x">
+          <div class="grid gap-12 lg:grid-cols-[minmax(0,340px)_1fr] lg:gap-20">
+            <div class="self-start lg:sticky lg:top-28" data-reveal>
+              <span class="eyebrow" data-i18n="services.eyebrow">Services</span>
+              <h2 class="h2 mt-4" data-i18n="services.title">
+                What I can help you build
+              </h2>
+              <p class="lead mt-4" data-i18n="services.desc">
+                Practical frontend work — from a single landing page to refining
+                an existing interface.
+              </p>
+              <a href="#services" class="link-arrow mt-6">
+                <span data-i18n="services.viewAll">View All Services</span>
+                <svg
+                  class="dir-flip"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="border-y border-line">
+              <article
+                class="border-b border-line py-8 first:pt-7 last:border-b-0 last:pb-7"
+                data-reveal
+              >
+                <div class="flex items-baseline gap-4">
+                  <span
+                    class="font-mono text-[11px] tracking-[0.12em] text-accent"
+                    >01</span
+                  >
+                  <h3 class="h3" data-i18n="s1.title">Website Development</h3>
+                </div>
+                <p
+                  class="mt-3 max-w-2xl text-[15px] leading-relaxed text-secondary"
+                  data-i18n="s1.desc"
+                >
+                  Fast, responsive websites that present your product clearly
+                  and work well on every screen.
+                </p>
+                <ul class="mt-5 grid gap-2.5 sm:grid-cols-2">
+                  <li class="flex items-start gap-2.5 text-sm text-secondary">
+                    <span
+                      class="mt-[9px] h-1 w-1 flex-none rounded-[1px] bg-[var(--accent)] opacity-70"
+                    ></span>
+                    <span data-i18n="s1.i1">Landing pages</span>
+                  </li>
+                  <li class="flex items-start gap-2.5 text-sm text-secondary">
+                    <span
+                      class="mt-[9px] h-1 w-1 flex-none rounded-[1px] bg-[var(--accent)] opacity-70"
+                    ></span>
+                    <span data-i18n="s1.i2"
+                      >Personal and small-business websites</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-2.5 text-sm text-secondary">
+                    <span
+                      class="mt-[9px] h-1 w-1 flex-none rounded-[1px] bg-[var(--accent)] opacity-70"
+                    ></span>
+                    <span data-i18n="s1.i3"
+                      >Marketing sites for products and startups</span
+                    >
+                  </li>
+                </ul>
+              </article>
+
+              <article
+                class="border-b border-line py-8 first:pt-7 last:border-b-0 last:pb-7"
+                data-reveal
+                style="--d: 0.06s"
+              >
+                <div class="flex items-baseline gap-4">
+                  <span
+                    class="font-mono text-[11px] tracking-[0.12em] text-accent"
+                    >02</span
+                  >
+                  <h3 class="h3" data-i18n="s2.title">
+                    Next.js &amp; Frontend Development
+                  </h3>
+                </div>
+                <p
+                  class="mt-3 max-w-2xl text-[15px] leading-relaxed text-secondary"
+                  data-i18n="s2.desc"
+                >
+                  Interactive interfaces built with React and Next.js,
+                  structured so they stay maintainable as they grow.
+                </p>
+                <ul class="mt-5 grid gap-2.5 sm:grid-cols-2">
+                  <li class="flex items-start gap-2.5 text-sm text-secondary">
+                    <span
+                      class="mt-[9px] h-1 w-1 flex-none rounded-[1px] bg-[var(--accent)] opacity-70"
+                    ></span>
+                    <span data-i18n="s2.i1">Responsive web interfaces</span>
+                  </li>
+                  <li class="flex items-start gap-2.5 text-sm text-secondary">
+                    <span
+                      class="mt-[9px] h-1 w-1 flex-none rounded-[1px] bg-[var(--accent)] opacity-70"
+                    ></span>
+                    <span data-i18n="s2.i2">Interactive frontend features</span>
+                  </li>
+                  <li class="flex items-start gap-2.5 text-sm text-secondary">
+                    <span
+                      class="mt-[9px] h-1 w-1 flex-none rounded-[1px] bg-[var(--accent)] opacity-70"
+                    ></span>
+                    <span data-i18n="s2.i3">Reusable UI components</span>
+                  </li>
+                  <li class="flex items-start gap-2.5 text-sm text-secondary">
+                    <span
+                      class="mt-[9px] h-1 w-1 flex-none rounded-[1px] bg-[var(--accent)] opacity-70"
+                    ></span>
+                    <span data-i18n="s2.i4">API integration when required</span>
+                  </li>
+                </ul>
+              </article>
+
+              <article
+                class="border-b border-line py-8 first:pt-7 last:border-b-0 last:pb-7"
+                data-reveal
+                style="--d: 0.12s"
+              >
+                <div class="flex items-baseline gap-4">
+                  <span
+                    class="font-mono text-[11px] tracking-[0.12em] text-accent"
+                    >03</span
+                  >
+                  <h3 class="h3" data-i18n="s3.title">Frontend Improvements</h3>
+                </div>
+                <p
+                  class="mt-3 max-w-2xl text-[15px] leading-relaxed text-secondary"
+                  data-i18n="s3.desc"
+                >
+                  Targeted work on an existing site — fixing layout issues,
+                  tightening UI consistency, and implementing supplied designs.
+                </p>
+                <ul class="mt-5 grid gap-2.5 sm:grid-cols-2">
+                  <li class="flex items-start gap-2.5 text-sm text-secondary">
+                    <span
+                      class="mt-[9px] h-1 w-1 flex-none rounded-[1px] bg-[var(--accent)] opacity-70"
+                    ></span>
+                    <span data-i18n="s3.i1">Responsive layout fixes</span>
+                  </li>
+                  <li class="flex items-start gap-2.5 text-sm text-secondary">
+                    <span
+                      class="mt-[9px] h-1 w-1 flex-none rounded-[1px] bg-[var(--accent)] opacity-70"
+                    ></span>
+                    <span data-i18n="s3.i2">UI consistency and refinement</span>
+                  </li>
+                  <li class="flex items-start gap-2.5 text-sm text-secondary">
+                    <span
+                      class="mt-[9px] h-1 w-1 flex-none rounded-[1px] bg-[var(--accent)] opacity-70"
+                    ></span>
+                    <span data-i18n="s3.i3"
+                      >Converting designs into functional interfaces</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-2.5 text-sm text-secondary">
+                    <span
+                      class="mt-[9px] h-1 w-1 flex-none rounded-[1px] bg-[var(--accent)] opacity-70"
+                    ></span>
+                    <span data-i18n="s3.i4"
+                      >Improving existing frontend implementations</span
+                    >
+                  </li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       SECTION 4 — TECH STACK
+       ============================================================ -->
+      <section id="stack" class="section bg-basealt border-y border-line">
+        <div class="container-x">
+          <div class="max-w-2xl" data-reveal>
+            <span class="eyebrow" data-i18n="tech.eyebrow">Tech Stack</span>
+            <h2 class="h2 mt-4" data-i18n="tech.title">
+              The tools I work with
+            </h2>
+            <p class="lead mt-4" data-i18n="tech.desc">
+              A focused set of technologies I use regularly — no ratings, no
+              percentages, just the stack.
+            </p>
+          </div>
+
+          <div class="mt-12 border-t border-line">
+            <div
+              class="grid gap-4 border-b border-line py-7 md:grid-cols-[190px_1fr] md:items-start md:gap-10"
+              data-reveal
+            >
+              <p
+                class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted md:pt-1"
+                data-i18n="tech.g1"
+              >
+                Core Frontend
+              </p>
+              <ul class="flex flex-wrap gap-2">
+                <li class="chip">HTML5</li>
+                <li class="chip">CSS3</li>
+                <li class="chip">JavaScript</li>
+                <li class="chip">TypeScript</li>
+              </ul>
+            </div>
+
+            <div
+              class="grid gap-4 border-b border-line py-7 md:grid-cols-[190px_1fr] md:items-start md:gap-10"
+              data-reveal
+            >
+              <p
+                class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted md:pt-1"
+                data-i18n="tech.g2"
+              >
+                Frameworks &amp; Styling
+              </p>
+              <ul class="flex flex-wrap gap-2">
+                <li class="chip">React.js</li>
+                <li class="chip">Next.js</li>
+                <li class="chip">Tailwind CSS</li>
+                <li class="chip">Bootstrap</li>
+              </ul>
+            </div>
+
+            <div
+              class="grid gap-4 border-b border-line py-7 md:grid-cols-[190px_1fr] md:items-start md:gap-10"
+              data-reveal
+            >
+              <p
+                class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted md:pt-1"
+                data-i18n="tech.g3"
+              >
+                Tools &amp; Libraries
+              </p>
+              <ul class="flex flex-wrap gap-2">
+                <li class="chip">Git &amp; GitHub</li>
+                <li class="chip">Axios</li>
+                <li class="chip">Redux</li>
+                <li class="chip">Framer Motion</li>
+                <li class="chip">React Icons</li>
+                <li class="chip">i18n / localization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       SECTION 5 — HOW I WORK
+       ============================================================ -->
+      <section id="process" class="section">
+        <div class="container-x">
+          <div class="max-w-2xl" data-reveal>
+            <span class="eyebrow" data-i18n="process.eyebrow">How I Work</span>
+            <h2 class="h2 mt-4" data-i18n="process.title">
+              A simple, predictable process
+            </h2>
+            <p class="lead mt-4" data-i18n="process.desc">
+              Scope changes from project to project, but the way I approach the
+              work stays consistent.
+            </p>
+          </div>
+
+          <ol class="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+            <li class="step" data-reveal>
+              <p class="step-num">01</p>
+              <h3 class="h3" data-i18n="w1.t">Understand</h3>
+              <p
+                class="mt-3 text-[14.5px] leading-relaxed text-secondary"
+                data-i18n="w1.d"
+              >
+                Clarify the project goals, requirements, and who the interface
+                is actually for.
+              </p>
+            </li>
+            <li class="step" data-reveal style="--d: 0.06s">
+              <p class="step-num">02</p>
+              <h3 class="h3" data-i18n="w2.t">Plan</h3>
+              <p
+                class="mt-3 text-[14.5px] leading-relaxed text-secondary"
+                data-i18n="w2.d"
+              >
+                Define the structure, the implementation approach, and what to
+                prioritize first.
+              </p>
+            </li>
+            <li class="step" data-reveal style="--d: 0.12s">
+              <p class="step-num">03</p>
+              <h3 class="h3" data-i18n="w3.t">Build</h3>
+              <p
+                class="mt-3 text-[14.5px] leading-relaxed text-secondary"
+                data-i18n="w3.d"
+              >
+                Develop responsive, reusable, and maintainable frontend
+                interfaces.
+              </p>
+            </li>
+            <li class="step" data-reveal style="--d: 0.18s">
+              <p class="step-num">04</p>
+              <h3 class="h3" data-i18n="w4.t">Refine</h3>
+              <p
+                class="mt-3 text-[14.5px] leading-relaxed text-secondary"
+                data-i18n="w4.d"
+              >
+                Test the experience, fix issues, and improve responsiveness and
+                usability.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       SECTION 6 — ABOUT PREVIEW
+       ============================================================ -->
+      <section id="about" class="section bg-basealt border-y border-line">
+        <div class="container-x">
+          <div
+            class="grid gap-12 lg:grid-cols-[minmax(0,420px)_1fr] lg:gap-20 lg:items-center"
+          >
+            <!-- Identity card (no fake photo) -->
+            <div data-reveal>
+              <div
+                class="rounded-[16px] border border-line bg-surface p-7 md:p-8"
+              >
+                <div class="flex items-center gap-4">
+                  <span
+                    class="flex h-14 w-14 items-center justify-center rounded-[12px] border border-linestrong bg-[var(--accent-surface)] font-mono text-[15px] font-medium text-accent"
+                    >OS</span
+                  >
+                  <div class="min-w-0">
+                    <p class="text-[15px] font-semibold text-ink">
+                      Ahmed Mostafa
+                    </p>
+                    <p
+                      class="mt-0.5 text-[13px] text-secondary"
+                      data-i18n="about.card.role"
+                    >
+                      Frontend Developer
+                    </p>
+                  </div>
+                </div>
+
+                <dl
+                  class="mt-7 divide-y divide-[var(--border)] border-t border-line"
+                >
+                  <div class="flex items-center justify-between gap-4 py-3.5">
+                    <dt
+                      class="text-[12px] uppercase tracking-[0.12em] text-muted"
+                      data-i18n="about.card.focusk"
+                    >
+                      Focus
+                    </dt>
+                    <dd class="text-[13.5px] font-medium text-ink">
+                      React &amp; Next.js
+                    </dd>
+                  </div>
+                  <div class="flex items-center justify-between gap-4 py-3.5">
+                    <dt
+                      class="text-[12px] uppercase tracking-[0.12em] text-muted"
+                      data-i18n="about.card.workk"
+                    >
+                      Working
+                    </dt>
+                    <dd
+                      class="text-[13.5px] font-medium text-ink"
+                      data-i18n="about.card.workv"
+                    >
+                      Remote
+                    </dd>
+                  </div>
+                  <div class="flex items-center justify-between gap-4 py-3.5">
+                    <dt
+                      class="text-[12px] uppercase tracking-[0.12em] text-muted"
+                      data-i18n="about.card.langk"
+                    >
+                      Languages
+                    </dt>
+                    <dd class="text-[13.5px] font-medium text-ink">EN · AR</dd>
+                  </div>
+                </dl>
+
+                <div
+                  class="mt-6 inline-flex items-center gap-2 rounded-md border border-line bg-elevated px-3 py-1.5 text-[11.5px] font-medium text-secondary"
+                >
+                  <span class="status-dot" aria-hidden="true"></span>
+                  <span data-i18n="about.card.open"
+                    >Open to freelance work</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Copy -->
+            <div data-reveal style="--d: 0.08s">
+              <span class="eyebrow" data-i18n="about.eyebrow">About</span>
+              <h2 class="h2 mt-4" data-i18n="about.title">
+                A frontend developer who cares about the details
+              </h2>
+
+              <div class="mt-6 space-y-4">
+                <p
+                  class="text-[15px] leading-relaxed text-secondary"
+                  data-i18n="about.p1"
+                >
+                  I'm a freelance frontend developer focused on building modern,
+                  responsive web interfaces with React and Next.js.
+                </p>
+                <p
+                  class="text-[15px] leading-relaxed text-secondary"
+                  data-i18n="about.p2"
+                >
+                  I care about clean structure, consistent design, and the small
+                  details that make an interface feel finished — on any screen
+                  size.
+                </p>
+                <p
+                  class="text-[15px] leading-relaxed text-secondary"
+                  data-i18n="about.p3"
+                >
+                  I keep improving by building real projects, reading code, and
+                  refining how I work.
+                </p>
+              </div>
+
+              <a href="#about" class="link-arrow mt-8">
+                <span data-i18n="about.link">More About Me</span>
+                <svg
+                  class="dir-flip"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       SECTION 7 — FAQ
+       ============================================================ -->
+      <section id="faq" class="section">
+        <div class="container-x">
+          <div class="grid gap-10 lg:grid-cols-[minmax(0,340px)_1fr] lg:gap-20">
+            <div class="self-start" data-reveal>
+              <span class="eyebrow" data-i18n="faq.eyebrow">FAQ</span>
+              <h2 class="h2 mt-4" data-i18n="faq.title">
+                Questions people usually ask
+              </h2>
+            </div>
+
+            <div class="border-t border-line" data-reveal style="--d: 0.06s">
+              <div class="faq-item">
+                <h3>
+                  <button
+                    type="button"
+                    class="faq-btn"
+                    id="faq-b1"
+                    aria-expanded="false"
+                    aria-controls="faq-p1"
+                  >
+                    <span data-i18n="faq.q1"
+                      >What types of websites can you build?</span
+                    >
+                    <svg
+                      class="faq-icon"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </button>
+                </h3>
+                <div
+                  class="faq-panel"
+                  id="faq-p1"
+                  role="region"
+                  aria-labelledby="faq-b1"
+                >
+                  <div>
+                    <p class="faq-answer" data-i18n="faq.a1">
+                      Landing pages, personal and small-business websites, and
+                      marketing sites for products and startups. I also build
+                      interactive interfaces with React and Next.js.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <h3>
+                  <button
+                    type="button"
+                    class="faq-btn"
+                    id="faq-b2"
+                    aria-expanded="false"
+                    aria-controls="faq-p2"
+                  >
+                    <span data-i18n="faq.q2"
+                      >Do you work with existing designs?</span
+                    >
+                    <svg
+                      class="faq-icon"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </button>
+                </h3>
+                <div
+                  class="faq-panel"
+                  id="faq-p2"
+                  role="region"
+                  aria-labelledby="faq-b2"
+                >
+                  <div>
+                    <p class="faq-answer" data-i18n="faq.a2">
+                      Yes. If you have a Figma design or a reference you like, I
+                      can turn it into a responsive, functional interface.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <h3>
+                  <button
+                    type="button"
+                    class="faq-btn"
+                    id="faq-b3"
+                    aria-expanded="false"
+                    aria-controls="faq-p3"
+                  >
+                    <span data-i18n="faq.q3"
+                      >Can you build Arabic and English websites?</span
+                    >
+                    <svg
+                      class="faq-icon"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </button>
+                </h3>
+                <div
+                  class="faq-panel"
+                  id="faq-p3"
+                  role="region"
+                  aria-labelledby="faq-b3"
+                >
+                  <div>
+                    <p class="faq-answer" data-i18n="faq.a3">
+                      Yes. I build bilingual interfaces with proper RTL layout,
+                      direction-aware spacing, and typography that fits each
+                      language.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <h3>
+                  <button
+                    type="button"
+                    class="faq-btn"
+                    id="faq-b4"
+                    aria-expanded="false"
+                    aria-controls="faq-p4"
+                  >
+                    <span data-i18n="faq.q4"
+                      >Can you work with an existing frontend project?</span
+                    >
+                    <svg
+                      class="faq-icon"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </button>
+                </h3>
+                <div
+                  class="faq-panel"
+                  id="faq-p4"
+                  role="region"
+                  aria-labelledby="faq-b4"
+                >
+                  <div>
+                    <p class="faq-answer" data-i18n="faq.a4">
+                      Yes. I can pick up an existing codebase to fix layout
+                      issues, improve consistency, or add new features — after
+                      reviewing the current structure first.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <h3>
+                  <button
+                    type="button"
+                    class="faq-btn"
+                    id="faq-b5"
+                    aria-expanded="false"
+                    aria-controls="faq-p5"
+                  >
+                    <span data-i18n="faq.q5"
+                      >How does a project usually get started?</span
+                    >
+                    <svg
+                      class="faq-icon"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </button>
+                </h3>
+                <div
+                  class="faq-panel"
+                  id="faq-p5"
+                  role="region"
+                  aria-labelledby="faq-b5"
+                >
+                  <div>
+                    <p class="faq-answer" data-i18n="faq.a5">
+                      It starts with a short conversation about what you're
+                      building, what already exists, and what the priority is.
+                      From there I outline an approach and we agree on scope
+                      before any work begins.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       SECTION 8 — FINAL CTA
+       ============================================================ -->
+      <section id="contact" class="pb-24 pt-8 md:pb-32 md:pt-12">
+        <div class="container-x">
+          <div
+            class="relative overflow-hidden rounded-[18px] border border-line bg-surface px-6 py-16 text-center md:px-16 md:py-24"
+            data-reveal
+          >
+            <span
+              class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-60"
+              aria-hidden="true"
+            ></span>
+
+            <h2 class="h2 mx-auto max-w-2xl" data-i18n="cta.title">
+              Have a project in mind?
+            </h2>
+            <p class="lead mx-auto mt-4 max-w-xl" data-i18n="cta.desc">
+              Let's discuss what you're building and how I can help bring the
+              frontend experience to life.
+            </p>
+
+            <div class="mt-9 flex justify-center">
+              <a href="#contact" class="btn btn-primary">
+                <span data-i18n="cta.btn">Start a Project</span>
+                <svg
+                  class="dir-flip"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================================
+     SECTION 9 — FOOTER
+     ============================================================ -->
+    <footer class="border-t border-line bg-basealt">
+      <div class="container-x py-14 md:py-16">
+        <div
+          class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-12"
+        >
+          <div>
+            <a href="index.html" class="inline-flex items-center gap-2.5">
+              <span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>
+              <span class="text-[15px] font-semibold tracking-tight"
+                >Ahmed Mostafa</span
+              >
+            </a>
+            <p
+              class="mt-4 max-w-xs text-[13.5px] leading-relaxed text-secondary"
+              data-i18n="footer.desc"
+            >
+              Freelance frontend developer building modern, responsive web
+              interfaces with React and Next.js.
+            </p>
+            <div class="mt-5 flex items-center gap-2">
+              <a href="#" class="icon-btn" aria-label="GitHub" rel="noopener">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="icon-btn" aria-label="LinkedIn" rel="noopener">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.7c0-1.36-.03-3.1-1.95-3.1-1.95 0-2.25 1.47-2.25 2.99V21h-4V9z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <nav aria-label="Footer navigation">
+            <p
+              class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted"
+              data-i18n="footer.nav"
+            >
+              Navigation
+            </p>
+            <ul class="mt-4 space-y-2.5">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="nav.home"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="projects.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="nav.projects"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="nav.about"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="nav.contact"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Footer services">
+            <p
+              class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted"
+              data-i18n="footer.services"
+            >
+              Services
+            </p>
+            <ul class="mt-4 space-y-2.5">
+              <li>
+                <a
+                  href="services.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="s1.title"
+                  >Website Development</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="s2.title"
+                  >Next.js &amp; Frontend Development</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="s3.title"
+                  >Frontend Improvements</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div>
+            <p
+              class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted"
+              data-i18n="footer.contact"
+            >
+              Contact
+            </p>
+            <ul class="mt-4 space-y-2.5">
+              <li>
+                <a
+                  href="mailto:hello@example.com"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  dir="ltr"
+                  >hello@example.com</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-[13.5px] text-secondary transition-colors hover:text-ink"
+                  data-i18n="nav.cta"
+                  >Let's Talk</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-[12.5px] text-muted sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p>
+            © <span id="year">2025</span> Ahmed Mostafa.
+            <span data-i18n="footer.rights">All rights reserved.</span>
+          </p>
+          <p data-i18n="footer.built">Built with care.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- ============================================================
+     SCRIPT
+     ============================================================ -->
+    <script>
+      (function () {
+        "use strict";
+
+        var root = document.documentElement;
+        var THEME_KEY = "portfolio-theme";
+        var LANG_KEY = "portfolio-lang";
+
+        /* ------------------------------------------------------------
+     CONTENT DICTIONARY
+     ------------------------------------------------------------ */
+        var I18N = {
+          en: {
+            "meta.title": "Ahmed Mostafa — Freelance Frontend Developer",
+            "meta.desc":
+              "Freelance frontend developer building modern, responsive web interfaces with React, Next.js, TypeScript and Tailwind CSS.",
+
+            "a11y.skip": "Skip to content",
+            "a11y.theme": "Toggle theme",
+            "a11y.menu": "Open menu",
+
+            "nav.home": "Home",
+            "nav.projects": "Projects",
+            "nav.services": "Services",
+            "nav.about": "About",
+            "nav.contact": "Contact",
+            "nav.cta": "Let's Talk",
+
+            "hero.eyebrow": "Freelance Frontend Developer",
+            "hero.status": "Available for new projects",
+            "hero.title.a": "I build modern web experiences that ",
+            "hero.title.b": "feel as good as they work.",
+            "hero.desc":
+              "I help startups, businesses, and product teams turn ideas and designs into responsive web interfaces using modern frontend technologies.",
+            "hero.cta1": "View My Work",
+            "hero.cta2": "Let's Talk",
+            "hero.meta1k": "Focus",
+            "hero.meta2k": "Approach",
+            "hero.meta2v": "Detail-driven",
+            "hero.meta3k": "Working",
+            "hero.meta3v": "Remote-friendly",
+
+            "projects.eyebrow": "Selected Work",
+            "projects.title": "A few things I've been building",
+            "projects.desc":
+              "Each project below focuses on structure, responsiveness, and a clean user experience.",
+            "projects.viewAll": "View All Projects",
+            "projects.caseStudy": "View Live Website",
+            "projects.note":
+              "Previews shown here are illustrative placeholders and will be replaced with real project screenshots.",
+
+            "p1.kicker": "E-commerce · Perfume Store",
+            "p1.name": "Evora Perfume",
+            "p1.desc":
+              "A modern online perfume store featuring an elegant product catalog, detailed fragrance pages, and a seamless shopping experience. Customers can explore fragrances, discover product details, and manage their shopping cart through a clean and responsive interface.",
+            "p2.kicker": "E-commerce · Fashion & Lifestyle",
+            "p2.name": "Graduated Styled & More",
+            "p2.desc":
+              "A modern online store for fashion and lifestyle products, offering a variety of clothing collections, school wear, casual outfits, and fragrances. The platform organizes products into accessible categories to create a convenient and user-friendly shopping experience.",
+            "p3.kicker": "E-commerce · Agricultural Technology",
+            "p3.name": "SOIL — Agricultural Store",
+            "p3.desc":
+              "A full-featured e-commerce platform dedicated to selling agricultural pesticides and crop protection products. SOIL provides a specialized digital storefront where customers can explore agricultural products, browse available solutions, and shop through a convenient online experience.",
+
+            "services.eyebrow": "Services",
+            "services.title": "What I can help you build",
+            "services.desc":
+              "Practical frontend work — from a single landing page to refining an existing interface.",
+            "services.viewAll": "View All Services",
+
+            "s1.title": "Website Development",
+            "s1.desc":
+              "Fast, responsive websites that present your product clearly and work well on every screen.",
+            "s1.i1": "Landing pages",
+            "s1.i2": "Personal and small-business websites",
+            "s1.i3": "Marketing sites for products and startups",
+
+            "s2.title": "Next.js & Frontend Development",
+            "s2.desc":
+              "Interactive interfaces built with React and Next.js, structured so they stay maintainable as they grow.",
+            "s2.i1": "Responsive web interfaces",
+            "s2.i2": "Interactive frontend features",
+            "s2.i3": "Reusable UI components",
+            "s2.i4": "API integration when required",
+
+            "s3.title": "Frontend Improvements",
+            "s3.desc":
+              "Targeted work on an existing site — fixing layout issues, tightening UI consistency, and implementing supplied designs.",
+            "s3.i1": "Responsive layout fixes",
+            "s3.i2": "UI consistency and refinement",
+            "s3.i3": "Converting designs into functional interfaces",
+            "s3.i4": "Improving existing frontend implementations",
+
+            "tech.eyebrow": "Tech Stack",
+            "tech.title": "The tools I work with",
+            "tech.desc":
+              "A focused set of technologies I use regularly — no ratings, no percentages, just the stack.",
+            "tech.g1": "Core Frontend",
+            "tech.g2": "Frameworks & Styling",
+            "tech.g3": "Tools & Libraries",
+
+            "process.eyebrow": "How I Work",
+            "process.title": "A simple, predictable process",
+            "process.desc":
+              "Scope changes from project to project, but the way I approach the work stays consistent.",
+            "w1.t": "Understand",
+            "w1.d":
+              "Clarify the project goals, requirements, and who the interface is actually for.",
+            "w2.t": "Plan",
+            "w2.d":
+              "Define the structure, the implementation approach, and what to prioritize first.",
+            "w3.t": "Build",
+            "w3.d":
+              "Develop responsive, reusable, and maintainable frontend interfaces.",
+            "w4.t": "Refine",
+            "w4.d":
+              "Test the experience, fix issues, and improve responsiveness and usability.",
+
+            "about.eyebrow": "About",
+            "about.title": "A frontend developer who cares about the details",
+            "about.p1":
+              "I'm a freelance frontend developer focused on building modern, responsive web interfaces with React and Next.js.",
+            "about.p2":
+              "I care about clean structure, consistent design, and the small details that make an interface feel finished — on any screen size.",
+            "about.p3":
+              "I keep improving by building real projects, reading code, and refining how I work.",
+            "about.link": "More About Me",
+            "about.card.role": "Frontend Developer",
+            "about.card.focusk": "Focus",
+            "about.card.workk": "Working",
+            "about.card.workv": "Remote",
+            "about.card.langk": "Languages",
+            "about.card.open": "Open to freelance work",
+
+            "faq.eyebrow": "FAQ",
+            "faq.title": "Questions people usually ask",
+            "faq.q1": "What types of websites can you build?",
+            "faq.a1":
+              "Landing pages, personal and small-business websites, and marketing sites for products and startups. I also build interactive interfaces with React and Next.js.",
+            "faq.q2": "Do you work with existing designs?",
+            "faq.a2":
+              "Yes. If you have a Figma design or a reference you like, I can turn it into a responsive, functional interface.",
+            "faq.q3": "Can you build Arabic and English websites?",
+            "faq.a3":
+              "Yes. I build bilingual interfaces with proper RTL layout, direction-aware spacing, and typography that fits each language.",
+            "faq.q4": "Can you work with an existing frontend project?",
+            "faq.a4":
+              "Yes. I can pick up an existing codebase to fix layout issues, improve consistency, or add new features — after reviewing the current structure first.",
+            "faq.q5": "How does a project usually get started?",
+            "faq.a5":
+              "It starts with a short conversation about what you're building, what already exists, and what the priority is. From there I outline an approach and we agree on scope before any work begins.",
+
+            "cta.title": "Have a project in mind?",
+            "cta.desc":
+              "Let's discuss what you're building and how I can help bring the frontend experience to life.",
+            "cta.btn": "Start a Project",
+
+            "footer.desc":
+              "Freelance frontend developer building modern, responsive web interfaces with React and Next.js.",
+            "footer.nav": "Navigation",
+            "footer.services": "Services",
+            "footer.contact": "Contact",
+            "footer.rights": "All rights reserved.",
+            "footer.built": "Built with care.",
+          },
+
+          ar: {
+            "meta.title": "عمر سالم — مطوّر واجهات أمامية مستقل",
+            "meta.desc":
+              "مطوّر واجهات أمامية مستقل يبني واجهات ويب حديثة ومتجاوبة باستخدام React و Next.js و TypeScript و Tailwind CSS.",
+
+            "a11y.skip": "تخطَّ إلى المحتوى",
+            "a11y.theme": "تبديل المظهر",
+            "a11y.menu": "فتح القائمة",
+
+            "nav.home": "الرئيسية",
+            "nav.projects": "المشاريع",
+            "nav.services": "الخدمات",
+            "nav.about": "نبذة عني",
+            "nav.contact": "تواصل",
+            "nav.cta": "لنتحدث",
+
+            "hero.eyebrow": "مطوّر واجهات أمامية مستقل",
+            "hero.status": "متاح لمشاريع جديدة",
+            "hero.title.a": "أصمّم وأبني تجارب ويب حديثة ",
+            "hero.title.b": "تجمع بين جمال الشكل وجودة الأداء.",
+            "hero.desc":
+              "أساعد الشركات الناشئة والفرق التقنية على تحويل الأفكار والتصاميم إلى واجهات ويب متجاوبة باستخدام تقنيات الواجهة الأمامية الحديثة.",
+            "hero.cta1": "شاهد أعمالي",
+            "hero.cta2": "لنتحدث",
+            "hero.meta1k": "التركيز",
+            "hero.meta2k": "الأسلوب",
+            "hero.meta2v": "اهتمام بالتفاصيل",
+            "hero.meta3k": "العمل",
+            "hero.meta3v": "عن بُعد",
+
+            "projects.eyebrow": "أعمال مختارة",
+            "projects.title": "نماذج ممّا أعمل عليه",
+            "projects.desc":
+              "كل مشروع هنا يركّز على البنية، والتجاوب، وتجربة استخدام واضحة.",
+            "projects.viewAll": "كل المشاريع",
+            "projects.caseStudy": "تفاصيل المشروع",
+            "projects.note":
+              "المعاينات المعروضة هنا توضيحية مؤقتة، وستُستبدل بصور حقيقية للمشاريع.",
+
+            "p1.kicker": "لوحة تحكم · تطبيق ويب",
+            "p1.name": "Aurora Analytics",
+            "p1.desc":
+              "لوحة تحليلات متجاوبة مبنية من مكوّنات رسوم مستقلة، مع إدارة لحالة الفلاتر ونظام ثيمات قائم على متغيّرات CSS.",
+            "p2.kicker": "متجر إلكتروني · ثنائي اللغة",
+            "p2.name": "Nova Storefront",
+            "p2.desc":
+              "واجهة متجر إلكتروني ثنائية اللغة مع صفحات منتجات، وإدارة سلة، وتوجيه مُعرّب، وتخطيطات تراعي الاتجاه من اليمين إلى اليسار.",
+            "p3.kicker": "حجوزات · RTL",
+            "p3.name": "Waqt Booking",
+            "p3.desc":
+              "واجهة حجز مواعيد تشمل تقويمًا واختيار فترات زمنية ونماذج سهلة الاستخدام بالعربية والإنجليزية.",
+
+            "services.eyebrow": "الخدمات",
+            "services.title": "كيف يمكنني مساعدتك",
+            "services.desc":
+              "عمل عملي على الواجهة الأمامية — من صفحة هبوط واحدة إلى تحسين واجهة قائمة.",
+            "services.viewAll": "كل الخدمات",
+
+            "s1.title": "تطوير المواقع",
+            "s1.desc":
+              "مواقع سريعة ومتجاوبة تعرض منتجك بوضوح وتعمل جيدًا على كل الشاشات.",
+            "s1.i1": "صفحات الهبوط",
+            "s1.i2": "مواقع شخصية وللشركات الصغيرة",
+            "s1.i3": "مواقع تسويقية للمنتجات والشركات الناشئة",
+
+            "s2.title": "تطوير الواجهات باستخدام Next.js",
+            "s2.desc":
+              "واجهات تفاعلية مبنية بـ React و Next.js، ومنظّمة بشكل يبقى قابلًا للصيانة مع نمو المشروع.",
+            "s2.i1": "واجهات ويب متجاوبة",
+            "s2.i2": "ميزات تفاعلية في الواجهة",
+            "s2.i3": "مكوّنات واجهة قابلة لإعادة الاستخدام",
+            "s2.i4": "الربط مع واجهات برمجة التطبيقات عند الحاجة",
+
+            "s3.title": "تحسين الواجهات الحالية",
+            "s3.desc":
+              "عمل موجّه على موقع قائم — إصلاح مشاكل التخطيط، وتوحيد شكل الواجهة، وتحويل تصميم جاهز إلى واجهة تعمل.",
+            "s3.i1": "إصلاح التخطيطات المتجاوبة",
+            "s3.i2": "توحيد الواجهة وتحسينها",
+            "s3.i3": "تحويل التصاميم إلى واجهات فعلية",
+            "s3.i4": "تطوير تنفيذات أمامية موجودة",
+
+            "tech.eyebrow": "التقنيات",
+            "tech.title": "الأدوات التي أعمل بها",
+            "tech.desc":
+              "مجموعة محدّدة من التقنيات أستخدمها بانتظام — بدون نسب أو تقييمات، فقط ما أعمل به فعلًا.",
+            "tech.g1": "أساسيات الواجهة",
+            "tech.g2": "الأطر والتنسيق",
+            "tech.g3": "أدوات ومكتبات",
+
+            "process.eyebrow": "طريقة العمل",
+            "process.title": "خطوات واضحة ومتوقعة",
+            "process.desc":
+              "يتغيّر نطاق كل مشروع، لكن طريقة تعاملي مع العمل تبقى ثابتة.",
+            "w1.t": "الفهم",
+            "w1.d": "توضيح أهداف المشروع ومتطلباته ومن هي الفئة المستهدفة.",
+            "w2.t": "التخطيط",
+            "w2.d": "تحديد البنية وأسلوب التنفيذ والأولويات.",
+            "w3.t": "التنفيذ",
+            "w3.d":
+              "بناء واجهات متجاوبة وقابلة لإعادة الاستخدام وسهلة الصيانة.",
+            "w4.t": "التحسين",
+            "w4.d":
+              "اختبار التجربة وإصلاح المشاكل وتحسين التجاوب وسهولة الاستخدام.",
+
+            "about.eyebrow": "نبذة",
+            "about.title": "مطوّر واجهات يهتم بالتفاصيل",
+            "about.p1":
+              "أنا مطوّر واجهات أمامية مستقل، أركّز على بناء واجهات ويب حديثة ومتجاوبة باستخدام React و Next.js.",
+            "about.p2":
+              "أهتم ببنية الكود، واتساق التصميم، والتفاصيل الصغيرة التي تجعل الواجهة تبدو مكتملة — على أي حجم شاشة.",
+            "about.p3":
+              "أطوّر نفسي عبر تنفيذ مشاريع حقيقية وقراءة الكود وإعادة تحسين طريقة عملي.",
+            "about.link": "المزيد عني",
+            "about.card.role": "مطوّر واجهات أمامية",
+            "about.card.focusk": "التركيز",
+            "about.card.workk": "العمل",
+            "about.card.workv": "عن بُعد",
+            "about.card.langk": "اللغات",
+            "about.card.open": "متاح للعمل الحر",
+
+            "faq.eyebrow": "أسئلة شائعة",
+            "faq.title": "أسئلة يطرحها العملاء عادة",
+            "faq.q1": "ما أنواع المواقع التي يمكنك بناؤها؟",
+            "faq.a1":
+              "صفحات الهبوط، والمواقع الشخصية وللشركات الصغيرة، والمواقع التسويقية للمنتجات والشركات الناشئة. كما أبني واجهات تفاعلية بـ React و Next.js.",
+            "faq.q2": "هل تعمل على تصاميم جاهزة؟",
+            "faq.a2":
+              "نعم. إذا كان لديك تصميم في Figma أو مرجع يعجبك، أستطيع تحويله إلى واجهة متجاوبة وقابلة للاستخدام.",
+            "faq.q3": "هل يمكنك بناء مواقع عربية وإنجليزية؟",
+            "faq.a3":
+              "نعم. أبني واجهات ثنائية اللغة بتخطيط RTL صحيح، ومسافات تراعي الاتجاه، وخطوط مناسبة لكل لغة.",
+            "faq.q4": "هل يمكنك العمل على مشروع واجهة أمامية قائم؟",
+            "faq.a4":
+              "نعم. أستطيع العمل على كود موجود لإصلاح مشاكل التخطيط أو تحسين الاتساق أو إضافة ميزات جديدة — بعد مراجعة البنية الحالية أولًا.",
+            "faq.q5": "كيف يبدأ المشروع عادة؟",
+            "faq.a5":
+              "يبدأ بمحادثة قصيرة عمّا تبنيه، وما هو موجود بالفعل، وما هي الأولوية. بعدها أطرح تصوّرًا للتنفيذ ونتفق على النطاق قبل بدء العمل.",
+
+            "cta.title": "لديك مشروع في ذهنك؟",
+            "cta.desc":
+              "لنتحدث عمّا تبنيه وكيف يمكنني المساعدة في إحياء تجربة الواجهة.",
+            "cta.btn": "ابدأ مشروعًا",
+
+            "footer.desc":
+              "مطوّر واجهات أمامية مستقل، أبني واجهات ويب حديثة ومتجاوبة باستخدام React و Next.js.",
+            "footer.nav": "التنقل",
+            "footer.services": "الخدمات",
+            "footer.contact": "تواصل",
+            "footer.rights": "جميع الحقوق محفوظة.",
+            "footer.built": "صُنع بعناية.",
+          },
+        };
+
+        /* ------------------------------------------------------------
+     THEME
+     ------------------------------------------------------------ */
+        function applyTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta)
+            meta.setAttribute(
+              "content",
+              theme === "light" ? "#FFFFFF" : "#0A0C10",
+            );
+          if (persist) {
+            try {
+              localStorage.setItem(THEME_KEY, theme);
+            } catch (e) {}
+          }
+        }
+
+        var themeToggle = document.getElementById("themeToggle");
+        if (themeToggle) {
+          themeToggle.addEventListener("click", function () {
+            var next =
+              root.getAttribute("data-theme") === "light" ? "dark" : "light";
+            applyTheme(next, true);
+          });
+        }
+
+        /* ------------------------------------------------------------
+     LANGUAGE
+     ------------------------------------------------------------ */
+        function applyLang(lang) {
+          var dict = I18N[lang] || I18N.en;
+          var isAr = lang === "ar";
+
+          root.setAttribute("lang", lang);
+          root.setAttribute("dir", isAr ? "rtl" : "ltr");
+
+          document.querySelectorAll("[data-i18n]").forEach(function (el) {
+            var key = el.getAttribute("data-i18n");
+            if (Object.prototype.hasOwnProperty.call(dict, key))
+              el.textContent = dict[key];
+          });
+
+          document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+            var key = el.getAttribute("data-i18n-html");
+            if (Object.prototype.hasOwnProperty.call(dict, key))
+              el.innerHTML = dict[key];
+          });
+
+          document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+            var key = el.getAttribute("data-i18n-aria");
+            if (Object.prototype.hasOwnProperty.call(dict, key))
+              el.setAttribute("aria-label", dict[key]);
+          });
+
+          if (dict["meta.title"]) document.title = dict["meta.title"];
+          var desc = document.querySelector('meta[name="description"]');
+          if (desc && dict["meta.desc"])
+            desc.setAttribute("content", dict["meta.desc"]);
+
+          document.querySelectorAll("[data-lang]").forEach(function (btn) {
+            var on = btn.getAttribute("data-lang") === lang;
+            btn.classList.toggle("is-on", on);
+            btn.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+
+          try {
+            localStorage.setItem(LANG_KEY, lang);
+          } catch (e) {}
+        }
+
+        document.querySelectorAll("[data-lang]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            applyLang(btn.getAttribute("data-lang"));
+          });
+        });
+
+        /* ------------------------------------------------------------
+     MOBILE NAVIGATION
+     ------------------------------------------------------------ */
+        var menuBtn = document.getElementById("menuBtn");
+        var mobileMenu = document.getElementById("mobileMenu");
+
+        function setMenu(open) {
+          if (!mobileMenu || !menuBtn) return;
+          mobileMenu.classList.toggle("open", open);
+          menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+        }
+
+        if (menuBtn && mobileMenu) {
+          menuBtn.addEventListener("click", function () {
+            setMenu(!mobileMenu.classList.contains("open"));
+          });
+
+          mobileMenu.querySelectorAll("a").forEach(function (a) {
+            a.addEventListener("click", function () {
+              setMenu(false);
+            });
+          });
+
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
+              setMenu(false);
+              menuBtn.focus();
+            }
+          });
+        }
+
+        /* ------------------------------------------------------------
+     NAVBAR SCROLL STATE + ACTIVE SECTION
+     ------------------------------------------------------------ */
+        var nav = document.getElementById("siteNav");
+
+        function onScroll() {
+          if (nav) nav.classList.toggle("is-scrolled", window.scrollY > 8);
+        }
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        var navLinks = {};
+        document
+          .querySelectorAll(".nav-link[data-section]")
+          .forEach(function (link) {
+            navLinks[link.getAttribute("data-section")] = link;
+          });
+
+        if ("IntersectionObserver" in window && Object.keys(navLinks).length) {
+          var sectionObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                var id = entry.target.id;
+                Object.keys(navLinks).forEach(function (key) {
+                  navLinks[key].classList.toggle("is-active", key === id);
+                });
+              });
+            },
+            { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+          );
+
+          Object.keys(navLinks).forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el) sectionObserver.observe(el);
+          });
+        }
+
+        /* ------------------------------------------------------------
+     FAQ ACCORDION
+     ------------------------------------------------------------ */
+        document.querySelectorAll(".faq-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var item = btn.closest(".faq-item");
+            if (!item) return;
+            var isOpen = item.classList.toggle("open");
+            btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          });
+        });
+
+        /* ------------------------------------------------------------
+     SCROLL REVEAL
+     ------------------------------------------------------------ */
+        var prefersReduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        var revealEls = document.querySelectorAll("[data-reveal]");
+
+        if (prefersReduced || !("IntersectionObserver" in window)) {
+          revealEls.forEach(function (el) {
+            el.classList.add("is-in");
+          });
+        } else {
+          var revealObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-in");
+                  revealObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { rootMargin: "0px 0px -6% 0px", threshold: 0.08 },
+          );
+
+          revealEls.forEach(function (el) {
+            revealObserver.observe(el);
+          });
+        }
+
+        /* ------------------------------------------------------------
+     MISC
+     ------------------------------------------------------------ */
+        var yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+        /* ------------------------------------------------------------
+     INITIALISE
+     ------------------------------------------------------------ */
+        var initialLang = "en";
+        try {
+          var stored = localStorage.getItem(LANG_KEY);
+          if (stored === "ar" || stored === "en") initialLang = stored;
+        } catch (e) {}
+
+        applyLang(initialLang);
+        applyTheme(root.getAttribute("data-theme") || "dark", false);
+
+        // Reveal the page once language + theme are applied (prevents content flash).
+        requestAnimationFrame(function () {
+          root.classList.remove("preload");
+        });
+      })();
+    </script>
+  </body>
+</html>

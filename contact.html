@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark" class="preload">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Contact — Ahmed Mostafa</title>
+<meta name="description" content="Get in touch with Ahmed Mostafa — freelance web developer. Discuss business websites, web applications, and e-commerce projects." />
+<meta name="theme-color" content="#0A0C10" />
+<meta name="color-scheme" content="dark light" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Contact — Ahmed Mostafa" />
+<meta property="og:description" content="Have a project in mind? Let's discuss business websites, web applications, and e-commerce stores." />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://example.com/contact" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<script>
+(function () {
+  var t;
+  try { t = localStorage.getItem('portfolio-theme'); } catch (e) {}
+  if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        base: 'var(--bg)',
+        basealt: 'var(--bg-alt)',
+        surface: 'var(--surface)',
+        elevated: 'var(--surface-elevated)',
+        hovered: 'var(--surface-hover)',
+        ink: 'var(--text)',
+        secondary: 'var(--text-2)',
+        muted: 'var(--text-muted)',
+        line: 'var(--border)',
+        linestrong: 'var(--border-strong)',
+        accent: 'var(--accent)',
+        linkc: 'var(--link)'
+      },
+      fontFamily: {
+        sans: ['var(--font-sans)'],
+        mono: ['var(--font-mono)']
+      },
+      maxWidth: { shell: '1240px' }
+    }
+  }
+};
+</script>
+
+<style>
+:root {
+  --bg: #0A0C10;
+  --bg-alt: #0D1016;
+  --surface: #11151C;
+  --surface-elevated: #191F29;
+  --surface-hover: #202735;
+
+  --text: #F4F6FA;
+  --text-2: #A0A9B8;
+  --text-muted: #7D8798;
+
+  --border: #252B36;
+  --border-strong: #394252;
+
+  --accent: #6585FF;
+  --btn: #4263E8;
+  --btn-hover: #3552D6;
+  --accent-hover: #829AFF;
+  --link: #8AA0FF;
+  --accent-surface: rgba(101, 133, 255, 0.10);
+
+  --error: #F87171;
+  --error-surface: rgba(248, 113, 113, 0.08);
+  --success: #4ADE80;
+  --success-surface: rgba(74, 222, 128, 0.08);
+
+  --ring: #6585FF;
+  --shadow-2: 0 18px 48px -22px rgba(0, 0, 0, .90);
+  --shadow-soft: 0 10px 40px -20px rgba(0, 0, 0, .6);
+
+  --font-sans: "IBM Plex Sans", "IBM Plex Sans Arabic", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #FFFFFF;
+  --bg-alt: #F7F9FC;
+  --surface: #FFFFFF;
+  --surface-elevated: #F7F9FC;
+  --surface-hover: #F0F4FA;
+
+  --text: #111827;
+  --text-2: #526075;
+  --text-muted: #69778B;
+
+  --border: #E2E8F0;
+  --border-strong: #CBD5E1;
+
+  --accent: #4263E8;
+  --btn: #4263E8;
+  --btn-hover: #3454D1;
+  --accent-hover: #3454D1;
+  --link: #3454D1;
+  --accent-surface: #EEF2FF;
+
+  --error: #DC2626;
+  --error-surface: #FEF2F2;
+  --success: #16A34A;
+  --success-surface: #F0FDF4;
+
+  --ring: #3454D1;
+  --shadow-2: 0 24px 60px -30px rgba(15, 23, 42, .28);
+  --shadow-soft: 0 16px 44px -26px rgba(15, 23, 42, .18);
+
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+html.preload body { opacity: 0; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color .25s ease, color .25s ease, opacity .18s linear;
+}
+
+html[lang="ar"] body { line-height: 1.85; }
+
+h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -.02em; }
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4 {
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+img, svg { display: block; max-width: 100%; }
+
+::selection { background: var(--accent); color: #fff; }
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  inset-inline-start: 16px;
+  top: -80px;
+  z-index: 200;
+  background: var(--btn);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: .875rem;
+  font-weight: 500;
+  transition: top .2s ease;
+}
+.skip-link:focus { top: 16px; }
+
+.container-x {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+@media (min-width: 640px) { .container-x { padding-inline: 28px; } }
+@media (min-width: 1024px) { .container-x { padding-inline: 40px; } }
+
+.display {
+  font-size: clamp(2.1rem, 5.4vw, 3.5rem);
+  line-height: 1.06;
+  letter-spacing: -.038em;
+  font-weight: 600;
+}
+html[lang="ar"] .display {
+  font-size: clamp(1.75rem, 4.8vw, 2.85rem);
+  line-height: 1.38;
+  letter-spacing: 0;
+}
+
+.h2 {
+  font-size: clamp(1.5rem, 2.9vw, 2.1rem);
+  line-height: 1.16;
+  letter-spacing: -.025em;
+  font-weight: 600;
+}
+html[lang="ar"] .h2 {
+  font-size: clamp(1.3rem, 2.7vw, 1.85rem);
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.h3 {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -.015em;
+}
+html[lang="ar"] .h3 { line-height: 1.55; }
+
+.lead {
+  color: var(--text-2);
+  font-size: clamp(1rem, 1.15vw, 1.075rem);
+  line-height: 1.75;
+}
+html[lang="ar"] .lead { line-height: 1.95; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.eyebrow::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: var(--border-strong);
+  flex: none;
+}
+html[lang="ar"] .eyebrow {
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: .8rem;
+  font-weight: 500;
+}
+
+.accent { color: var(--accent); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  height: 46px;
+  padding-inline: 1.15rem;
+  border-radius: 10px;
+  font-size: .9rem;
+  font-weight: 500;
+  line-height: 1;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: background-color .18s ease, border-color .18s ease,
+              color .18s ease, transform .18s ease;
+}
+.btn-primary {
+  background: var(--btn);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .10);
+}
+.btn-primary:hover { background: var(--btn-hover); transform: translateY(-1px); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--text-muted);
+  transform: translateY(-1px);
+}
+
+.btn-wa {
+  background: #25D366;
+  color: #062b13;
+  font-weight: 600;
+}
+.btn-wa:hover { background: #1ebe5a; transform: translateY(-1px); }
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--link);
+  font-size: .875rem;
+  font-weight: 500;
+  transition: color .18s ease, gap .18s ease;
+}
+.link-arrow:hover { color: var(--accent-hover); gap: .7rem; }
+.link-arrow svg { flex: none; }
+html[dir="rtl"] .dir-flip { transform: scaleX(-1); }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  background: transparent;
+  transition: background-color .16s ease, color .16s ease, border-color .16s ease;
+}
+.icon-btn:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.seg {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+.seg-btn {
+  height: 30px;
+  min-width: 36px;
+  padding-inline: 8px;
+  border-radius: 6px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--text-muted);
+  transition: background-color .16s ease, color .16s ease;
+}
+.seg-btn:hover { color: var(--text); }
+.seg-btn.is-on { background: var(--surface-hover); color: var(--text); }
+
+/* Navbar */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--bg);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+@supports (backdrop-filter: blur(1px)) {
+  .nav {
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(150%) blur(12px);
+  }
+}
+.nav.is-scrolled { border-bottom-color: var(--border); }
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--accent-surface);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  font-weight: 500;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding-inline: .75rem;
+  border-radius: 8px;
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--text-2);
+  transition: color .16s ease, background-color .16s ease;
+}
+.nav-link:hover { color: var(--text); background: var(--surface-hover); }
+.nav-link.is-active { color: var(--text); }
+.nav-link.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  margin-inline: auto;
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.mobile-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  border-top: 1px solid transparent;
+  transition: grid-template-rows .28s ease, border-color .28s ease;
+}
+.mobile-menu > div { overflow: hidden; min-height: 0; }
+.mobile-menu.open { grid-template-rows: 1fr; border-top-color: var(--border); }
+@media (min-width: 1024px) { .mobile-menu { display: none !important; } }
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding-inline: .5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-2);
+  transition: color .16s ease;
+}
+.mobile-link:last-of-type { border-bottom: 0; }
+.mobile-link:hover { color: var(--text); }
+
+[data-theme="dark"] .icon-to-light { display: block; }
+[data-theme="dark"] .icon-to-dark { display: none; }
+[data-theme="light"] .icon-to-light { display: none; }
+[data-theme="light"] .icon-to-dark { display: block; }
+
+/* Sections */
+.section { padding-block: 64px; }
+@media (min-width: 768px) { .section { padding-block: 88px; } }
+@media (min-width: 1280px) { .section { padding-block: 112px; } }
+
+.section-alt { background: var(--bg-alt); border-block: 1px solid var(--border); }
+
+.section-head { max-width: 660px; }
+
+/* Hero */
+.hero {
+  padding-block: 56px 56px;
+  scroll-margin-top: 96px;
+}
+@media (min-width: 768px) { .hero { padding-block: 80px 80px; } }
+@media (min-width: 1280px) { .hero { padding-block: 96px 96px; } }
+
+/* Contact methods */
+.methods-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .methods-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+}
+
+.method-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  transition: border-color .2s ease, background-color .2s ease;
+}
+.method-card:hover { border-color: var(--border-strong); }
+
+.method-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-elevated);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex: none;
+}
+.method-icon.wa { color: #25D366; }
+
+.method-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+.method-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-2);
+  flex: 1;
+}
+html[lang="ar"] .method-desc { line-height: 1.9; }
+
+.profiles-block {
+  margin-top: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.profiles-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .25rem;
+}
+.profiles-desc {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.profiles-links {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+/* Form */
+.form-shell {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  padding: 1.75rem;
+}
+@media (min-width: 768px) { .form-shell { padding: 2.25rem; } }
+@media (min-width: 1024px) { .form-shell { padding: 2.5rem; } }
+
+.form-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .form-grid { grid-template-columns: 1fr 1fr; }
+  .form-grid .full { grid-column: 1 / -1; }
+}
+
+.field { display: flex; flex-direction: column; }
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: .5rem;
+  letter-spacing: -.005em;
+}
+html[lang="ar"] .field-label { font-size: 14px; }
+.field-label .req { color: var(--accent); margin-inline-start: 2px; }
+
+.field-input,
+.field-select,
+.field-textarea {
+  width: 100%;
+  height: 44px;
+  padding-inline: .9rem;
+  border-radius: 9px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-elevated);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.4;
+  transition: border-color .16s ease, background-color .16s ease, box-shadow .16s ease;
+}
+.field-textarea {
+  height: auto;
+  min-height: 130px;
+  padding-block: .7rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+html[lang="ar"] .field-textarea { line-height: 1.9; }
+
+.field-input::placeholder,
+.field-textarea::placeholder { color: var(--text-muted); opacity: .85; }
+
+.field-input:hover,
+.field-select:hover,
+.field-textarea:hover { border-color: var(--text-muted); }
+
+.field-input:focus,
+.field-select:focus,
+.field-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-surface);
+}
+
+.field-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237D8798' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .85rem center;
+  padding-inline-end: 2.25rem;
+}
+html[dir="rtl"] .field-select {
+  background-position: left .85rem center;
+  padding-inline-end: .9rem;
+  padding-inline-start: 2.25rem;
+}
+
+.field-input[aria-invalid="true"],
+.field-select[aria-invalid="true"],
+.field-textarea[aria-invalid="true"] {
+  border-color: var(--error);
+  background: var(--error-surface);
+}
+.field-input[aria-invalid="true"]:focus,
+.field-select[aria-invalid="true"]:focus,
+.field-textarea[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, .15);
+}
+
+.field-error {
+  display: none;
+  margin-top: .45rem;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--error);
+}
+.field-error.is-visible { display: block; }
+
+.field-help {
+  margin-top: .45rem;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* Submit row */
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  padding-top: .5rem;
+}
+@media (min-width: 640px) {
+  .form-actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.form-note {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 36ch;
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  height: 48px;
+  padding-inline: 1.35rem;
+  border-radius: 10px;
+  font-size: .9rem;
+  font-weight: 500;
+  background: var(--btn);
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .10);
+  transition: background-color .18s ease, transform .18s ease, opacity .18s ease;
+}
+.submit-btn:hover:not(:disabled) { background: var(--btn-hover); transform: translateY(-1px); }
+.submit-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+.submit-btn .spinner {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, .35);
+  border-top-color: #fff;
+  animation: spin .7s linear infinite;
+  display: none;
+}
+.submit-btn.is-loading .spinner { display: inline-block; }
+.submit-btn.is-loading .submit-arrow { display: none; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Status banner */
+.status {
+  display: none;
+  margin-top: 1.25rem;
+  padding: 1rem 1.15rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.status.is-visible { display: block; }
+.status.success {
+  background: var(--success-surface);
+  border-color: color-mix(in srgb, var(--success) 35%, var(--border));
+  color: var(--text);
+}
+.status.error {
+  background: var(--error-surface);
+  border-color: color-mix(in srgb, var(--error) 35%, var(--border));
+  color: var(--text);
+}
+.status-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: .35rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.status-title svg { flex: none; }
+.status-body { color: var(--text-2); font-size: 13px; }
+.status-body a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Process steps */
+.steps-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .steps-grid { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+}
+
+.step {
+  position: relative;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.step::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  inset-inline-start: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--bg);
+}
+.section-alt .step::before { box-shadow: 0 0 0 4px var(--bg-alt); }
+
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.step-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: .55rem;
+}
+html[lang="ar"] .step-title { line-height: 1.6; }
+.step-desc {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--text-2);
+}
+html[lang="ar"] .step-desc { line-height: 1.9; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+
+.faq-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.15rem 0;
+  text-align: start;
+  font-size: .975rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: color .16s ease;
+}
+.faq-btn:hover { color: var(--accent); }
+
+.faq-icon {
+  flex: none;
+  color: var(--text-muted);
+  transition: transform .28s ease, color .16s ease;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); color: var(--accent); }
+
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .3s ease;
+}
+.faq-panel > div {
+  overflow: hidden;
+  min-height: 0;
+  visibility: hidden;
+  transition: visibility 0s linear .3s;
+}
+.faq-item.open .faq-panel { grid-template-rows: 1fr; }
+.faq-item.open .faq-panel > div { visibility: visible; transition-delay: 0s; }
+
+.faq-answer {
+  padding-bottom: 1.2rem;
+  padding-inline-end: 2rem;
+  color: var(--text-2);
+  font-size: .9rem;
+  line-height: 1.75;
+  max-width: 62ch;
+}
+html[lang="ar"] .faq-answer { line-height: 1.95; }
+
+/* Final CTA */
+.cta-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  text-align: center;
+  padding: 3.25rem 1.5rem;
+}
+@media (min-width: 768px) { .cta-card { padding: 5rem 4rem; } }
+.cta-card::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  opacity: .65;
+}
+
+/* Reveal */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .65s cubic-bezier(.22, .68, .3, 1),
+              transform .65s cubic-bezier(.22, .68, .3, 1);
+  transition-delay: var(--d, 0s);
+  will-change: opacity, transform;
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .btn-primary:hover, .btn-secondary:hover, .btn-wa:hover { transform: none; }
+}
+</style>
+<noscript><style>html.preload body { opacity: 1 !important; } [data-reveal] { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+
+<body class="bg-base text-ink antialiased">
+
+<a href="#main" class="skip-link" data-i18n="a11y.skip">Skip to content</a>
+
+<!-- NAVBAR -->
+<header id="siteNav" class="nav">
+  <div class="container-x">
+    <div class="flex h-16 items-center justify-between gap-3 md:h-[72px]">
+      <a href="index.html" class="flex items-center gap-2.5 shrink-0" aria-label="Ahmed Mostafa — Home">
+        <span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>
+        <span class="text-[15px] font-semibold tracking-tight">Ahmed Mostafa</span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">
+        <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+        <a href="projects.html" class="nav-link" data-i18n="nav.projects">Projects</a>
+        <a href="services.html" class="nav-link" data-i18n="nav.services">Services</a>
+        <a href="about.html" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <div class="seg" role="group" aria-label="Language / اللغة">
+          <button type="button" class="seg-btn is-on" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="seg-btn" data-lang="ar" aria-pressed="false" lang="ar">ع</button>
+        </div>
+
+        <button type="button" id="themeToggle" class="icon-btn"
+                data-i18n-aria="a11y.theme" aria-label="Toggle theme">
+          <svg class="icon-to-light" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-to-dark" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <a href="contact.html" class="btn btn-primary hidden sm:inline-flex" data-i18n="nav.cta">Let's Talk</a>
+
+        <button type="button" id="menuBtn" class="icon-btn lg:hidden"
+                aria-expanded="false" aria-controls="mobileMenu"
+                data-i18n-aria="a11y.menu" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <div>
+      <div class="container-x pb-5">
+        <nav class="flex flex-col" aria-label="Mobile">
+          <a href="index.html" class="mobile-link" data-i18n="nav.home">Home</a>
+          <a href="projects.html" class="mobile-link" data-i18n="nav.projects">Projects</a>
+          <a href="services.html" class="mobile-link" data-i18n="nav.services">Services</a>
+          <a href="about.html" class="mobile-link" data-i18n="nav.about">About</a>
+          <a href="contact.html" class="mobile-link" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <a href="contact.html" class="btn btn-primary w-full mt-4" data-i18n="nav.cta">Let's Talk</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- SECTION 1 — HERO -->
+  <section class="hero">
+    <div class="container-x">
+      <div class="max-w-[42rem]" data-reveal>
+        <span class="eyebrow" data-i18n="hero.eyebrow">Let's Talk</span>
+        <h1 class="display mt-5">
+          <span data-i18n="hero.title.a">Have a Project in Mind?</span>
+          <span class="accent" data-i18n="hero.title.b">Let's Make It Happen.</span>
+        </h1>
+        <p class="lead mt-6 max-w-[36rem]" data-i18n="hero.desc">
+          Have an idea for a website, web application, or e-commerce store? Tell me a little about what you're planning, and let's discuss how I can help bring it to life.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-3">
+          <a href="#contact-form" class="btn btn-primary">
+            <span data-i18n="hero.cta1">Start a Conversation</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </a>
+          <a href="projects.html" class="btn btn-secondary" data-i18n="hero.cta2">Explore My Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — CONTACT METHODS -->
+  <section class="section section-alt" aria-labelledby="methodsTitle">
+    <div class="container-x">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow" data-i18n="methods.eyebrow">Ways to Reach Me</span>
+        <h2 id="methodsTitle" class="h2 mt-4" data-i18n="methods.title">Get in touch directly.</h2>
+        <p class="lead mt-4" data-i18n="methods.desc">
+          Prefer direct contact? Reach out via WhatsApp for a quick conversation, or send an email with a detailed brief.
+        </p>
+      </div>
+
+      <div class="methods-grid mt-10">
+
+        <!-- WhatsApp -->
+        <article class="method-card" data-reveal>
+          <span class="method-icon wa" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.6 6.3A7.85 7.85 0 0 0 12 4a7.94 7.94 0 0 0-6.8 12.1L4 20l4-1.2A7.94 7.94 0 0 0 12 20a7.9 7.9 0 0 0 5.6-2.3A7.86 7.86 0 0 0 20 12a7.94 7.94 0 0 0-2.4-5.7zM12 18.6a6.65 6.65 0 0 1-3.4-.9l-.3-.2-2.4.7.7-2.3-.2-.3A6.65 6.65 0 1 1 12 18.6zm3.7-5a20 20 0 0 1-.9-.4.7.7 0 0 0-.9.2.7.7 0 0 1-1 .3 5.3 5.3 0 0 1-2.6-2.3.6.6 0 0 1 .1-.7c.1-.2.3-.4.4-.6.1-.1.2-.3.1-.5l-.4-1c-.1-.3-.2-.3-.4-.3h-.4a.8.8 0 0 0-.6.3 2.6 2.6 0 0 0-.8 1.9 4.4 4.4 0 0 0 1 2.4 10.7 10.7 0 0 0 4 3.4 4.4 4.4 0 0 0 2.8.5 2.4 2.4 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c-.1-.1-.2-.2-.4-.3z"/>
+            </svg>
+          </span>
+          <h3 class="method-title" data-i18n="wa.title">Chat on WhatsApp</h3>
+          <p class="method-desc" data-i18n="wa.desc">
+            Prefer a quick conversation? Reach out on WhatsApp to introduce your idea and discuss the next steps.
+          </p>
+          <div>
+            <a id="whatsappDirectLink" href="#" class="btn btn-wa" rel="noopener" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.3A7.85 7.85 0 0 0 12 4a7.94 7.94 0 0 0-6.8 12.1L4 20l4-1.2A7.94 7.94 0 0 0 12 20a7.9 7.9 0 0 0 5.6-2.3A7.86 7.86 0 0 0 20 12a7.94 7.94 0 0 0-2.4-5.7zM12 18.6a6.65 6.65 0 0 1-3.4-.9l-.3-.2-2.4.7.7-2.3-.2-.3A6.65 6.65 0 1 1 12 18.6z"/></svg>
+              <span data-i18n="wa.cta">Message Me on WhatsApp</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Email -->
+        <article class="method-card" data-reveal style="--d:.06s">
+          <span class="method-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M3 7l9 6 9-6"/>
+            </svg>
+          </span>
+          <h3 class="method-title" data-i18n="email.title">Email Me</h3>
+          <p class="method-desc" data-i18n="email.desc">
+            Have a project inquiry or a detailed brief? Send me an email and tell me what you're looking to build.
+          </p>
+          <div>
+            <!-- TODO: replace hello@example.com with the real email address -->
+            <a id="emailLink" href="mailto:hello@example.com?subject=Project%20Inquiry%20%E2%80%94%20Web%20Development" class="btn btn-secondary">
+              <span data-i18n="email.cta">Send an Email</span>
+              <svg class="dir-flip" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Profiles -->
+      <div class="profiles-block" data-reveal style="--d:.1s">
+        <div>
+          <p class="profiles-title" data-i18n="profiles.title">Find Me Online</p>
+          <p class="profiles-desc" data-i18n="profiles.desc">Explore my work and professional presence.</p>
+        </div>
+        <div class="profiles-links">
+          <!-- TODO: replace with real profile URLs -->
+          <a href="#" class="icon-btn" aria-label="GitHub" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+          </a>
+          <a href="#" class="icon-btn" aria-label="LinkedIn" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.7c0-1.36-.03-3.1-1.95-3.1-1.95 0-2.25 1.47-2.25 2.99V21h-4V9z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — CONTACT FORM -->
+  <section id="contact-form" class="section" style="scroll-margin-top: 96px;">
+    <div class="container-x">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow" data-i18n="form.eyebrow">Project Inquiry</span>
+        <h2 class="h2 mt-4" data-i18n="form.title">Tell Me About Your Project</h2>
+        <p class="lead mt-4" data-i18n="form.desc">
+          Share a few details about what you have in mind. The more I understand your goals, the easier it will be to discuss the right approach for your project.
+        </p>
+      </div>
+
+      <div class="mt-10 form-shell" data-reveal>
+        <form id="inquiryForm" novalidate>
+
+          <div class="form-grid">
+
+            <!-- Full Name -->
+            <div class="field">
+              <label for="f-name" class="field-label">
+                <span data-i18n="form.name.label">Full Name</span> <span class="req" aria-hidden="true">*</span>
+              </label>
+              <input id="f-name" name="name" type="text" class="field-input" required
+                     autocomplete="name" maxlength="100"
+                     data-i18n-placeholder="form.name.ph" placeholder="Your name"
+                     aria-describedby="f-name-error" />
+              <p class="field-error" id="f-name-error" role="alert"></p>
+            </div>
+
+            <!-- Email -->
+            <div class="field">
+              <label for="f-email" class="field-label">
+                <span data-i18n="form.email.label">Email Address</span> <span class="req" aria-hidden="true">*</span>
+              </label>
+              <input id="f-email" name="email" type="email" class="field-input" required
+                     autocomplete="email" maxlength="120" dir="ltr"
+                     data-i18n-placeholder="form.email.ph" placeholder="you@example.com"
+                     aria-describedby="f-email-error" />
+              <p class="field-error" id="f-email-error" role="alert"></p>
+            </div>
+
+            <!-- Company -->
+            <div class="field full">
+              <label for="f-company" class="field-label" data-i18n="form.company.label">Company or Business</label>
+              <input id="f-company" name="company" type="text" class="field-input"
+                     autocomplete="organization" maxlength="120"
+                     data-i18n-placeholder="form.company.ph" placeholder="Company or business name (optional)" />
+            </div>
+
+            <!-- Project Type -->
+            <div class="field">
+              <label for="f-type" class="field-label">
+                <span data-i18n="form.type.label">What Do You Need?</span> <span class="req" aria-hidden="true">*</span>
+              </label>
+              <select id="f-type" name="type" class="field-select" required
+                      aria-describedby="f-type-error">
+                <option value="" data-i18n="form.type.ph">Select a project type</option>
+                <option value="business-website" data-i18n="form.type.business">Business Website</option>
+                <option value="landing-page" data-i18n="form.type.landing">Landing Page</option>
+                <option value="web-app" data-i18n="form.type.app">Web Application</option>
+                <option value="ecommerce" data-i18n="form.type.ecommerce">E-commerce Website</option>
+                <option value="frontend" data-i18n="form.type.frontend">Frontend Development</option>
+                <option value="api" data-i18n="form.type.api">API Integration</option>
+                <option value="improvement" data-i18n="form.type.improvement">Website Improvement</option>
+                <option value="other" data-i18n="form.type.other">Other / Not Sure Yet</option>
+              </select>
+              <p class="field-error" id="f-type-error" role="alert"></p>
+            </div>
+
+            <!-- Budget -->
+            <div class="field">
+              <label for="f-budget" class="field-label" data-i18n="form.budget.label">Project Budget</label>
+              <select id="f-budget" name="budget" class="field-select">
+                <option value="" data-i18n="form.budget.ph">Select a preference</option>
+                <option value="have-budget" data-i18n="form.budget.have">I Have a Budget in Mind</option>
+                <option value="need-estimate" data-i18n="form.budget.need">I Need a Cost Estimate</option>
+                <option value="discuss-scope" data-i18n="form.budget.discuss">Let's Discuss the Scope First</option>
+              </select>
+            </div>
+
+            <!-- Timeline -->
+            <div class="field full">
+              <label for="f-timeline" class="field-label" data-i18n="form.timeline.label">Project Timeline</label>
+              <select id="f-timeline" name="timeline" class="field-select">
+                <option value="" data-i18n="form.timeline.ph">Select a timeline</option>
+                <option value="asap" data-i18n="form.timeline.asap">As Soon as Possible</option>
+                <option value="2-4-weeks" data-i18n="form.timeline.w24">Within 2–4 Weeks</option>
+                <option value="1-2-months" data-i18n="form.timeline.m12">Within 1–2 Months</option>
+                <option value="flexible" data-i18n="form.timeline.flexible">Flexible Timeline</option>
+                <option value="unsure" data-i18n="form.timeline.unsure">Not Sure Yet</option>
+              </select>
+            </div>
+
+            <!-- Details -->
+            <div class="field full">
+              <label for="f-details" class="field-label">
+                <span data-i18n="form.details.label">Project Details</span> <span class="req" aria-hidden="true">*</span>
+              </label>
+              <textarea id="f-details" name="details" class="field-textarea" required
+                        maxlength="2000"
+                        data-i18n-placeholder="form.details.ph"
+                        placeholder="Tell me about your idea, goals, and the features you have in mind..."
+                        aria-describedby="f-details-help f-details-error"></textarea>
+              <p class="field-help" id="f-details-help" data-i18n="form.details.help">
+                A short description is enough to get started. What do you want to build? Who is it for? Any specific features?
+              </p>
+              <p class="field-error" id="f-details-error" role="alert"></p>
+            </div>
+
+          </div>
+
+          <!-- Actions -->
+          <div class="form-actions mt-7">
+            <p class="form-note" data-i18n="form.note">
+              Your inquiry will be prepared as a WhatsApp message so you can send it directly from your device.
+            </p>
+            <button type="submit" id="submitBtn" class="submit-btn">
+              <span class="spinner" aria-hidden="true"></span>
+              <svg class="submit-arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.3A7.85 7.85 0 0 0 12 4a7.94 7.94 0 0 0-6.8 12.1L4 20l4-1.2A7.94 7.94 0 0 0 12 20a7.9 7.9 0 0 0 5.6-2.3A7.86 7.86 0 0 0 20 12a7.94 7.94 0 0 0-2.4-5.7z"/></svg>
+              <span data-i18n="form.submit">Send via WhatsApp</span>
+            </button>
+          </div>
+
+          <!-- Status -->
+          <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — WHAT HAPPENS NEXT -->
+  <section class="section section-alt" aria-labelledby="nextTitle">
+    <div class="container-x">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow" data-i18n="next.eyebrow">What Happens Next?</span>
+        <h2 id="nextTitle" class="h2 mt-4" data-i18n="next.title">From inquiry to next steps.</h2>
+        <p class="lead mt-4" data-i18n="next.desc">
+          Three simple steps — no rigid process, no fixed promises before we've talked.
+        </p>
+      </div>
+
+      <ol class="steps-grid mt-12">
+        <li class="step" data-reveal>
+          <span class="step-num">01</span>
+          <h3 class="step-title" data-i18n="next.s1.title">You Share Your Idea</h3>
+          <p class="step-desc" data-i18n="next.s1.desc">
+            Tell me what you're planning, what you want to achieve, and any requirements you already have. You don't need a complete technical brief to get started.
+          </p>
+        </li>
+        <li class="step" data-reveal style="--d:.06s">
+          <span class="step-num">02</span>
+          <h3 class="step-title" data-i18n="next.s2.title">We Discuss the Requirements</h3>
+          <p class="step-desc" data-i18n="next.s2.desc">
+            We'll discuss the project's scope, required functionality, and any important details to understand whether the project is a suitable fit.
+          </p>
+        </li>
+        <li class="step" data-reveal style="--d:.12s">
+          <span class="step-num">03</span>
+          <h3 class="step-title" data-i18n="next.s3.title">We Define the Next Steps</h3>
+          <p class="step-desc" data-i18n="next.s3.desc">
+            If the project is a good fit, we can discuss the proposed scope, estimated cost, timeline, and the next steps before development begins.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — FAQ -->
+  <section class="section" aria-labelledby="faqTitle">
+    <div class="container-x">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,340px)_1fr] lg:gap-20">
+        <div class="self-start" data-reveal>
+          <span class="eyebrow" data-i18n="faq.eyebrow">FAQ</span>
+          <h2 id="faqTitle" class="h2 mt-4" data-i18n="faq.title">Before you reach out</h2>
+          <p class="lead mt-4" data-i18n="faq.desc">Short answers to the questions that come up most often.</p>
+        </div>
+
+        <div data-reveal style="--d:.06s">
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-p1" id="faq-b1">
+                <span data-i18n="faq.q1">What should I include in my project inquiry?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-p1" role="region" aria-labelledby="faq-b1">
+              <div><p class="faq-answer" data-i18n="faq.a1">Start with a brief description of your idea, your main goals, and any features you already have in mind. If you have reference websites, designs, or additional requirements, you can share them during the conversation.</p></div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-p2" id="faq-b2">
+                <span data-i18n="faq.q2">Do I need to have everything planned before contacting you?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-p2" role="region" aria-labelledby="faq-b2">
+              <div><p class="faq-answer" data-i18n="faq.a2">Not necessarily. It's okay if your idea is still taking shape. We can discuss your goals and clarify the requirements before defining the project's scope.</p></div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-p3" id="faq-b3">
+                <span data-i18n="faq.q3">How is project pricing determined?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-p3" role="region" aria-labelledby="faq-b3">
+              <div><p class="faq-answer" data-i18n="faq.a3">Pricing depends on the project's scope, complexity, required functionality, and other specific requirements. Once the main details are clear, we can discuss an appropriate estimate.</p></div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-p4" id="faq-b4">
+                <span data-i18n="faq.q4">Can you work on an existing website?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-p4" role="region" aria-labelledby="faq-b4">
+              <div><p class="faq-answer" data-i18n="faq.a4">Depending on the website's current setup and the requested changes, I may be able to help with frontend improvements, responsive adjustments, API integration, or other suitable updates. Share the details so I can assess the scope.</p></div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-p5" id="faq-b5">
+                <span data-i18n="faq.q5">Can I contact you if my project is still an idea?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-p5" role="region" aria-labelledby="faq-b5">
+              <div><p class="faq-answer" data-i18n="faq.a5">Absolutely. You can share your initial idea, the problem you're trying to solve, or the type of website or application you're considering. We can discuss the requirements before deciding on the next steps.</p></div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-p6" id="faq-b6">
+                <span data-i18n="faq.q6">What if I'm not sure which service I need?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-p6" role="region" aria-labelledby="faq-b6">
+              <div><p class="faq-answer" data-i18n="faq.a6">That's fine. Describe what you're trying to achieve, and we can discuss the type of solution that may fit your requirements.</p></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — FINAL CTA -->
+  <section class="section pb-24 md:pb-32">
+    <div class="container-x">
+      <div class="cta-card" data-reveal>
+        <span class="eyebrow" data-i18n="cta.eyebrow">Ready to Start?</span>
+        <h2 class="h2 mt-4 mx-auto max-w-2xl" data-i18n="cta.title">Let's Talk About Your Idea.</h2>
+        <p class="lead mx-auto mt-4 max-w-xl" data-i18n="cta.desc">
+          You don't need every detail figured out. Start with what you have in mind, and we can discuss the possibilities together.
+        </p>
+        <div class="mt-9 flex flex-wrap justify-center gap-3">
+          <a href="#contact-form" class="btn btn-primary">
+            <span data-i18n="cta.btn1">Start a Conversation</span>
+            <svg class="dir-flip" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a id="whatsappCtaLink" href="#" class="btn btn-secondary" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.3A7.85 7.85 0 0 0 12 4a7.94 7.94 0 0 0-6.8 12.1L4 20l4-1.2A7.94 7.94 0 0 0 12 20a7.9 7.9 0 0 0 5.6-2.3A7.86 7.86 0 0 0 20 12a7.94 7.94 0 0 0-2.4-5.7z"/></svg>
+            <span data-i18n="cta.btn2">Message Me on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-line bg-basealt">
+  <div class="container-x py-14 md:py-16">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-12">
+
+      <div>
+        <a href="index.html" class="inline-flex items-center gap-2.5">
+          <span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>
+          <span class="text-[15px] font-semibold tracking-tight">Ahmed Mostafa</span>
+        </a>
+        <p class="mt-4 max-w-xs text-[13.5px] leading-relaxed text-secondary" data-i18n="footer.desc">
+          Freelance frontend developer building modern, responsive web interfaces with React and Next.js.
+        </p>
+        <div class="mt-5 flex items-center gap-2">
+          <a href="#" class="icon-btn" aria-label="GitHub" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+          </a>
+          <a href="#" class="icon-btn" aria-label="LinkedIn" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.7c0-1.36-.03-3.1-1.95-3.1-1.95 0-2.25 1.47-2.25 2.99V21h-4V9z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav aria-label="Footer navigation">
+        <p class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted" data-i18n="footer.nav">Navigation</p>
+        <ul class="mt-4 space-y-2.5">
+          <li><a href="index.html" class="text-[13.5px] text-secondary transition-colors hover:text-ink" data-i18n="nav.home">Home</a></li>
+          <li><a href="projects.html" class="text-[13.5px] text-secondary transition-colors hover:text-ink" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="about.html" class="text-[13.5px] text-secondary transition-colors hover:text-ink" data-i18n="nav.about">About</a></li>
+          <li><a href="contact.html" class="text-[13.5px] text-secondary transition-colors hover:text-ink" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Footer services">
+        <p class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted" data-i18n="footer.services">Services</p>
+        <ul class="mt-4 space-y-2.5">
+          <li><a href="services.html" class="text-[13.5px] text-secondary transition-colors hover:text-ink" data-i18n="s1.title">Website Development</a></li>
+          <li><a href="services.html" class="text-[13.5px] text-secondary transition-colors hover:text-ink" data-i18n="s2.title">Next.js &amp; Frontend Development</a></li>
+          <li><a href="services.html" class="text-[13.5px] text-secondary transition-colors hover:text-ink" data-i18n="s3.title">Frontend Improvements</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted" data-i18n="footer.contact">Contact</p>
+        <ul class="mt-4 space-y-2.5">
+          <li><a href="mailto:hello@example.com" class="text-[13.5px] text-secondary transition-colors hover:text-ink" dir="ltr">hello@example.com</a></li>
+          <li><a href="contact.html" class="text-[13.5px] text-secondary transition-colors hover:text-ink" data-i18n="nav.cta">Let's Talk</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-[12.5px] text-muted sm:flex-row sm:items-center sm:justify-between">
+      <p>© <span id="year">2025</span> Ahmed Mostafa. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <p data-i18n="footer.built">Built with care.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ============================================================
+     CONFIGURATION
+     ============================================================ */
+  var CONFIG = {
+    // WhatsApp number in international format, no +, no spaces.
+    // 01034662136 (Egypt) → 201034662136
+    whatsapp: '201034662136',
+    // TODO: replace hello@example.com with the real address before publishing
+    email: 'hello@example.com'
+  };
+
+  var root = document.documentElement;
+  var THEME_KEY = 'portfolio-theme';
+  var LANG_KEY = 'portfolio-lang';
+
+  /* ============================================================
+     I18N DICTIONARY
+     ============================================================ */
+  var I18N = {
+    en: {
+      'meta.title': 'Contact — Ahmed Mostafa',
+      'meta.desc': 'Get in touch with Ahmed Mostafa — freelance web developer. Discuss business websites, web applications, and e-commerce projects.',
+
+      'a11y.skip': 'Skip to content',
+      'a11y.theme': 'Toggle theme',
+      'a11y.menu': 'Open menu',
+
+      'nav.home': 'Home',
+      'nav.projects': 'Projects',
+      'nav.services': 'Services',
+      'nav.about': 'About',
+      'nav.contact': 'Contact',
+      'nav.cta': "Let's Talk",
+
+      'hero.eyebrow': "Let's Talk",
+      'hero.title.a': 'Have a Project in Mind? ',
+      'hero.title.b': "Let's Make It Happen.",
+      'hero.desc': "Have an idea for a website, web application, or e-commerce store? Tell me a little about what you're planning, and let's discuss how I can help bring it to life.",
+      'hero.cta1': 'Start a Conversation',
+      'hero.cta2': 'Explore My Work',
+
+      'methods.eyebrow': 'Ways to Reach Me',
+      'methods.title': 'Get in touch directly.',
+      'methods.desc': 'Prefer direct contact? Reach out via WhatsApp for a quick conversation, or send an email with a detailed brief.',
+
+      'wa.title': 'Chat on WhatsApp',
+      'wa.desc': 'Prefer a quick conversation? Reach out on WhatsApp to introduce your idea and discuss the next steps.',
+      'wa.cta': 'Message Me on WhatsApp',
+      'wa.starter': "Hi, I'd like to discuss a web development project with you.",
+
+      'email.title': 'Email Me',
+      'email.desc': "Have a project inquiry or a detailed brief? Send me an email and tell me what you're looking to build.",
+      'email.cta': 'Send an Email',
+      'email.subject': 'Project Inquiry — Web Development',
+
+      'profiles.title': 'Find Me Online',
+      'profiles.desc': 'Explore my work and professional presence.',
+
+      'form.eyebrow': 'Project Inquiry',
+      'form.title': 'Tell Me About Your Project',
+      'form.desc': "Share a few details about what you have in mind. The more I understand your goals, the easier it will be to discuss the right approach for your project.",
+      'form.name.label': 'Full Name',
+      'form.name.ph': 'Your name',
+      'form.email.label': 'Email Address',
+      'form.email.ph': 'you@example.com',
+      'form.company.label': 'Company or Business',
+      'form.company.ph': 'Company or business name (optional)',
+      'form.type.label': 'What Do You Need?',
+      'form.type.ph': 'Select a project type',
+      'form.type.business': 'Business Website',
+      'form.type.landing': 'Landing Page',
+      'form.type.app': 'Web Application',
+      'form.type.ecommerce': 'E-commerce Website',
+      'form.type.frontend': 'Frontend Development',
+      'form.type.api': 'API Integration',
+      'form.type.improvement': 'Website Improvement',
+      'form.type.other': 'Other / Not Sure Yet',
+      'form.budget.label': 'Project Budget',
+      'form.budget.ph': 'Select a preference',
+      'form.budget.have': 'I Have a Budget in Mind',
+      'form.budget.need': 'I Need a Cost Estimate',
+      'form.budget.discuss': "Let's Discuss the Scope First",
+      'form.timeline.label': 'Project Timeline',
+      'form.timeline.ph': 'Select a timeline',
+      'form.timeline.asap': 'As Soon as Possible',
+      'form.timeline.w24': 'Within 2–4 Weeks',
+      'form.timeline.m12': 'Within 1–2 Months',
+      'form.timeline.flexible': 'Flexible Timeline',
+      'form.timeline.unsure': 'Not Sure Yet',
+      'form.details.label': 'Project Details',
+      'form.details.ph': 'Tell me about your idea, goals, and the features you have in mind...',
+      'form.details.help': 'A short description is enough to get started. What do you want to build? Who is it for? Any specific features?',
+      'form.note': 'Your inquiry will be prepared as a WhatsApp message so you can send it directly from your device.',
+      'form.submit': 'Send via WhatsApp',
+      'form.submitting': 'Preparing your message...',
+      'form.err.name': 'Please enter your full name.',
+      'form.err.email.empty': 'Please enter your email address.',
+      'form.err.email.invalid': 'Please enter a valid email address.',
+      'form.err.type': 'Please select a project type.',
+      'form.err.details': 'Please tell me a bit about your project.',
+      'form.success.title': 'Your message is ready',
+      'form.success.body': "WhatsApp is opening with your inquiry prepared. Tap 'Send' in WhatsApp to complete the conversation. If it didn't open, ",
+      'form.success.link': 'open it manually here',
+      'form.success.fallback': 'WhatsApp could not open automatically. Use the button below to continue.',
+      'form.success.cta': 'Open WhatsApp',
+
+      'next.eyebrow': 'What Happens Next?',
+      'next.title': 'From inquiry to next steps.',
+      'next.desc': "Three simple steps — no rigid process, no fixed promises before we've talked.",
+      'next.s1.title': 'You Share Your Idea',
+      'next.s1.desc': "Tell me what you're planning, what you want to achieve, and any requirements you already have. You don't need a complete technical brief to get started.",
+      'next.s2.title': 'We Discuss the Requirements',
+      'next.s2.desc': "We'll discuss the project's scope, required functionality, and any important details to understand whether the project is a suitable fit.",
+      'next.s3.title': 'We Define the Next Steps',
+      'next.s3.desc': 'If the project is a good fit, we can discuss the proposed scope, estimated cost, timeline, and the next steps before development begins.',
+
+      'faq.eyebrow': 'FAQ',
+      'faq.title': 'Before you reach out',
+      'faq.desc': 'Short answers to the questions that come up most often.',
+      'faq.q1': 'What should I include in my project inquiry?',
+      'faq.a1': 'Start with a brief description of your idea, your main goals, and any features you already have in mind. If you have reference websites, designs, or additional requirements, you can share them during the conversation.',
+      'faq.q2': 'Do I need to have everything planned before contacting you?',
+      'faq.a2': "Not necessarily. It's okay if your idea is still taking shape. We can discuss your goals and clarify the requirements before defining the project's scope.",
+      'faq.q3': 'How is project pricing determined?',
+      'faq.a3': "Pricing depends on the project's scope, complexity, required functionality, and other specific requirements. Once the main details are clear, we can discuss an appropriate estimate.",
+      'faq.q4': 'Can you work on an existing website?',
+      'faq.a4': "Depending on the website's current setup and the requested changes, I may be able to help with frontend improvements, responsive adjustments, API integration, or other suitable updates. Share the details so I can assess the scope.",
+      'faq.q5': 'Can I contact you if my project is still an idea?',
+      'faq.a5': "Absolutely. You can share your initial idea, the problem you're trying to solve, or the type of website or application you're considering. We can discuss the requirements before deciding on the next steps.",
+      'faq.q6': "What if I'm not sure which service I need?",
+      'faq.a6': "That's fine. Describe what you're trying to achieve, and we can discuss the type of solution that may fit your requirements.",
+
+      'cta.eyebrow': 'Ready to Start?',
+      'cta.title': "Let's Talk About Your Idea.",
+      'cta.desc': "You don't need every detail figured out. Start with what you have in mind, and we can discuss the possibilities together.",
+      'cta.btn1': 'Start a Conversation',
+      'cta.btn2': 'Message Me on WhatsApp',
+
+      's1.title': 'Website Development',
+      's2.title': 'Web Application Development',
+      's3.title': 'E-commerce Development',
+
+      'footer.desc': 'Freelance web developer building modern, responsive web interfaces and products with React and Next.js.',
+      'footer.nav': 'Navigation',
+      'footer.services': 'Services',
+      'footer.contact': 'Contact',
+      'footer.rights': 'All rights reserved.',
+      'footer.built': 'Built with care.'
+    },
+
+    ar: {
+      'meta.title': 'تواصل — عمر سالم',
+      'meta.desc': 'تواصل مع عمر سالم — مطوّر ويب مستقل. ناقش مواقع الأعمال وتطبيقات الويب ومشاريع التجارة الإلكترونية.',
+
+      'a11y.skip': 'تخطَّ إلى المحتوى',
+      'a11y.theme': 'تبديل المظهر',
+      'a11y.menu': 'فتح القائمة',
+
+      'nav.home': 'الرئيسية',
+      'nav.projects': 'المشاريع',
+      'nav.services': 'الخدمات',
+      'nav.about': 'نبذة عني',
+      'nav.contact': 'تواصل',
+      'nav.cta': 'لنتحدث',
+
+      'hero.eyebrow': 'لنتحدث',
+      'hero.title.a': 'لديك مشروع في ذهنك؟ ',
+      'hero.title.b': 'لنجعله واقعًا.',
+      'hero.desc': 'لديك فكرة لموقع أو تطبيق ويب أو متجر إلكتروني؟ أخبرني قليلًا عن خططك، ولنناقش كيف يمكنني المساعدة في تحويلها إلى واقع.',
+      'hero.cta1': 'ابدأ المحادثة',
+      'hero.cta2': 'استكشف أعمالي',
+
+      'methods.eyebrow': 'طرق التواصل',
+      'methods.title': 'تواصل معي مباشرة.',
+      'methods.desc': 'تفضّل التواصل المباشر؟ تواصل عبر واتساب لمحادثة سريعة، أو أرسل بريدًا إلكترونيًا مع موجز مفصّل.',
+
+      'wa.title': 'محادثة على واتساب',
+      'wa.desc': 'تفضّل محادثة سريعة؟ تواصل عبر واتساب لتقديم فكرتك ومناقشة الخطوات التالية.',
+      'wa.cta': 'راسلني على واتساب',
+      'wa.starter': 'مرحبًا، أرغب في مناقشة مشروع تطوير ويب معك.',
+
+      'email.title': 'أرسل بريدًا',
+      'email.desc': 'لديك استفسار عن مشروع أو موجز مفصّل؟ أرسل لي بريدًا إلكترونيًا وأخبرني بما ترغب في بنائه.',
+      'email.cta': 'أرسل بريدًا',
+      'email.subject': 'استفسار عن مشروع — تطوير ويب',
+
+      'profiles.title': 'تجدني أيضًا على',
+      'profiles.desc': 'استكشف أعمالي وحضوري المهني.',
+
+      'form.eyebrow': 'استفسار مشروع',
+      'form.title': 'أخبرني عن مشروعك',
+      'form.desc': 'شارك بعض التفاصيل عمّا يدور في ذهنك. كلما فهمت أهدافك أكثر، كان من الأسهل مناقشة النهج المناسب لمشروعك.',
+      'form.name.label': 'الاسم الكامل',
+      'form.name.ph': 'اسمك',
+      'form.email.label': 'البريد الإلكتروني',
+      'form.email.ph': 'you@example.com',
+      'form.company.label': 'الشركة أو النشاط',
+      'form.company.ph': 'اسم الشركة أو النشاط (اختياري)',
+      'form.type.label': 'ما الذي تحتاجه؟',
+      'form.type.ph': 'اختر نوع المشروع',
+      'form.type.business': 'موقع أعمال',
+      'form.type.landing': 'صفحة هبوط',
+      'form.type.app': 'تطبيق ويب',
+      'form.type.ecommerce': 'متجر إلكتروني',
+      'form.type.frontend': 'تطوير واجهة أمامية',
+      'form.type.api': 'ربط APIs',
+      'form.type.improvement': 'تحسين موقع',
+      'form.type.other': 'أخرى / لست متأكدًا بعد',
+      'form.budget.label': 'ميزانية المشروع',
+      'form.budget.ph': 'اختر تفضيلًا',
+      'form.budget.have': 'لدي ميزانية محددة',
+      'form.budget.need': 'أحتاج إلى تقدير تكلفة',
+      'form.budget.discuss': 'لنناقش النطاق أولًا',
+      'form.timeline.label': 'الإطار الزمني',
+      'form.timeline.ph': 'اختر إطارًا زمنيًا',
+      'form.timeline.asap': 'في أقرب وقت ممكن',
+      'form.timeline.w24': 'خلال 2–4 أسابيع',
+      'form.timeline.m12': 'خلال 1–2 شهر',
+      'form.timeline.flexible': 'إطار زمني مرن',
+      'form.timeline.unsure': 'لست متأكدًا بعد',
+      'form.details.label': 'تفاصيل المشروع',
+      'form.details.ph': 'أخبرني عن فكرتك وأهدافك والميزات التي تفكر فيها...',
+      'form.details.help': 'وصف قصير يكفي للبدء. ماذا تريد أن تبني؟ لمن؟ هل هناك ميزات محددة؟',
+      'form.note': 'سيتم تجهيز استفسارك كرسالة واتساب لتتمكن من إرسالها مباشرة من جهازك.',
+      'form.submit': 'إرسال عبر واتساب',
+      'form.submitting': 'جارٍ تجهيز رسالتك...',
+      'form.err.name': 'يرجى إدخال اسمك الكامل.',
+      'form.err.email.empty': 'يرجى إدخال بريدك الإلكتروني.',
+      'form.err.email.invalid': 'يرجى إدخال بريد إلكتروني صالح.',
+      'form.err.type': 'يرجى اختيار نوع المشروع.',
+      'form.err.details': 'يرجى كتابة نبذة قصيرة عن مشروعك.',
+      'form.success.title': 'رسالتك جاهزة',
+      'form.success.body': "يُفتح واتساب الآن مع استفسارك مجهّزًا. اضغط 'إرسال' داخل واتساب لإكمال المحادثة. إذا لم يُفتح، ",
+      'form.success.link': 'افتحه يدويًا من هنا',
+      'form.success.fallback': 'تعذّر فتح واتساب تلقائيًا. استخدم الزر أدناه للمتابعة.',
+      'form.success.cta': 'افتح واتساب',
+
+      'next.eyebrow': 'ماذا يحدث بعد ذلك؟',
+      'next.title': 'من الاستفسار إلى الخطوات التالية.',
+      'next.desc': 'ثلاث خطوات بسيطة — بدون عملية صارمة، وبدون وعود ثابتة قبل أن نتحدث.',
+      'next.s1.title': 'تشارك فكرتك',
+      'next.s1.desc': 'أخبرني بما تخطط له وما تريد تحقيقه وأي متطلبات لديك بالفعل. لست بحاجة إلى موجز تقني كامل للبدء.',
+      'next.s2.title': 'نناقش المتطلبات',
+      'next.s2.desc': 'نناقش نطاق المشروع والوظائف المطلوبة وأي تفاصيل مهمة لفهم ما إذا كان المشروع مناسبًا.',
+      'next.s3.title': 'نحدد الخطوات التالية',
+      'next.s3.desc': 'إذا كان المشروع مناسبًا، يمكننا مناقشة النطاق المقترح والتكلفة التقديرية والإطار الزمني والخطوات التالية قبل بدء التطوير.',
+
+      'faq.eyebrow': 'أسئلة شائعة',
+      'faq.title': 'قبل أن تتواصل',
+      'faq.desc': 'إجابات قصيرة عن الأسئلة الأكثر تكرارًا.',
+      'faq.q1': 'ما الذي ينبغي أن أدرجه في استفساري عن المشروع؟',
+      'faq.a1': 'ابدأ بوصف قصير لفكرتك وأهدافك الرئيسية وأي ميزات لديك في ذهنك. إذا كان لديك مواقع مرجعية أو تصاميم أو متطلبات إضافية، يمكنك مشاركتها أثناء المحادثة.',
+      'faq.q2': 'هل يجب أن يكون كل شيء مخططًا قبل التواصل معك؟',
+      'faq.a2': 'ليس بالضرورة. لا مشكلة إن كانت فكرتك لا تزال تتشكل. يمكننا مناقشة أهدافك وتوضيح المتطلبات قبل تحديد نطاق المشروع.',
+      'faq.q3': 'كيف تُحدد تكلفة المشروع؟',
+      'faq.a3': 'تعتمد التكلفة على نطاق المشروع وتعقيده والوظائف المطلوبة وأي متطلبات خاصة أخرى. بمجرد وضوح التفاصيل الرئيسية، يمكننا مناقشة تقدير مناسب.',
+      'faq.q4': 'هل يمكنك العمل على موقع قائم؟',
+      'faq.a4': 'بحسب إعداد الموقع الحالي والتغييرات المطلوبة، قد أتمكن من المساعدة في تحسينات الواجهة الأمامية أو التعديلات المتجاوبة أو ربط APIs أو غيرها من التحديثات المناسبة. شارك التفاصيل لأتمكن من تقييم النطاق.',
+      'faq.q5': 'هل يمكنني التواصل إن كان مشروعي مجرد فكرة؟',
+      'faq.a5': 'بالتأكيد. يمكنك مشاركة فكرتك الأولية أو المشكلة التي تحاول حلها أو نوع الموقع أو التطبيق الذي تفكر فيه. يمكننا مناقشة المتطلبات قبل اتخاذ قرار بشأن الخطوات التالية.',
+      'faq.q6': 'ماذا لو لم أكن متأكدًا من الخدمة التي أحتاجها؟',
+      'faq.a6': 'لا مشكلة. صِف ما تحاول تحقيقه، ويمكننا مناقشة نوع الحل الذي قد يناسب متطلباتك.',
+
+      'cta.eyebrow': 'جاهز للبدء؟',
+      'cta.title': 'لنتحدث عن فكرتك.',
+      'cta.desc': 'لست بحاجة إلى كل التفاصيل جاهزة. ابدأ بما يدور في ذهنك، ويمكننا مناقشة الاحتمالات معًا.',
+      'cta.btn1': 'ابدأ المحادثة',
+      'cta.btn2': 'راسلني على واتساب',
+
+      's1.title': 'تطوير المواقع',
+      's2.title': 'تطوير تطبيقات الويب',
+      's3.title': 'تطوير التجارة الإلكترونية',
+
+      'footer.desc': 'مطوّر ويب مستقل، أبني واجهات ومنتجات ويب حديثة ومتجاوبة باستخدام React و Next.js.',
+      'footer.nav': 'التنقل',
+      'footer.services': 'الخدمات',
+      'footer.contact': 'تواصل',
+      'footer.rights': 'جميع الحقوق محفوظة.',
+      'footer.built': 'صُنع بعناية.'
+    }
+  };
+
+  /* ============================================================
+     STATE
+     ============================================================ */
+  var state = { lang: 'en' };
+
+  function dict() { return I18N[state.lang] || I18N.en; }
+
+  /* ============================================================
+     HELPERS
+     ============================================================ */
+  function $(id) { return document.getElementById(id); }
+
+  function buildWhatsAppUrl(number, text) {
+    return 'https://wa.me/' + number + '?text=' + encodeURIComponent(text);
+  }
+
+  function updateStaticLinks() {
+    var d = dict();
+
+    // Direct WhatsApp link (Contact Methods)
+    var waLink = $('whatsappDirectLink');
+    if (waLink) {
+      waLink.href = buildWhatsAppUrl(CONFIG.whatsapp, d['wa.starter']);
+    }
+
+    // WhatsApp CTA at the bottom
+    var waCta = $('whatsappCtaLink');
+    if (waCta) {
+      waCta.href = buildWhatsAppUrl(CONFIG.whatsapp, d['wa.starter']);
+    }
+
+    // Email link
+    var emailLink = $('emailLink');
+    if (emailLink) {
+      emailLink.href = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent(d['email.subject']);
+    }
+  }
+
+  /* ============================================================
+     THEME
+     ============================================================ */
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'light' ? '#FFFFFF' : '#0A0C10');
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+  }
+
+  var themeToggle = $('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      applyTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+  }
+
+  /* ============================================================
+     LANGUAGE
+     ============================================================ */
+  function applyLang(lang) {
+    state.lang = (lang === 'ar') ? 'ar' : 'en';
+    var d = dict();
+
+    root.setAttribute('lang', state.lang);
+    root.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
+
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (Object.prototype.hasOwnProperty.call(d, key)) el.textContent = d[key];
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (Object.prototype.hasOwnProperty.call(d, key)) el.setAttribute('placeholder', d[key]);
+    });
+
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-aria');
+      if (Object.prototype.hasOwnProperty.call(d, key)) el.setAttribute('aria-label', d[key]);
+    });
+
+    if (d['meta.title']) document.title = d['meta.title'];
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc && d['meta.desc']) desc.setAttribute('content', d['meta.desc']);
+
+    document.querySelectorAll('[data-lang]').forEach(function (btn) {
+      var on = btn.getAttribute('data-lang') === state.lang;
+      btn.classList.toggle('is-on', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+
+    try { localStorage.setItem(LANG_KEY, state.lang); } catch (e) {}
+
+    // Rebuild dynamic links with the new starter message / subject
+    updateStaticLinks();
+
+    // Re-render status banner if visible, so it reflects the current language
+    if (statusEl && statusEl.classList.contains('is-visible')) {
+      var lastState = statusEl.getAttribute('data-state');
+      if (lastState === 'success') showSuccessBanner(lastBuiltUrl);
+      else if (lastState === 'fallback') showFallbackBanner(lastBuiltUrl);
+    }
+  }
+
+  document.querySelectorAll('[data-lang]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      applyLang(btn.getAttribute('data-lang'));
+    });
+  });
+
+  /* ============================================================
+     MOBILE NAV
+     ============================================================ */
+  var menuBtn = $('menuBtn');
+  var mobileMenu = $('mobileMenu');
+  function setMenu(open) {
+    if (!mobileMenu || !menuBtn) return;
+    mobileMenu.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', function () {
+      setMenu(!mobileMenu.classList.contains('open'));
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        setMenu(false);
+        menuBtn.focus();
+      }
+    });
+  }
+
+  /* ============================================================
+     NAVBAR SCROLL STATE
+     ============================================================ */
+  var nav = $('siteNav');
+  function onScroll() {
+    if (nav) nav.classList.toggle('is-scrolled', window.scrollY > 8);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ============================================================
+     FAQ ACCORDION
+     ============================================================ */
+  document.querySelectorAll('.faq-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) return;
+      var open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  /* ============================================================
+     FORM: VALIDATION + WHATSAPP SUBMISSION
+     ============================================================ */
+  var form = $('inquiryForm');
+  var submitBtn = $('submitBtn');
+  var statusEl = $('formStatus');
+  var lastBuiltUrl = '';
+
+  var FIELDS = {
+    name: { el: null, err: null, required: true },
+    email: { el: null, err: null, required: true },
+    company: { el: null, err: null, required: false },
+    type: { el: null, err: null, required: true },
+    budget: { el: null, err: null, required: false },
+    timeline: { el: null, err: null, required: false },
+    details: { el: null, err: null, required: true }
+  };
+
+  if (form) {
+    FIELDS.name.el = $('f-name'); FIELDS.name.err = $('f-name-error');
+    FIELDS.email.el = $('f-email'); FIELDS.email.err = $('f-email-error');
+    FIELDS.company.el = $('f-company'); FIELDS.company.err = null;
+    FIELDS.type.el = $('f-type'); FIELDS.type.err = $('f-type-error');
+    FIELDS.budget.el = $('f-budget'); FIELDS.budget.err = null;
+    FIELDS.timeline.el = $('f-timeline'); FIELDS.timeline.err = null;
+    FIELDS.details.el = $('f-details'); FIELDS.details.err = $('f-details-error');
+  }
+
+  function clearFieldError(field) {
+    if (!field.el) return;
+    field.el.removeAttribute('aria-invalid');
+    if (field.err) {
+      field.err.textContent = '';
+      field.err.classList.remove('is-visible');
+    }
+  }
+
+  function setFieldError(field, message) {
+    if (!field.el) return;
+    field.el.setAttribute('aria-invalid', 'true');
+    if (field.err) {
+      field.err.textContent = message;
+      field.err.classList.add('is-visible');
+    }
+  }
+
+  function isValidEmail(value) {
+    // Reasonable pattern: no whitespace, requires @ and a dot in the domain.
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+  }
+
+  function validateForm() {
+    var d = dict();
+    var errors = [];
+
+    var nameVal = FIELDS.name.el ? FIELDS.name.el.value.trim() : '';
+    clearFieldError(FIELDS.name);
+    if (!nameVal) {
+      setFieldError(FIELDS.name, d['form.err.name']);
+      errors.push(FIELDS.name);
+    }
+
+    var emailVal = FIELDS.email.el ? FIELDS.email.el.value.trim() : '';
+    clearFieldError(FIELDS.email);
+    if (!emailVal) {
+      setFieldError(FIELDS.email, d['form.err.email.empty']);
+      errors.push(FIELDS.email);
+    } else if (!isValidEmail(emailVal)) {
+      setFieldError(FIELDS.email, d['form.err.email.invalid']);
+      errors.push(FIELDS.email);
+    }
+
+    var typeVal = FIELDS.type.el ? FIELDS.type.el.value : '';
+    clearFieldError(FIELDS.type);
+    if (!typeVal) {
+      setFieldError(FIELDS.type, d['form.err.type']);
+      errors.push(FIELDS.type);
+    }
+
+    var detailsVal = FIELDS.details.el ? FIELDS.details.el.value.trim() : '';
+    clearFieldError(FIELDS.details);
+    if (!detailsVal) {
+      setFieldError(FIELDS.details, d['form.err.details']);
+      errors.push(FIELDS.details);
+    }
+
+    return errors;
+  }
+
+  function selectedText(selectEl) {
+    if (!selectEl || selectEl.selectedIndex < 0) return '';
+    var opt = selectEl.options[selectEl.selectedIndex];
+    if (!opt || !opt.value) return '';
+    return opt.textContent.trim();
+  }
+
+  function buildMessage() {
+    var isAr = state.lang === 'ar';
+    var name = FIELDS.name.el.value.trim();
+    var email = FIELDS.email.el.value.trim();
+    var company = FIELDS.company.el.value.trim();
+    var typeText = selectedText(FIELDS.type.el);
+    var budgetText = selectedText(FIELDS.budget.el);
+    var timelineText = selectedText(FIELDS.timeline.el);
+    var details = FIELDS.details.el.value.trim();
+
+    var lines = [];
+
+    if (isAr) {
+      lines.push('طلب مشروع جديد');
+      lines.push('');
+      lines.push('الاسم: ' + name);
+      lines.push('البريد الإلكتروني: ' + email);
+      if (company) lines.push('الشركة: ' + company);
+      lines.push('نوع المشروع: ' + typeText);
+      if (budgetText) lines.push('الميزانية: ' + budgetText);
+      if (timelineText) lines.push('الإطار الزمني: ' + timelineText);
+      lines.push('');
+      lines.push('تفاصيل المشروع:');
+      lines.push(details);
+    } else {
+      lines.push('New Project Inquiry');
+      lines.push('');
+      lines.push('Name: ' + name);
+      lines.push('Email: ' + email);
+      if (company) lines.push('Company: ' + company);
+      lines.push('Project Type: ' + typeText);
+      if (budgetText) lines.push('Budget: ' + budgetText);
+      if (timelineText) lines.push('Timeline: ' + timelineText);
+      lines.push('');
+      lines.push('Project Details:');
+      lines.push(details);
+    }
+
+    return lines.join('\n');
+  }
+
+  function hideStatus() {
+    if (!statusEl) return;
+    statusEl.classList.remove('is-visible', 'success', 'error');
+    statusEl.removeAttribute('data-state');
+    statusEl.innerHTML = '';
+  }
+
+  function showSuccessBanner(url) {
+    if (!statusEl) return;
+    var d = dict();
+    lastBuiltUrl = url;
+    statusEl.classList.remove('error');
+    statusEl.classList.add('success', 'is-visible');
+    statusEl.setAttribute('data-state', 'success');
+    statusEl.innerHTML =
+      '<div class="status-title">' +
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>' +
+        '<span>' + escapeHtml(d['form.success.title']) + '</span>' +
+      '</div>' +
+      '<p class="status-body">' +
+        escapeHtml(d['form.success.body']) +
+        '<a href="' + url + '" target="_blank" rel="noopener">' + escapeHtml(d['form.success.link']) + '</a>.' +
+      '</p>';
+  }
+
+  function showFallbackBanner(url) {
+    if (!statusEl) return;
+    var d = dict();
+    lastBuiltUrl = url;
+    statusEl.classList.remove('success');
+    statusEl.classList.add('error', 'is-visible');
+    statusEl.setAttribute('data-state', 'fallback');
+    statusEl.innerHTML =
+      '<div class="status-title">' +
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>' +
+        '<span>' + escapeHtml(d['form.success.title']) + '</span>' +
+      '</div>' +
+      '<p class="status-body">' +
+        escapeHtml(d['form.success.fallback']) +
+      '</p>' +
+      '<div style="margin-top:.9rem;">' +
+        '<a href="' + url + '" target="_blank" rel="noopener" class="btn btn-wa" style="height:40px;padding-inline:1rem;font-size:.85rem;">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.3A7.85 7.85 0 0 0 12 4a7.94 7.94 0 0 0-6.8 12.1L4 20l4-1.2A7.94 7.94 0 0 0 12 20a7.9 7.9 0 0 0 5.6-2.3A7.86 7.86 0 0 0 20 12a7.94 7.94 0 0 0-2.4-5.7z"/></svg>' +
+          '<span>' + escapeHtml(d['form.success.cta']) + '</span>' +
+        '</a>' +
+      '</div>';
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function setLoading(loading) {
+    if (!submitBtn) return;
+    submitBtn.disabled = loading;
+    submitBtn.classList.toggle('is-loading', loading);
+    var label = submitBtn.querySelector('[data-i18n="form.submit"]');
+    if (label) {
+      label.textContent = loading ? dict()['form.submitting'] : dict()['form.submit'];
+    }
+  }
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      hideStatus();
+
+      var errors = validateForm();
+      if (errors.length) {
+        // Focus first invalid field for accessibility
+        if (errors[0] && errors[0].el) errors[0].el.focus();
+        return;
+      }
+
+      setLoading(true);
+
+      // Brief delay so the loading state is perceivable
+      window.setTimeout(function () {
+        var message = buildMessage();
+        var url = buildWhatsAppUrl(CONFIG.whatsapp, message);
+
+        // Try to open WhatsApp. Some mobile browsers may block popups,
+        // so we fall back to offering the direct link if window.open fails.
+        var opened = null;
+        try {
+          opened = window.open(url, '_blank', 'noopener');
+        } catch (err) {
+          opened = null;
+        }
+
+        setLoading(false);
+
+        if (opened) {
+          showSuccessBanner(url);
+        } else {
+          showFallbackBanner(url);
+        }
+      }, 350);
+    });
+
+    // Live clear of errors as the user types
+    Object.keys(FIELDS).forEach(function (key) {
+      var f = FIELDS[key];
+      if (!f.el) return;
+      var evt = f.el.tagName === 'SELECT' ? 'change' : 'input';
+      f.el.addEventListener(evt, function () {
+        if (f.el.getAttribute('aria-invalid') === 'true') {
+          clearFieldError(f);
+        }
+      });
+    });
+  }
+
+  /* ============================================================
+     REVEAL
+     ============================================================ */
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  /* ============================================================
+     MISC
+     ============================================================ */
+  var yearEl = $('year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* ============================================================
+     INIT
+     ============================================================ */
+  var initialLang = 'en';
+  try {
+    var stored = localStorage.getItem(LANG_KEY);
+    if (stored === 'ar' || stored === 'en') initialLang = stored;
+  } catch (e) {}
+
+  applyLang(initialLang);
+  applyTheme(root.getAttribute('data-theme') || 'dark');
+
+  requestAnimationFrame(function () {
+    root.classList.remove('preload');
+  });
+})();
+</script>
+
+</body>
+</html>
